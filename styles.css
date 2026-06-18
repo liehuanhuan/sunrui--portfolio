@@ -8541,3 +8541,287 @@ body::after {
   bottom: 20px !important;
 }
 
+
+/* ==================================
+   June 18 - Full Adjustments
+   ================================== */
+
+/* 1. Make video BIGGER */
+.orbit-center {
+  height: 520px !important;
+  width: 340px !important;
+}
+
+.video-wrapper-orbit {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.video-wrapper-orbit video {
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  width: 100% !important;
+}
+
+/* 2. Remove ALL borders from skill buttons - make clean */
+.skill-node,
+.skill-node:hover,
+.skill-node.is-active,
+.skill-node *,
+.skill-node:hover *,
+.skill-node.is-active * {
+  border: none !important;
+  outline: none !important;
+}
+
+/* Make skill buttons more subtle - semi-transparent */
+.skill-node {
+  background: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.skill-node:hover {
+  background: rgba(255, 255, 255, 0.85) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.skill-node.is-active {
+  background: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.25) !important;
+}
+
+/* 3. NEW PROGRESS BAR - Clean game UI style */
+.detail-power {
+  align-items: center !important;
+  background: transparent !important;
+  display: flex !important;
+  gap: 16px !important;
+  justify-content: space-between !important;
+  margin: 20px 0 !important;
+  padding: 8px 0 !important;
+  width: 100% !important;
+}
+
+/* Skill name on LEFT - Big and bold */
+.detail-power::before {
+  color: rgba(255, 255, 255, 0.95) !important;
+  content: attr(data-skill-name) !important;
+  flex: 0 0 auto !important;
+  font-family: var(--font-sans) !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+}
+
+/* Bar in MIDDLE - The main attraction */
+.detail-power strong {
+  -webkit-text-fill-color: initial !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+  background-clip: initial !important;
+  border-radius: 10px !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  flex: 1 !important;
+  height: 20px !important;
+  overflow: hidden !important;
+  position: relative !important;
+  -webkit-background-clip: initial !important;
+}
+
+/* The FILL - Beautiful gradient + glow */
+.detail-power strong::before {
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+  content: '' !important;
+  height: 100% !important;
+  left: 0 !important;
+  position: absolute !important;
+  top: 0 !important;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Shine effect on bar */
+.detail-power strong::after {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%) !important;
+  border-radius: 10px !important;
+  content: '' !important;
+  height: 50% !important;
+  left: 0 !important;
+  position: absolute !important;
+  top: 0 !important;
+  width: 100% !important;
+}
+
+/* Status label on RIGHT - Gold glow */
+.detail-power::after {
+  color: #ffd700 !important;
+  content: attr(data-status) !important;
+  flex: 0 0 auto !important;
+  font-family: var(--font-sans) !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5) !important;
+  text-transform: uppercase !important;
+}
+
+/* Remove POWER text completely */
+.detail-power span {
+  display: none !important;
+}
+
+
+/* ==================================
+   GAME UI PROGRESS BAR - CLEAN SIMPLE
+   ================================== */
+
+/* Reset power bar completely */
+.detail-power {
+  align-items: center !important;
+  background: transparent !important;
+  display: flex !important;
+  gap: 20px !important;
+  height: auto !important;
+  justify-content: flex-start !important;
+  margin: 16px 0 !important;
+  overflow: visible !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+/* LEFT: Skill English Name */
+.detail-power::before {
+  color: rgba(255, 255, 255, 0.95) !important;
+  content: attr(data-skill-name) !important;
+  flex: 0 0 80px !important;
+  font-family: var(--font-sans) !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+}
+
+/* MIDDLE: The BAR - Simple clean game style */
+.detail-power strong {
+  -webkit-text-fill-color: transparent !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  background-clip: initial !important;
+  border-radius: 8px !important;
+  flex: 1 !important;
+  height: 24px !important;
+  overflow: hidden !important;
+  position: relative !important;
+  -webkit-background-clip: initial !important;
+}
+
+/* The FILL - Purple gradient */
+.detail-power strong::before {
+  background: linear-gradient(90deg, #7c3aed, #a855f7) !important;
+  border-radius: 8px !important;
+  content: '' !important;
+  height: 100% !important;
+  left: 0 !important;
+  position: absolute !important;
+  top: 0 !important;
+  transition: width 0.3s ease !important;
+  width: attr(data-width) !important;
+}
+
+/* RIGHT: Status Label - GOLD */
+.detail-power::after {
+  color: #ffd700 !important;
+  content: attr(data-status) !important;
+  flex: 0 0 140px !important;
+  font-family: var(--font-sans) !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  text-align: right !important;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.6) !important;
+}
+
+/* Hide POWER text and any number */
+.detail-power span {
+  display: none !important;
+}
+
+
+/* ==================================
+   EVEN SIMPLER - No pseudo elements
+   ================================== */
+
+/* Make the bar background */
+.detail-power strong {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-radius: 8px !important;
+  display: block !important;
+  height: 24px !important;
+  overflow: hidden !important;
+  position: relative !important;
+  width: 100% !important;
+}
+
+/* The fill is now the element itself, styled by JS */
+.detail-power strong {
+  position: relative !important;
+}
+
+
+/* ==================================
+   SIMPLE GAME UI SKILL BAR - June 18
+   ================================== */
+
+/* First HIDE the old mess */
+.detail-power,
+.detail-power * {
+  display: none !important;
+}
+
+/* NEW CLEAN BAR - 3 parts */
+.skill-bar-row {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  margin: 16px 0;
+  width: 100%;
+}
+
+/* LEFT - Skill name */
+.skill-bar-label {
+  color: rgba(255, 255, 255, 0.9);
+  flex: 0 0 70px;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* MIDDLE - The bar background */
+.skill-bar {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  flex: 1;
+  height: 22px;
+  overflow: hidden;
+}
+
+/* The FILL - solid purple */
+.skill-bar-fill {
+  background: linear-gradient(90deg, #8b5cf6, #a855f7);
+  border-radius: 6px;
+  height: 100%;
+  transition: width 0.3s ease;
+  width: 90%;
+}
+
+/* RIGHT - Status label */
+.skill-bar-status {
+  color: #ffd700;
+  flex: 0 0 110px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-align: right;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+}
+

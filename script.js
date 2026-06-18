@@ -1290,3 +1290,104 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 800);
 });
 
+
+/* ==================================
+   FIX: Ensure progress bar width works
+   ================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    const skillNodes = document.querySelectorAll(".skill-node");
+    
+    // Set up status labels
+    if (window.journeyDetails) {
+      journeyDetails.brief.status = "高度成熟";
+      journeyDetails.narrative.status = "高度敏感";
+      journeyDetails.structure.status = "极强结构化";
+      journeyDetails.delivery.status = "高度可靠";
+      journeyDetails.empathy.status = "前沿增强型";
+    }
+    
+    skillNodes.forEach((node) => {
+      node.addEventListener("click", () => {
+        const skillKey = node.dataset.skill;
+        const skillData = journeyDetails[skillKey];
+        
+        if (skillData) {
+          const title = document.querySelector("#skill-detail-title");
+          const powerContainer = document.querySelector(".detail-power");
+          const valueBar = document.querySelector("#skill-detail-power-value");
+          const desc = document.querySelector("#skill-detail-description");
+          
+          if (title) title.textContent = skillData.title;
+          
+          // Set bar width DIRECTLY via style
+          if (valueBar) {
+            valueBar.style.width = skillData.meter;
+            valueBar.style.background = "linear-gradient(90deg, #7c3aed, #a855f7)";
+            valueBar.style.height = "100%";
+            valueBar.style.borderRadius = "8px";
+            valueBar.style.display = "block";
+            valueBar.textContent = "";
+          }
+          
+          // Set name and status
+          if (powerContainer) {
+            powerContainer.setAttribute("data-skill-name", skillData.subtitle);
+            powerContainer.setAttribute("data-status", skillData.status);
+          }
+          
+          if (desc) desc.textContent = skillData.description;
+        }
+      });
+    });
+    
+    // Initialize first skill
+    if (skillNodes[0]) skillNodes[0].click();
+  }, 1000);
+});
+
+
+/* ==================================
+   UPDATE NEW SIMPLE SKILL BAR
+   ================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    const skillNodes = document.querySelectorAll(".skill-node");
+    
+    // Status labels
+    if (window.journeyDetails) {
+      journeyDetails.brief.status = "高度成熟";
+      journeyDetails.narrative.status = "高度敏感";
+      journeyDetails.structure.status = "极强结构化";
+      journeyDetails.delivery.status = "高度可靠";
+      journeyDetails.empathy.status = "前沿增强型";
+    }
+    
+    skillNodes.forEach((node) => {
+      node.addEventListener("click", () => {
+        const skillKey = node.dataset.skill;
+        const skillData = journeyDetails[skillKey];
+        
+        if (skillData) {
+          // Update simple bar elements
+          const label = document.querySelector("#skill-bar-label");
+          const fill = document.querySelector("#skill-bar-fill");
+          const status = document.querySelector("#skill-bar-status");
+          
+          if (label) label.textContent = skillData.subtitle;
+          if (fill) fill.style.width = skillData.meter;
+          if (status) status.textContent = skillData.status || "";
+          
+          // Update title and desc too
+          const title = document.querySelector("#skill-detail-title");
+          const desc = document.querySelector("#skill-detail-description");
+          if (title) title.textContent = skillData.title;
+          if (desc) desc.textContent = skillData.description;
+        }
+      });
+    });
+  }, 1200);
+});
+

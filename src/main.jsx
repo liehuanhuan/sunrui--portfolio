@@ -63,6 +63,73 @@ const featuredProjects = [
 
 const caseHref = (slug) => `case.html?project=${encodeURIComponent(slug)}`;
 
+const experienceProjects = [
+  {
+    title: "比亚迪智能化战略发布会",
+    label: "集团战略发布 / 科技事件",
+    year: "2024-12",
+    image: "/assets/project-covers/2024-12-工作室项目-比亚迪智能化战略发布会.png",
+    text: "把天神之眼、全民智驾时代和 D-SPACE 超级社区，从技术名词转译成可感知的体验与传播结构。",
+    href: caseHref("2024-12-工作室项目-比亚迪智能化战略发布会"),
+  },
+  {
+    title: "小鹏发布会",
+    label: "智驾发布 / 展区互动体验",
+    year: "2024-07",
+    image: "/assets/project-covers/2024-07-工作室项目-小鹏发布会.png",
+    text: "围绕 AI 天玑系统与 XNGP 设计互动展区和打卡路径，让智驾能力在现场被亲手验证。",
+    href: caseHref("2024-07-工作室项目-小鹏发布会"),
+  },
+  {
+    title: "快手理想家",
+    label: "家场景 / 内容体验空间",
+    year: "2024-01",
+    image: "/assets/project-covers/2024-01-工作室项目-快手理想家.png",
+    text: "围绕「理想家」场景构建可进入、可停留、可传播的内容体验空间。",
+    href: caseHref("2024-01-工作室项目-快手理想家"),
+  },
+  {
+    title: "广汽传祺广州车展",
+    label: "A级车展 / 展台展陈",
+    year: "2023-09",
+    image: "/assets/project-covers/2023-09-工作室项目-广汽传祺广州车展.png",
+    text: "广州车展展台方案：主题概念、空间布局与现场内容的整体组织。",
+    href: caseHref("2023-09-工作室项目-广汽传祺广州车展"),
+  },
+  {
+    title: "火山引擎",
+    label: "技术品牌 / 展区体验",
+    year: "2023-05",
+    image: "/assets/project-covers/2023-05-工作室项目-火山引擎.png",
+    text: "火山引擎展区方案：技术能力的现场化表达与互动路径设计。",
+    href: caseHref("2023-05-工作室项目-火山引擎"),
+  },
+  {
+    title: "传祺车展",
+    label: "车展展台 / 执行落地",
+    year: "2022-10",
+    image: "/assets/project-covers/2022-10-工作室项目-传祺车展.png",
+    text: "传祺车展展台方案与执行：空间、动线与产品展示的完整组织。",
+    href: caseHref("2022-10-工作室项目-传祺车展"),
+  },
+  {
+    title: "哈弗巡展",
+    label: "区域巡展 / 路演体验",
+    year: "2022-07",
+    image: "/assets/project-covers/2022-07-工作室项目-哈弗巡展.png",
+    text: "哈弗区域巡展：把品牌体验带进城市现场的路演方案。",
+    href: caseHref("2022-07-工作室项目-哈弗巡展"),
+  },
+  {
+    title: "汽车之家车展预热·平行宇宙",
+    label: "车展预热 / 概念创意",
+    year: "2022-02",
+    image: "/assets/project-covers/2022-02-工作室项目-汽车之家车展预热平行宇宙.png",
+    text: "以「平行宇宙」概念为车展预热，建立线上话题与现场期待之间的连接。",
+    href: caseHref("2022-02-工作室项目-汽车之家车展预热平行宇宙"),
+  },
+];
+
 const prPlanningProjects = [
   {
     title: "一汽丰田",
@@ -185,7 +252,7 @@ const projectFolders = [
     label: "Event Experience",
     note: "活动方案、展区展厅、发布会现场与用户体验路径。",
     image: "/assets/project-folders/experience.png",
-    items: [featuredProjects[0], featuredProjects[1], featuredProjects[2], featuredProjects[3], featuredProjects[4]],
+    items: experienceProjects,
   },
   {
     id: "ai",
@@ -944,6 +1011,10 @@ function App() {
               <img className="client-wall" src="/assets/client-logos/client-wall.png" alt="客户品牌 logo 墙" />
             </div>
           </aside>
+          <footer className="profile-footer">
+            <span>© 2026 SUNRUI STUDIO · ALL RIGHTS RESERVED</span>
+            <span>BEIJING, CHINA&nbsp;↗</span>
+          </footer>
         </div>
       </section>
 

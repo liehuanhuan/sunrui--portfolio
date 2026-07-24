@@ -166,6 +166,16 @@ button {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04);
 }
 
+/* 窄屏（视口比图片更"瘦"）时放大底图让其撑满视口，
+   两侧裁掉的是空背景，人物与海报墙保持居中对齐 */
+@media (max-aspect-ratio: 1683/935) {
+  .cover-stage {
+    width: calc(100dvh * 1.799);
+    height: 100dvh;
+    max-width: none;
+  }
+}
+
 .cover-image {
   position: absolute;
   inset: 0;
@@ -460,17 +470,19 @@ button {
   pointer-events: none;
 }
 
-.profile-sheet::after {
-  content: "";
-  position: absolute;
-  right: clamp(34px, 4vw, 64px);
-  bottom: clamp(28px, 3vw, 48px);
-  width: 54px;
-  height: 1px;
-  background: #111;
-  transform: rotate(-45deg);
-  transform-origin: right center;
-  opacity: 1;
+.profile-footer {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: clamp(40px, 4vw, 64px);
+  padding-top: 16px;
+  border-top: 1px solid rgba(17, 17, 17, 0.22);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .profile-rail {
@@ -522,8 +534,8 @@ button {
 }
 
 .profile-title-line {
-  display: inline-block;
-  white-space: nowrap;
+  display: inline;
+  text-wrap: balance;
 }
 
 .profile-title-prefix {
@@ -535,13 +547,12 @@ button {
 }
 
 .profile-title-role {
-  display: inline-block;
-  margin-left: 12px;
+  display: inline;
+  margin-left: 0.28em;
   font-family: var(--font-display);
-  font-size: 0.34em;
+  font-size: 0.42em;
   letter-spacing: 0;
   vertical-align: baseline;
-  white-space: nowrap;
 }
 
 .profile-lead {
@@ -660,6 +671,12 @@ button {
   font-size: clamp(58px, 5.2vw, 96px);
   font-weight: 400;
   line-height: 0.9;
+}
+
+.profile-stat span {
+  display: inline-block;
+  margin-top: 6px;
+  vertical-align: top;
 }
 
 .profile-stat p {

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#071a17"/>
+    <stop offset="100%" stop-color="#03070b"/>
+  </linearGradient>
+  <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+    <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.06"/>
+  </pattern>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<rect width="1600" height="900" fill="url(#grid)"/>
+<circle cx="1380" cy="90" r="220" fill="#7dd3fc" opacity="0.10"/>
+<circle cx="150" cy="790" r="260" fill="#7dd3fc" opacity="0.08"/>
+<text x="86" y="92" font-size="52" font-weight="800" fill="#ffffff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">岚图技术品牌年度公关</text>
+<text x="90" y="137" font-size="23" fill="#9bc7c0" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">2025-12｜岚图标段二1230</text>
+<rect x="90" y="165" width="1420" height="2" fill="#7dd3fc" opacity="0.6"/>
+
+<rect x="90" y="205" width="690" height="225" rx="28" fill="#112b27" opacity="0.88"/>
+<rect x="90" y="205" width="8" height="225" rx="4" fill="#7dd3fc"/>
+<text x="124" y="253" font-size="26" font-weight="700" fill="#7dd3fc" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">核心概念 / 成案主轴</text>
+<text x="124" y="297" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• SHAPING SMART MOBILITY WITH</text>
+<text x="124" y="331" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">  T…</text>
+
+
+<rect x="820" y="205" width="690" height="225" rx="28" fill="#112b27" opacity="0.88"/>
+<rect x="820" y="205" width="8" height="225" rx="4" fill="#7dd3fc"/>
+<text x="854" y="253" font-size="26" font-weight="700" fill="#7dd3fc" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">客户强需求</text>
+<text x="854" y="297" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 从车型角度，对岚图车型的产品定位、目标人群、产品优势等有清晰的认知…</text>
+<text x="854" y="331" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 紧密追踪行业动态与社会热点，主动考虑与岚图品牌、产品、领导人的可结…</text>
+<text x="854" y="365" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 区域媒体关系与舆情管理：拓展并维护核心区域媒体、行业KOL资源库，…</text>
+
+
+<rect x="90" y="470" width="690" height="300" rx="28" fill="#112b27" opacity="0.88"/>
+<rect x="90" y="470" width="8" height="300" rx="4" fill="#7dd3fc"/>
+<text x="124" y="518" font-size="26" font-weight="700" fill="#7dd3fc" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">成案内容抓手</text>
+<text x="124" y="562" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 传播目标把握准确，传播规划合理清</text>
+<text x="124" y="596" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">  晰，全年前后期的传播策略具有一致…</text>
+
+
+<rect x="820" y="470" width="690" height="300" rx="28" fill="#112b27" opacity="0.88"/>
+<rect x="820" y="470" width="8" height="300" rx="4" fill="#7dd3fc"/>
+<text x="854" y="518" font-size="26" font-weight="700" fill="#7dd3fc" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">传播话题链</text>
+<text x="854" y="562" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 年度传播主线</text>
+<text x="854" y="596" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 以技术品牌为主轴，建立岚图“高端智慧电动汽车”的技术心智。</text>
+<text x="854" y="630" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 季度/阶段传播亮点</text>
+<text x="854" y="664" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 按年度/双月/日常/专项节奏组织传播，不是单次活动执行。</text>
+
+<text x="94" y="830" font-size="24" font-weight="700" fill="#ffffff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">检索关键词</text>
+<rect x="230" y="804" width="79" height="34" rx="17" fill="#7dd3fc" opacity="0.16"/>
+<text x="247" y="826" font-size="18" fill="#7dd3fc" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">标段二</text>
+<rect x="323" y="804" width="154" height="34" rx="17" fill="#7dd3fc" opacity="0.16"/>
+<text x="340" y="826" font-size="18" fill="#7dd3fc" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">车型年度公关代理</text>
+<rect x="491" y="804" width="154" height="34" rx="17" fill="#7dd3fc" opacity="0.16"/>
+<text x="508" y="826" font-size="18" fill="#7dd3fc" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">岚图技术年度公关</text>
+<rect x="659" y="804" width="94" height="34" rx="17" fill="#7dd3fc" opacity="0.16"/>
+<text x="676" y="826" font-size="18" fill="#7dd3fc" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">岚图汽车</text>
+<rect x="767" y="804" width="109" height="34" rx="17" fill="#7dd3fc" opacity="0.16"/>
+<text x="784" y="826" font-size="18" fill="#7dd3fc" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">抖音等平台</text>
+<rect x="890" y="804" width="94" height="34" rx="17" fill="#7dd3fc" opacity="0.16"/>
+<text x="907" y="826" font-size="18" fill="#7dd3fc" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">技术洞察</text>
+<rect x="998" y="804" width="94" height="34" rx="17" fill="#7dd3fc" opacity="0.16"/>
+<text x="1015" y="826" font-size="18" fill="#7dd3fc" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">Tech</text>
+<rect x="1106" y="804" width="172" height="34" rx="17" fill="#7dd3fc" opacity="0.16"/>
+<text x="1123" y="826" font-size="18" fill="#7dd3fc" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">Singularity</text>
+<text x="1325" y="852" font-size="18" fill="#9bc7c0" opacity="0.8" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">Obsidian Project Card</text>
+</svg>

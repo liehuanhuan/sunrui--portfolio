@@ -1838,7 +1838,7 @@ h1 span {
 
 .case-table {
   border: 1px solid rgba(243, 240, 232, 0.14);
-  overflow-x: auto;
+  overflow: visible;
 }
 
 .case-row {
@@ -1846,8 +1846,8 @@ h1 span {
   color: rgba(243, 240, 232, 0.78);
   display: grid;
   gap: 16px;
-  grid-template-columns: 76px minmax(150px, 0.9fr) 88px minmax(160px, 1fr) minmax(280px, 1.8fr);
-  min-width: 980px;
+  grid-template-columns: minmax(72px, 0.42fr) minmax(180px, 1.18fr) minmax(150px, 0.8fr) minmax(260px, 1.45fr);
+  min-width: 0;
   padding: 14px 16px;
   position: relative;
   text-decoration: none;
@@ -1888,7 +1888,7 @@ h1 span {
 
 .case-row.is-archive {
   background: rgba(243, 240, 232, 0.015);
-  cursor: default;
+  cursor: pointer;
 }
 
 .case-row.is-archive:hover {
@@ -1902,6 +1902,7 @@ h1 span {
 .case-row-head {
   background: rgba(243, 240, 232, 0.06);
   color: var(--gold);
+  display: none;
   font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 820;
@@ -1927,6 +1928,17 @@ h1 span {
   font-size: 13px;
   font-style: normal;
   line-height: 1.55;
+}
+
+.case-more-row {
+  border-top: 1px solid rgba(243, 240, 232, 0.1);
+  color: var(--gold);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 760;
+  letter-spacing: 0;
+  padding: 14px 16px;
+  text-transform: uppercase;
 }
 
 .screenshot-archive-wrap {
@@ -8824,4 +8836,3 @@ body::after {
   text-align: right;
   text-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
 }
-

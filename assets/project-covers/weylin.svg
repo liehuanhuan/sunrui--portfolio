@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#07151f"/>
+    <stop offset="100%" stop-color="#03070b"/>
+  </linearGradient>
+  <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+    <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.06"/>
+  </pattern>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<rect width="1600" height="900" fill="url(#grid)"/>
+<circle cx="1380" cy="90" r="220" fill="#62f2b8" opacity="0.10"/>
+<circle cx="150" cy="790" r="260" fill="#62f2b8" opacity="0.08"/>
+<text x="86" y="92" font-size="52" font-weight="800" fill="#ffffff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">威麟汽车发布会</text>
+<text x="90" y="137" font-size="23" fill="#9bb2c1" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">2026-02｜威麟R08 PRO上市发布及传播方案</text>
+<rect x="90" y="165" width="1420" height="2" fill="#62f2b8" opacity="0.6"/>
+
+<rect x="90" y="205" width="690" height="225" rx="28" fill="#102433" opacity="0.88"/>
+<rect x="90" y="205" width="8" height="225" rx="4" fill="#62f2b8"/>
+<text x="124" y="253" font-size="26" font-weight="700" fill="#62f2b8" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">核心概念 / 成案主轴</text>
+<text x="124" y="297" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 好玩</text>
+<text x="124" y="331" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• R08</text>
+<text x="124" y="365" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 威麟</text>
+
+
+<rect x="820" y="205" width="690" height="225" rx="28" fill="#102433" opacity="0.88"/>
+<rect x="820" y="205" width="8" height="225" rx="4" fill="#62f2b8"/>
+<text x="854" y="253" font-size="26" font-weight="700" fill="#62f2b8" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">客户强需求</text>
+<text x="854" y="297" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 页目标人群分析）</text>
+<text x="854" y="331" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 围绕“好玩”主题，进行内容创意促声量，曝光</text>
+<text x="854" y="365" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 主题方向： 敢想</text>
+
+
+<rect x="90" y="470" width="690" height="300" rx="28" fill="#102433" opacity="0.88"/>
+<rect x="90" y="470" width="8" height="300" rx="4" fill="#62f2b8"/>
+<text x="124" y="518" font-size="26" font-weight="700" fill="#62f2b8" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">成案内容抓手</text>
+<text x="124" y="562" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• R08 PRO</text>
+<text x="124" y="596" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 上市发布及传播方案</text>
+<text x="124" y="630" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• WEILIN R08</text>
+<text x="124" y="664" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• LAUNCH EVENT PROJECT</text>
+<text x="124" y="698" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• | 202</text>
+
+
+<rect x="820" y="470" width="690" height="300" rx="28" fill="#102433" opacity="0.88"/>
+<rect x="820" y="470" width="8" height="300" rx="4" fill="#62f2b8"/>
+<text x="854" y="518" font-size="26" font-weight="700" fill="#62f2b8" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">互动技术链</text>
+<text x="854" y="562" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 拍摄点位打卡</text>
+
+<text x="94" y="830" font-size="24" font-weight="700" fill="#ffffff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">检索关键词</text>
+<rect x="230" y="804" width="79" height="34" rx="17" fill="#62f2b8" opacity="0.16"/>
+<text x="247" y="826" font-size="18" fill="#62f2b8" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">R08</text>
+<rect x="323" y="804" width="64" height="34" rx="17" fill="#62f2b8" opacity="0.16"/>
+<text x="340" y="826" font-size="18" fill="#62f2b8" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">威麟</text>
+<rect x="401" y="804" width="64" height="34" rx="17" fill="#62f2b8" opacity="0.16"/>
+<text x="418" y="826" font-size="18" fill="#62f2b8" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">好玩</text>
+<rect x="479" y="804" width="64" height="34" rx="17" fill="#62f2b8" opacity="0.16"/>
+<text x="496" y="826" font-size="18" fill="#62f2b8" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">智能</text>
+<rect x="557" y="804" width="64" height="34" rx="17" fill="#62f2b8" opacity="0.16"/>
+<text x="574" y="826" font-size="18" fill="#62f2b8" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">敢想</text>
+<rect x="635" y="804" width="94" height="34" rx="17" fill="#62f2b8" opacity="0.16"/>
+<text x="652" y="826" font-size="18" fill="#62f2b8" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">What</text>
+<rect x="743" y="804" width="64" height="34" rx="17" fill="#62f2b8" opacity="0.16"/>
+<text x="760" y="826" font-size="18" fill="#62f2b8" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">专业</text>
+<rect x="821" y="804" width="79" height="34" rx="17" fill="#62f2b8" opacity="0.16"/>
+<text x="838" y="826" font-size="18" fill="#62f2b8" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">更好玩</text>
+<text x="1325" y="852" font-size="18" fill="#9bb2c1" opacity="0.8" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">Obsidian Project Card</text>
+</svg>

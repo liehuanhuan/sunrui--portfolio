@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#071a17"/>
+    <stop offset="100%" stop-color="#03070b"/>
+  </linearGradient>
+  <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+    <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.06"/>
+  </pattern>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<rect width="1600" height="900" fill="url(#grid)"/>
+<circle cx="1380" cy="90" r="220" fill="#7dd3fc" opacity="0.10"/>
+<circle cx="150" cy="790" r="260" fill="#7dd3fc" opacity="0.08"/>
+<text x="86" y="92" font-size="52" font-weight="800" fill="#ffffff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">阳光电源</text>
+<text x="90" y="137" font-size="23" fill="#9bc7c0" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">2026-04｜阳光电源 SNEC   2026展会运营方案</text>
+<rect x="90" y="165" width="1420" height="2" fill="#7dd3fc" opacity="0.6"/>
+
+<rect x="90" y="205" width="690" height="225" rx="28" fill="#112b27" opacity="0.88"/>
+<rect x="90" y="205" width="8" height="225" rx="4" fill="#7dd3fc"/>
+<text x="124" y="253" font-size="26" font-weight="700" fill="#7dd3fc" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">核心概念 / 成案主轴</text>
+<text x="124" y="297" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 方案目标分析</text>
+<text x="124" y="331" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 核心难点识别</text>
+
+
+<rect x="820" y="205" width="690" height="225" rx="28" fill="#112b27" opacity="0.88"/>
+<rect x="820" y="205" width="8" height="225" rx="4" fill="#7dd3fc"/>
+<text x="854" y="253" font-size="26" font-weight="700" fill="#7dd3fc" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">客户强需求</text>
+<text x="854" y="297" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 方案目标分析</text>
+<text x="854" y="331" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 核心难点识别</text>
+<text x="854" y="365" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 目标对象 Target Audience</text>
+
+
+<rect x="90" y="470" width="690" height="300" rx="28" fill="#112b27" opacity="0.88"/>
+<rect x="90" y="470" width="8" height="300" rx="4" fill="#7dd3fc"/>
+<text x="124" y="518" font-size="26" font-weight="700" fill="#7dd3fc" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">成案内容抓手</text>
+<text x="124" y="562" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 方案目标分析</text>
+<text x="124" y="596" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 核心难点识别</text>
+<text x="124" y="630" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 方案策略框架</text>
+<text x="124" y="664" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 前台引流创意</text>
+<text x="124" y="698" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 舞台活动规划</text>
+
+
+<rect x="820" y="470" width="690" height="300" rx="28" fill="#112b27" opacity="0.88"/>
+<rect x="820" y="470" width="8" height="300" rx="4" fill="#7dd3fc"/>
+<text x="854" y="518" font-size="26" font-weight="700" fill="#7dd3fc" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">互动技术链</text>
+<text x="854" y="562" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• Key Challenges &amp; Pain</text>
+<text x="854" y="596" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">  Points</text>
+<text x="854" y="630" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• H5任务系统+NFC集章+三大场景DP互动 →</text>
+<text x="854" y="664" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">  扩大影响面</text>
+<text x="854" y="698" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 任务制留资</text>
+<text x="854" y="732" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 任务系统运维</text>
+
+<text x="94" y="830" font-size="24" font-weight="700" fill="#ffffff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">检索关键词</text>
+<rect x="230" y="804" width="94" height="34" rx="17" fill="#7dd3fc" opacity="0.16"/>
+<text x="247" y="826" font-size="18" fill="#7dd3fc" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">阳光电源</text>
+<rect x="338" y="804" width="94" height="34" rx="17" fill="#7dd3fc" opacity="0.16"/>
+<text x="355" y="826" font-size="18" fill="#7dd3fc" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">SNEC</text>
+<rect x="446" y="804" width="124" height="34" rx="17" fill="#7dd3fc" opacity="0.16"/>
+<text x="463" y="826" font-size="18" fill="#7dd3fc" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">展会运营方案</text>
+<rect x="584" y="804" width="109" height="34" rx="17" fill="#7dd3fc" opacity="0.16"/>
+<text x="601" y="826" font-size="18" fill="#7dd3fc" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">Power</text>
+<rect x="707" y="804" width="109" height="34" rx="17" fill="#7dd3fc" opacity="0.16"/>
+<text x="724" y="826" font-size="18" fill="#7dd3fc" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">Clean</text>
+<rect x="830" y="804" width="169" height="34" rx="17" fill="#7dd3fc" opacity="0.16"/>
+<text x="847" y="826" font-size="18" fill="#7dd3fc" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">Strategic</text>
+<rect x="1013" y="804" width="64" height="34" rx="17" fill="#7dd3fc" opacity="0.16"/>
+<text x="1030" y="826" font-size="18" fill="#7dd3fc" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">日均</text>
+<rect x="1091" y="804" width="124" height="34" rx="17" fill="#7dd3fc" opacity="0.16"/>
+<text x="1108" y="826" font-size="18" fill="#7dd3fc" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">方案目标分析</text>
+<text x="1325" y="852" font-size="18" fill="#9bc7c0" opacity="0.8" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">Obsidian Project Card</text>
+</svg>

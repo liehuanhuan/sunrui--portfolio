@@ -601,19 +601,203 @@ if ((caseLibrary || caseTable || screenshotArchive) && window.portfolioCases) {
     let activeCaseFilter = "all";
     let caseSearchQuery = "";
 
-    const sourceLabel = (item) => {
-      if (item.sourceType === "work-summary" || item.source?.includes("项目精华沉淀")) return "精华沉淀";
-      if (item.sourceType === "company-project-index") return "公司索引";
-      if (item.sourceType === "absen-senior-planner-project") return "早期项目";
-      return scaleLabel[item.level] || item.level;
+    const caseListOrder = ["公关方案", "活动方案", "发布会", "展区展台", "科技大会 / 峰会", "整合营销 / 内容传播"];
+    const caseListMeta = {
+      公关方案: "PR STRATEGY",
+      活动方案: "EVENT PLAN",
+      发布会: "LAUNCH EVENT",
+      展区展台: "EXHIBITION",
+      "科技大会 / 峰会": "SUMMIT",
+      "整合营销 / 内容传播": "IMC"
     };
+
+    const textOf = (item) =>
+      [
+        item.title,
+        item.year,
+        item.group,
+        item.category,
+        item.scale,
+        item.level,
+        item.role,
+        item.why,
+        item.thinking,
+        item.value,
+        ...(item.keywords || [])
+      ]
+        .filter(Boolean)
+        .join(" ");
+
+    const hasAny = (text, words) => words.some((word) => text.includes(word));
+    const compactText = (text) => String(text || "").replace(/[\s/／｜|·・,，、:：\-]+/g, "");
+    const hasAnyLoose = (text, words) => {
+      const compact = compactText(text);
+      return words.some((word) => compact.includes(compactText(word)));
+    };
+
+    const classifyCase = (item) => {
+      const text = textOf(item);
+      const title = item.title || "";
+      const sourceCategory = `${item.category || ""} ${item.group || ""}`;
+
+      if (hasAnyLoose(title, ["ROG BW"])) {
+        return "展区展台";
+      }
+
+      if (
+        hasAnyLoose(sourceCategory, [
+          "公关方案",
+          "公关传播",
+          "品牌策略",
+          "品牌公关",
+          "市场媒体",
+          "市场媒介",
+          "海外公关",
+          "年度公关",
+          "代理公关",
+          "公共关系",
+          "品牌传播",
+          "整合传播",
+          "PR"
+        ])
+      ) {
+        return "公关方案";
+      }
+
+      if (hasAnyLoose(sourceCategory, ["发布会", "上市发布", "新品发布", "战略发布", "技术发布", "全球首发"])) {
+        return "发布会";
+      }
+
+      if (hasAnyLoose(title, ["发布会", "上市发布", "新品发布", "战略发布", "技术发布", "全球首发"])) {
+        return "发布会";
+      }
+
+      if (
+        hasAnyLoose(sourceCategory, [
+          "展区展台",
+          "展台方案",
+          "展区方案",
+          "展厅方案",
+          "科技展台",
+          "展陈",
+          "空间叙事",
+          "展区",
+          "展台",
+          "展厅",
+          "车展展台"
+        ])
+      ) {
+        return "展区展台";
+      }
+
+      if (hasAnyLoose(sourceCategory, ["科技大会", "议题转译", "峰会", "论坛", "开发者大会", "行业大会"])) {
+        return "科技大会 / 峰会";
+      }
+
+      if (hasAnyLoose(title, ["A展", "展运营", "展台", "展区", "展厅", "展具", "车展", "展会", "展陈"])) {
+        return "展区展台";
+      }
+
+      if (
+        hasAnyLoose(sourceCategory, [
+          "活动方案",
+          "品牌活动",
+          "互动机制",
+          "平台活动",
+          "公共参与",
+          "汽车与产品体验",
+          "用户活动",
+          "客户活动",
+          "品牌事件",
+          "事件营销",
+          "庆典活动"
+        ])
+      ) {
+        return "活动方案";
+      }
+
+      if (
+        hasAnyLoose(text, [
+          "年度公关",
+          "公关传播",
+          "代理公关",
+          "品牌公关",
+          "海外公关",
+          "市场媒体",
+          "市场媒介",
+          "KOL",
+          "kol",
+          "社媒",
+          "白皮书",
+          "舆论",
+          "传播企划",
+          "传播策略",
+          "PR"
+        ])
+      ) {
+        return "公关方案";
+      }
+
+      if (hasAnyLoose(text, ["展台", "展区", "展厅", "展具", "车展", "展会", "展陈", "A展", "展运营"])) {
+        return "展区展台";
+      }
+
+      if (
+        hasAnyLoose(text, [
+          "活动方案",
+          "品牌活动",
+          "盛典",
+          "嘉年华",
+          "游园会",
+          "开放日",
+          "用户大会",
+          "伙伴大会",
+          "共创大会",
+          "客户会",
+          "市集",
+          "周年庆",
+          "庆典",
+          "音乐节",
+          "开业"
+        ])
+      ) {
+        return "活动方案";
+      }
+      if (hasAnyLoose(text, ["峰会", "论坛", "大会", "会议", "开发者", "技术", "AI", "智能"])) return "科技大会 / 峰会";
+      return "整合营销 / 内容传播";
+    };
+
+    const isStudioCase = (item) => {
+      const text = `${item.slug || ""} ${item.title || ""} ${item.sourceType || ""} ${item.source || ""}`;
+      if (/(absen|天下凤凰|省广|资深策划|公关策略总监|高级客策|活动项目总监|公司索引|早期项目)/i.test(text)) {
+        return false;
+      }
+      if (/(华视新瑞|华视)/i.test(text)) return false;
+      return item.sourceType === "work-summary" || item.source?.includes("项目精华沉淀") || item.scale === "工作室项目";
+    };
+
+    const caseHref = (item) => {
+      if (item.slug) return `./case.html?project=${encodeURIComponent(item.slug)}`;
+      if (item.id) return `./case.html?id=${encodeURIComponent(item.id)}`;
+      return `./case.html?archive=${encodeURIComponent(item.title || "")}`;
+    };
+
+    const normalizedCases = tableCases
+      .filter(isStudioCase)
+      .map((item) => ({
+        ...item,
+        displayGroup: classifyCase(item),
+        category: item.category || item.group || "项目档案",
+        keywords: item.keywords || [],
+        level: item.level || "工作室项目"
+      }));
 
     const matchesSearch = (item) => {
       if (!caseSearchQuery) return true;
       const haystack = [
         item.title,
         item.year,
-        item.group,
+        item.displayGroup,
         item.category,
         item.scale,
         item.role,
@@ -628,85 +812,55 @@ if ((caseLibrary || caseTable || screenshotArchive) && window.portfolioCases) {
     };
 
     const renderCaseTable = () => {
-      const visibleCases = tableCases.filter((item) => {
+      const visibleCases = normalizedCases.filter((item) => {
         const isEssence = item.sourceType === "work-summary" || item.source?.includes("项目精华沉淀");
         if (activeCaseFilter === "essence" && !isEssence) return false;
+        if (activeCaseFilter !== "all" && activeCaseFilter !== "essence" && item.displayGroup !== activeCaseFilter) return false;
         return matchesSearch(item);
       });
 
-      caseTable.innerHTML = groupOrder
+      caseTable.innerHTML = caseListOrder
         .map((group) => {
           const groupCases = visibleCases
-            .filter((item) => item.group === group)
+            .filter((item) => item.displayGroup === group)
             .sort(
               (a, b) =>
-                (scaleOrder[a.level] ?? 9) - (scaleOrder[b.level] ?? 9) ||
-                String(b.year).localeCompare(String(a.year))
-            );
+                String(b.year || "").localeCompare(String(a.year || "")) ||
+                String(a.title || "").localeCompare(String(b.title || ""))
+            )
+            .slice(0, 6);
+
+          const total = visibleCases.filter((item) => item.displayGroup === group).length;
 
           if (!groupCases.length) return "";
 
           return `
             <section class="case-table-group">
-              <h3>${groupMeta[group].zh}<span>${groupCases.length} cases · and more</span></h3>
+              <h3>${group}<span>${caseListMeta[group]} · ${total} cases${total > groupCases.length ? " · and more..." : ""}</span></h3>
               <div class="case-table">
-                <div class="case-row case-row-head">
-                  <span>Year</span>
-                  <span>Project</span>
-                  <span>Archive</span>
-                  <span>Type</span>
-                  <span>Keywords / Role</span>
-                </div>
                 ${groupCases
                   .map((item) => {
                     const rowInner = `
                       <span>${item.year}</span>
                       <strong>${item.title}</strong>
-                      <span>${sourceLabel(item)}</span>
                       <span>${item.category}</span>
                       <em>${item.keywords.slice(0, 5).join(" / ")}｜${item.role}</em>
                     `;
 
-                    if (item.id) {
-                      return `
-                        <a
-                          class="case-row"
-                          href="./case.html?id=${item.id}"
-                          data-case-title="${escAttr(item.title)}"
-                          data-case-meta="${escAttr(`${item.year} · ${item.category}`)}"
-                          data-case-keywords="${escAttr(item.keywords.slice(0, 5).join(" / "))}"
-                          data-case-level="${escAttr(scaleLabel[item.level])}"
-                          data-case-hero="${escAttr(item.hero)}"
-                        >${rowInner}</a>
-                      `;
-                    }
-
-                    if (item.slug) {
-                      return `
-                        <a
-                          class="case-row is-archive"
-                          href="./case.html?project=${encodeURIComponent(item.slug)}"
-                          data-case-title="${escAttr(item.title)}"
-                          data-case-meta="${escAttr(`${item.year} · ${item.category}`)}"
-                          data-case-keywords="${escAttr(item.keywords.slice(0, 5).join(" / "))}"
-                          data-case-level="${escAttr(scaleLabel[item.level] || item.level)}"
-                          data-case-hero="${escAttr(item.hero || "")}"
-                        >${rowInner}</a>
-                      `;
-                    }
-
                     return `
                       <a
                         class="case-row is-archive"
-                        href="./case.html?archive=${encodeURIComponent(item.title)}"
+                        href="${caseHref(item)}"
                         data-case-title="${escAttr(item.title)}"
                         data-case-meta="${escAttr(`${item.year} · ${item.category}`)}"
                         data-case-keywords="${escAttr(item.keywords.slice(0, 5).join(" / "))}"
-                        data-case-level="${escAttr(scaleLabel[item.level])}"
+                        data-case-level="${escAttr(item.displayGroup)}"
+                        data-case-hero="${escAttr(item.hero || "")}"
                       >${rowInner}</a>
                     `;
                   })
                   .join("")}
+                ${total > groupCases.length ? `<div class="case-more-row">and more...</div>` : ""}
               </div>
             </section>
           `;
@@ -792,7 +946,6 @@ if ((caseLibrary || caseTable || screenshotArchive) && window.portfolioCases) {
     const cursorLevel = caseCursor.querySelector("small");
     const cursorTitle = caseCursor.querySelector("strong");
     const cursorKeywords = caseCursor.querySelector("p");
-    const caseTargets = document.querySelectorAll("[data-case-title]");
 
     const moveCursor = (event) => {
       caseCursor.style.setProperty("--cursor-x", `${event.clientX}px`);
@@ -814,33 +967,31 @@ if ((caseLibrary || caseTable || screenshotArchive) && window.portfolioCases) {
       }
     };
 
-    caseTargets.forEach((target) => {
-      target.addEventListener("pointerenter", (event) => {
-        updateCaseCursor(target);
-        caseCursor.classList.add("is-visible");
-        moveCursor(event);
-      });
+    document.addEventListener("pointermove", (event) => {
+      const target = event.target.closest("[data-case-title]");
+      if (!target) return;
 
-      target.addEventListener("pointermove", (event) => {
-        const rect = target.getBoundingClientRect();
-        const x = (event.clientX - rect.left) / rect.width;
-        const y = (event.clientY - rect.top) / rect.height;
-        updateCaseCursor(target);
-        caseCursor.classList.add("is-visible");
-        target.style.setProperty("--mx", `${x * 100}%`);
-        target.style.setProperty("--my", `${y * 100}%`);
-        target.style.setProperty("--tilt-x", `${(y - 0.5) * -5}deg`);
-        target.style.setProperty("--tilt-y", `${(x - 0.5) * 7}deg`);
-        target.style.setProperty("--corner", `${10 + x * 34}px ${10 + y * 34}px ${34 - x * 20}px ${34 - y * 20}px`);
-        moveCursor(event);
-      });
+      const rect = target.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width;
+      const y = (event.clientY - rect.top) / rect.height;
+      updateCaseCursor(target);
+      caseCursor.classList.add("is-visible");
+      target.style.setProperty("--mx", `${x * 100}%`);
+      target.style.setProperty("--my", `${y * 100}%`);
+      target.style.setProperty("--tilt-x", `${(y - 0.5) * -5}deg`);
+      target.style.setProperty("--tilt-y", `${(x - 0.5) * 7}deg`);
+      target.style.setProperty("--corner", `${10 + x * 34}px ${10 + y * 34}px ${34 - x * 20}px ${34 - y * 20}px`);
+      moveCursor(event);
+    });
 
-      target.addEventListener("pointerleave", () => {
-        target.style.removeProperty("--tilt-x");
-        target.style.removeProperty("--tilt-y");
-        target.style.removeProperty("--corner");
-        caseCursor.classList.remove("is-visible");
-      });
+    document.addEventListener("pointerout", (event) => {
+      const target = event.target.closest("[data-case-title]");
+      if (!target || target.contains(event.relatedTarget)) return;
+
+      target.style.removeProperty("--tilt-x");
+      target.style.removeProperty("--tilt-y");
+      target.style.removeProperty("--corner");
+      caseCursor.classList.remove("is-visible");
     });
   }
 }
@@ -1390,4 +1541,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, 1200);
 });
-

@@ -174,6 +174,7 @@ sourceRoots.forEach(({ root, weight }) => {
     if (!allowedTypes.has(meta.type)) return;
     const title = meta.project || text.match(/^#\s+(.+)$/m)?.[1] || path.basename(filePath, ".md");
     if (!title || /项目精华|工作索引|总览|经历补充|核心互动技术索引/.test(title)) return;
+    if (title === "美的" || /执行/.test(title)) return; // 2026-03 美的项目未执行；执行汇报类项目不上站
     if (/^(参考资料|可追溯资料|品牌\s*VI|散文件|iCAR散文件|日常|日常文档)$/i.test(title)) return;
     if (/资料-|资料_/.test(path.basename(filePath)) && /参考资料|可追溯资料|品牌\s*VI|散文件/.test(title)) return;
     const month = extractMonth(filePath, meta);

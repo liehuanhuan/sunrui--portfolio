@@ -527,7 +527,6 @@ if ((caseLibrary || caseTable || screenshotArchive) && window.portfolioCases) {
     { year: "2023.08", title: "美团春归", group: "平台活动与公共参与", category: "平台活动 / 春季项目", keywords: ["美团", "春归", "平台活动"], role: "方案截图资料" },
     { year: "2023.08", title: "京东工业", group: "科技大会与议题转译", category: "工业品平台 / 行业活动", keywords: ["京东工业", "B2B", "行业活动"], role: "方案截图资料" },
     { year: "2023.09", title: "传祺广州车展", group: "汽车与产品体验", category: "车展 / 展台活动", keywords: ["传祺", "广州车展", "展台"], role: "方案截图资料" },
-    { year: "2023.09", title: "传祺东莞车站", group: "汽车与产品体验", category: "汽车品牌 / 区域活动", keywords: ["传祺", "东莞", "区域活动"], role: "方案截图资料" },
     { year: "2023.09", title: "小米 MIPC", group: "品牌活动与互动机制", category: "消费电子 / 发布活动", keywords: ["小米", "MIPC", "产品活动"], role: "方案截图资料" },
     { year: "2023.09", title: "中国化学工程集团产业链融通发展推进会", group: "科技大会与议题转译", category: "央企会议 / 产业链议题", keywords: ["中国化学", "产业链", "推进会"], role: "方案截图资料" }
   ].map((item) => ({

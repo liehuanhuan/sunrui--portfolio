@@ -399,7 +399,8 @@ function ProjectFolders() {
     const nextY = drag.baseY + event.clientY - drag.startY;
     drag.moved = drag.moved || Math.abs(event.clientX - drag.startX) + Math.abs(event.clientY - drag.startY) > 8;
     if (drag.type === "canvas") {
-      setCanvasOffset({ x: nextX, y: nextY });
+      // 左侧围挡：x 最多回到初始点 0，不能继续右拖露出画布左边界外的空白
+      setCanvasOffset({ x: Math.min(0, nextX), y: nextY });
       return;
     }
     setDragOffsets((current) => ({

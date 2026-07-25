@@ -1,276 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
-
-const featuredProjects = [
-  {
-    title: "中电展位方案",
-    label: "央企科技展陈 / 空间叙事",
-    year: "2026",
-    image: "/assets/cases/cetc/hero.png",
-    text: "把总部级表达、产业成果、裸眼 3D 和动线秩序组织成一个可进入的展厅世界观。",
-  },
-  {
-    title: "iCAR A展运营",
-    label: "汽车展区 / 产品体验",
-    year: "2026",
-    image: "/assets/cases/icar-a/hero.png",
-    text: "让年轻汽车品牌在高密度展会里被记住，用体验、打卡和传播路径连接产品性格。",
-  },
-  {
-    title: "威麟汽车发布会",
-    label: "发布会 / 试驾体验",
-    year: "2026",
-    image: "/assets/cases/weylin/hero.png",
-    text: "把产品卖点放回具体生活，用路线、试驾科目和停留区完成场景化体验验证。",
-  },
-  {
-    title: "ROG BW",
-    label: "游戏展区 / 玩家任务系统",
-    year: "2026",
-    image: "/assets/cases/rog-bw/hero.png",
-    text: "用本命之地、任务清单和互动闭环，把展区写成一个有规则的玩家行动空间。",
-  },
-  {
-    title: "TCL 链博会",
-    label: "科技展台 / AI 交互",
-    year: "2026",
-    image: "/assets/cases/tcl/hero.png",
-    text: "把工业 AI、数字人导览、任务系统和数据追踪组织成可理解的产业展台界面。",
-  },
-  {
-    title: "岚图技术品牌年度公关",
-    label: "年度公关 / 技术心智",
-    year: "2025",
-    image: "/assets/cases/voyah-tech/hero.png",
-    text: "以年度节奏处理技术心智、车型传播、媒体内容和热点借势，建立持续运营框架。",
-  },
-  {
-    title: "Wave Summit",
-    label: "AI 峰会 / 技术叙事",
-    year: "2024",
-    image: "/assets/cases/wave/hero.png",
-    text: "让抽象技术被开发者、行业和公众共同感知，建立技术大会的主题与传播秩序。",
-  },
-  {
-    title: "TROUVER 俄罗斯发布会",
-    label: "海外发布 / 技术体验",
-    year: "2026",
-    image: "/assets/cases/trouver/hero.png",
-    text: "面对全新市场和高认知壁垒，用可验证体验路径建立技术产品的首次公共理解。",
-  },
-];
-
-const caseHref = (slug) => `case.html?project=${encodeURIComponent(slug)}`;
-
-const experienceProjects = [
-  {
-    title: "比亚迪智能化战略发布会",
-    label: "集团战略发布 / 科技事件",
-    year: "2024-12",
-    image: "/assets/project-covers/2024-12-工作室项目-比亚迪智能化战略发布会.png",
-    text: "把天神之眼、全民智驾时代和 D-SPACE 超级社区，从技术名词转译成可感知的体验与传播结构。",
-    href: caseHref("2024-12-工作室项目-比亚迪智能化战略发布会"),
-  },
-  {
-    title: "小鹏发布会",
-    label: "智驾发布 / 展区互动体验",
-    year: "2024-07",
-    image: "/assets/project-covers/2024-07-工作室项目-小鹏发布会.png",
-    text: "围绕 AI 天玑系统与 XNGP 设计互动展区和打卡路径，让智驾能力在现场被亲手验证。",
-    href: caseHref("2024-07-工作室项目-小鹏发布会"),
-  },
-  {
-    title: "快手理想家",
-    label: "家场景 / 内容体验空间",
-    year: "2024-01",
-    image: "/assets/project-covers/2024-01-工作室项目-快手理想家.png",
-    text: "围绕「理想家」场景构建可进入、可停留、可传播的内容体验空间。",
-    href: caseHref("2024-01-工作室项目-快手理想家"),
-  },
-  {
-    title: "广汽传祺广州车展",
-    label: "A级车展 / 展台展陈",
-    year: "2023-09",
-    image: "/assets/project-covers/2023-09-工作室项目-广汽传祺广州车展.png",
-    text: "广州车展展台方案：主题概念、空间布局与现场内容的整体组织。",
-    href: caseHref("2023-09-工作室项目-广汽传祺广州车展"),
-  },
-  {
-    title: "火山引擎",
-    label: "技术品牌 / 展区体验",
-    year: "2023-05",
-    image: "/assets/project-covers/2023-05-工作室项目-火山引擎.png",
-    text: "火山引擎展区方案：技术能力的现场化表达与互动路径设计。",
-    href: caseHref("2023-05-工作室项目-火山引擎"),
-  },
-  {
-    title: "传祺车展",
-    label: "车展展台 / 执行落地",
-    year: "2022-10",
-    image: "/assets/project-covers/2022-10-工作室项目-传祺车展.png",
-    text: "传祺车展展台方案与执行：空间、动线与产品展示的完整组织。",
-    href: caseHref("2022-10-工作室项目-传祺车展"),
-  },
-  {
-    title: "哈弗巡展",
-    label: "区域巡展 / 路演体验",
-    year: "2022-07",
-    image: "/assets/project-covers/2022-07-工作室项目-哈弗巡展.png",
-    text: "哈弗区域巡展：把品牌体验带进城市现场的路演方案。",
-    href: caseHref("2022-07-工作室项目-哈弗巡展"),
-  },
-  {
-    title: "汽车之家车展预热·平行宇宙",
-    label: "车展预热 / 概念创意",
-    year: "2022-02",
-    image: "/assets/project-covers/2022-02-工作室项目-汽车之家车展预热平行宇宙.png",
-    text: "以「平行宇宙」概念为车展预热，建立线上话题与现场期待之间的连接。",
-    href: caseHref("2022-02-工作室项目-汽车之家车展预热平行宇宙"),
-  },
-];
-
-const prPlanningProjects = [
-  {
-    title: "一汽丰田",
-    label: "品牌发布 / 新品发布会",
-    year: "2025-12",
-    image: "/assets/project-covers/2025-12-工作室项目-一汽丰田.png",
-    text: "公关策划",
-    href: caseHref("2025-12-工作室项目-一汽丰田"),
-  },
-  {
-    title: "岚图技术品牌年度公关",
-    label: "品牌年度 / 整合营销",
-    year: "2025-12",
-    image: "/assets/project-covers/2025-12-工作室项目-岚图技术品牌年度公关.png",
-    text: "公关策划",
-    href: caseHref("2025-12-工作室项目-岚图技术品牌年度公关"),
-  },
-  {
-    title: "风云T9深度自驾公益体验之旅",
-    label: "消费者体验 / 路演 / 快闪",
-    year: "2025-09",
-    image: "/assets/project-covers/2025-09-工作室项目-风云t9深度自驾公益体验之旅.png",
-    text: "公关策划",
-    href: caseHref("2025-09-工作室项目-风云t9深度自驾公益体验之旅"),
-  },
-  {
-    title: "iCAR品牌年度",
-    label: "品牌年度 / 整合营销",
-    year: "2024-11",
-    image: "/assets/project-covers/2024-11-工作室项目-icar品牌年度.png",
-    text: "公关策划",
-    href: caseHref("2024-11-工作室项目-icar品牌年度"),
-  },
-  {
-    title: "腾讯 OPENDAY",
-    label: "公益 / 社会议题项目",
-    year: "2024-08",
-    image: "/assets/project-covers/2024-08-工作室项目-腾讯openday.png",
-    text: "公关策划",
-    href: caseHref("2024-08-工作室项目-腾讯openday"),
-  },
-  {
-    title: "网易游戏社会责任促进中心成立",
-    label: "文旅 / 城市 / 商业空间企划",
-    year: "2022-10",
-    image: "/assets/project-covers/2022-10-工作室项目-网易游戏社会责任促进中心成立.png",
-    text: "公关策划",
-    href: caseHref("2022-10-工作室项目-网易游戏社会责任促进中心成立"),
-  },
-  {
-    title: "极狐露营",
-    label: "消费者体验 / 路演 / 快闪",
-    year: "2022-07",
-    image: "/assets/project-covers/2022-07-工作室项目-极狐露营.png",
-    text: "公关策划",
-    href: caseHref("2022-07-工作室项目-极狐露营"),
-  },
-  {
-    title: "小米暑促",
-    label: "消费者体验 / 路演 / 快闪",
-    year: "2022-05",
-    image: "/assets/project-covers/2022-05-工作室项目-小米暑促.png",
-    text: "公关策划",
-    href: caseHref("2022-05-工作室项目-小米暑促"),
-  },
-  {
-    title: "比亚迪粉丝跨界",
-    label: "消费者体验 / 路演 / 快闪",
-    year: "2022-04",
-    image: "/assets/project-covers/2022-04-工作室项目-比亚迪粉丝跨界.png",
-    text: "公关策划",
-    href: caseHref("2022-04-工作室项目-比亚迪粉丝跨界"),
-  },
-  {
-    title: "哈弗5-6月区域营销",
-    label: "消费者体验 / 路演 / 快闪",
-    year: "2022-04",
-    image: "/assets/project-covers/2022-04-工作室项目-哈弗56月区域营销.png",
-    text: "公关策划",
-    href: caseHref("2022-04-工作室项目-哈弗56月区域营销"),
-  },
-  {
-    title: "美好目的地",
-    label: "文旅 / 城市 / 商业空间企划",
-    year: "2022-04",
-    image: "/assets/project-covers/2022-04-工作室项目-美好目的地.png",
-    text: "公关策划",
-    href: caseHref("2022-04-工作室项目-美好目的地"),
-  },
-  {
-    title: "厨房小家电健康趋势发布",
-    label: "展览展示 / 展台 / 车展",
-    year: "2022-03",
-    image: "/assets/project-covers/2022-03-工作室项目-厨房小家电健康趋势发布.png",
-    text: "公关策划",
-    href: caseHref("2022-03-工作室项目-厨房小家电健康趋势发布"),
-  },
-  {
-    title: "快手营销大事件",
-    label: "展览展示 / 展台 / 车展",
-    year: "2022-01",
-    image: "/assets/project-covers/2022-01-工作室项目-快手营销大事件.png",
-    text: "公关策划",
-    href: caseHref("2022-01-工作室项目-快手营销大事件"),
-  },
-];
-
-const projectFolders = [
-  {
-    id: "pr",
-    title: "品牌公关",
-    label: "PR Proposals",
-    note: "品牌发布、年度传播、公益体验、区域营销与议题项目。",
-    image: "/assets/project-folders/pr.png",
-    items: prPlanningProjects,
-  },
-  {
-    id: "experience",
-    title: "空间与体验",
-    label: "Event Experience",
-    note: "活动方案、展区展厅、发布会现场与用户体验路径。",
-    image: "/assets/project-folders/experience.png",
-    items: experienceProjects,
-  },
-  {
-    id: "ai",
-    title: "技术思考",
-    label: "AI Practice",
-    note: "AI 思考、工具实践、提示词方法与创意工作流实验。",
-    image: "/assets/project-folders/ai.png",
-    items: [featuredProjects[4], featuredProjects[6], featuredProjects[0], featuredProjects[3]],
-  },
-  {
-    id: "notes",
-    title: "创作笔记",
-    label: "Creative Notes",
-    note: "个人写作、观察、创作草稿与尚未公开的思考入口。",
-    image: "/assets/project-folders/notes.png",
-    items: [featuredProjects[6], featuredProjects[5], featuredProjects[2]],
-  },
-];
+import { projectFolders, sortProjectsByRecent } from "./folder-data.js";
 
 const folderAnchors = [
   { x: 84, y: 214, r: -3 },
@@ -278,33 +9,6 @@ const folderAnchors = [
   { x: 104, y: 522, r: 2 },
   { x: 414, y: 522, r: -2 },
 ];
-
-const caseSpreads = [
-  { x: 520, y: -72, r: -4, z: 18 },
-  { x: 850, y: -42, r: 2, z: 17 },
-  { x: 1180, y: -66, r: -2, z: 16 },
-  { x: 1510, y: -28, r: 3, z: 15 },
-  { x: 610, y: 250, r: 2, z: 14 },
-  { x: 940, y: 282, r: -3, z: 13 },
-  { x: 1270, y: 246, r: 2, z: 12 },
-  { x: 1600, y: 278, r: -2, z: 11 },
-  { x: 720, y: 590, r: -1, z: 10 },
-  { x: 1050, y: 612, r: 3, z: 9 },
-  { x: 1380, y: 586, r: -3, z: 8 },
-];
-
-const projectTimeValue = (project) => {
-  const raw = String(project.year ?? "");
-  const match = raw.match(/(\d{4})(?:[-./年](\d{1,2}))?(?:[-./月](\d{1,2}))?/);
-  if (!match) return 0;
-  const year = Number(match[1]);
-  const month = match[2] ? Number(match[2]) : 12;
-  const day = match[3] ? Number(match[3]) : 31;
-  return new Date(year, month - 1, day).getTime();
-};
-
-const sortProjectsByRecent = (items) =>
-  [...items].sort((a, b) => projectTimeValue(a) - projectTimeValue(b));
 
 const capabilities = [
   ["洞察力", "在复杂信息里抓住关键变量，判断项目真正要解决的问题。"],
@@ -344,15 +48,6 @@ const clientLogos = [
   ["Audi", "/assets/client-logos/audi.svg"],
   ["Estee Lauder", "/assets/client-logos/estee-lauder.svg"],
   ["More", "/assets/client-logos/more.svg"],
-];
-
-const archiveGroups = [
-  "汽车与产品体验",
-  "科技大会与议题转译",
-  "展陈与空间叙事",
-  "品牌活动与互动机制",
-  "公关传播与品牌策略",
-  "平台活动与公共参与",
 ];
 
 const coverPosters = [
@@ -687,39 +382,14 @@ function HeroCover() {
 }
 
 function ProjectFolders() {
-  const [openFolder, setOpenFolder] = useState(projectFolders[0].id);
-  const [openingFolder, setOpeningFolder] = useState(projectFolders[0].id);
-  const [openCycle, setOpenCycle] = useState(0);
+  const [openFolder, setOpenFolder] = useState(null);
+  const [roomId, setRoomId] = useState(null);
   const [dragOffsets, setDragOffsets] = useState({});
   const [canvasOffset, setCanvasOffset] = useState({ x: 0, y: 0 });
   const [frontKey, setFrontKey] = useState("folder-pr");
   const [draggingKey, setDraggingKey] = useState(null);
   const dragRef = useRef(null);
-  const openTimerRef = useRef(null);
-  const activeFolder = projectFolders.find((folder) => folder.id === openFolder) ?? projectFolders[0];
-  const activeFolderIndex = Math.max(
-    0,
-    projectFolders.findIndex((folder) => folder.id === activeFolder.id),
-  );
-  const activeAnchor = folderAnchors[activeFolderIndex] ?? folderAnchors[0];
-  const activeOffset = dragOffsets[`folder-${activeFolder.id}`] ?? { x: 0, y: 0 };
-  const activeX = activeAnchor.x + activeOffset.x;
-  const activeY = activeAnchor.y + activeOffset.y;
-  const activeProjects = sortProjectsByRecent(activeFolder.items);
-
-  const openCaseFolder = (folderId, key) => {
-    setOpenFolder(folderId);
-    setOpeningFolder(folderId);
-    setOpenCycle((cycle) => cycle + 1);
-    setFrontKey(key);
-    if (openTimerRef.current) {
-      window.clearTimeout(openTimerRef.current);
-    }
-    openTimerRef.current = window.setTimeout(() => setOpeningFolder(null), 520);
-    setDragOffsets((current) =>
-      Object.fromEntries(Object.entries(current).filter(([entryKey]) => entryKey.startsWith("folder-"))),
-    );
-  };
+  const roomFolder = projectFolders.find((folder) => folder.id === roomId) ?? null;
 
   const updateDrag = (event) => {
     if (!dragRef.current) return;
@@ -753,8 +423,8 @@ function ProjectFolders() {
       // Pointer capture may already be released when the pointer leaves the element.
     }
     if (type === "folder" && !moved) {
-      const nextFolder = key.replace("folder-", "");
-      openCaseFolder(nextFolder, key);
+      setRoomId(key.replace("folder-", ""));
+      setCanvasOffset({ x: -560, y: 0 });
       return;
     }
     if (type === "canvas") return;
@@ -811,7 +481,7 @@ function ProjectFolders() {
         <p>
           <span className="click-hint">
             <span className="click-cursor" aria-hidden="true" />
-            点开文件夹，拖动画布和案例
+            点开文件夹就地展开案例，点「…」进完整案例库
           </span>
         </p>
       </div>
@@ -832,13 +502,13 @@ function ProjectFolders() {
         >
           <div className="canvas-caption">
             <span>CASE LIBRARY</span>
-            <h3>{activeFolder.title}</h3>
-            <p>{activeFolder.note}</p>
+            <h3>四个文件夹</h3>
+            <p>画布上只有文件夹。点开任意一个，案例贴纸就地展开。</p>
           </div>
 
           {projectFolders.map((folder) => (
             <button
-              className={`work-folder ${folder.id === openFolder ? "is-open" : ""} ${folder.id === openingFolder ? "is-opening" : ""} ${draggingKey === `folder-${folder.id}` ? "is-dragging" : ""}`}
+              className={`work-folder ${draggingKey === `folder-${folder.id}` ? "is-dragging" : ""}`}
               key={folder.id}
               type="button"
               onPointerDown={(event) => beginDrag(event, `folder-${folder.id}`, "folder")}
@@ -846,7 +516,7 @@ function ProjectFolders() {
               onPointerUp={endDrag}
               onPointerCancel={endDrag}
               style={{
-                zIndex: frontKey === `folder-${folder.id}` ? 30 : folder.id === openFolder ? 24 : 12,
+                zIndex: frontKey === `folder-${folder.id}` ? 30 : 12,
                 transform: `translate3d(${folderAnchors[projectFolders.indexOf(folder)].x + (dragOffsets[`folder-${folder.id}`]?.x ?? 0)}px, ${folderAnchors[projectFolders.indexOf(folder)].y + (dragOffsets[`folder-${folder.id}`]?.y ?? 0)}px, 0) rotate(${folderAnchors[projectFolders.indexOf(folder)].r + ((dragOffsets[`folder-${folder.id}`]?.x ?? 0) * 0.01)}deg)`,
               }}
             >
@@ -854,48 +524,250 @@ function ProjectFolders() {
               <span className="folder-body">
                 <small>{folder.label}</small>
                 <strong>{folder.title}</strong>
-                <em>{folder.items.length} files</em>
+                <em>{folder.items.length > 0 ? `${folder.items.length} files` : "coming soon"}</em>
               </span>
             </button>
           ))}
 
-          {activeProjects.map((project, index) => {
-            const layout = caseSpreads[index % caseSpreads.length];
-            const key = `${activeFolder.id}-${project.title}`;
-            const offset = dragOffsets[key] ?? { x: 0, y: 0 };
-            return (
-              <article
-                className={`project-file ${draggingKey === key ? "is-dragging" : ""}`}
-                key={`${key}-${openCycle}`}
-                onPointerDown={(event) => beginDrag(event, key, "file")}
-                onPointerMove={updateDrag}
-                onPointerUp={endDrag}
-                onPointerCancel={endDrag}
-                style={{
-                  "--i": index,
-                  zIndex: frontKey === key ? 40 : layout.z + 14,
-                  transform: `translate3d(${activeX + layout.x + offset.x}px, ${activeY + layout.y + offset.y}px, 0) rotate(${layout.r + offset.x * 0.018}deg)`,
-                }}
-              >
-                <div className="project-file-paper">
-                  <img src={project.image} alt={`${project.title} 项目封面`} draggable="false" />
-                  <div>
-                    <small>
-                      {project.year} / {project.label}
-                    </small>
-                    <h3>{project.title}</h3>
-                    <p>{project.text}</p>
-                    <a href={project.href ?? "case.html"} onPointerDown={(event) => event.stopPropagation()}>
-                      查看详情
-                    </a>
-                  </div>
-                </div>
-              </article>
-            );
-          })}
+          {roomFolder && <FolderRoom folder={roomFolder} onClose={() => setRoomId(null)} />}
         </div>
       </div>
+
     </section>
+  );
+}
+
+/* 画布右侧展开的文件夹内容区：四列横排网格，最多 20 张案例贴纸；第 21 个点位留给「。。。」标签 */
+const roomSpreads = [
+  { x: 792, y: 124, r: -3 },
+  { x: 1128, y: 118, r: 2 },
+  { x: 1472, y: 126, r: -1 },
+  { x: 1808, y: 116, r: 3 },
+  { x: 788, y: 484, r: -2 },
+  { x: 1132, y: 478, r: 1 },
+  { x: 1468, y: 486, r: -3 },
+  { x: 1812, y: 476, r: 2 },
+  { x: 794, y: 844, r: 2 },
+  { x: 1126, y: 838, r: -1 },
+  { x: 1474, y: 846, r: 3 },
+  { x: 1806, y: 836, r: -2 },
+  { x: 790, y: 1204, r: -3 },
+  { x: 1130, y: 1198, r: 1 },
+  { x: 1470, y: 1206, r: -2 },
+  { x: 1810, y: 1196, r: 2 },
+  { x: 792, y: 1564, r: 3 },
+  { x: 1128, y: 1558, r: -3 },
+  { x: 1472, y: 1566, r: -1 },
+  { x: 1808, y: 1556, r: 1 },
+  { x: 1130, y: 1960, r: -2 },
+];
+
+function CuteEmptyCard() {
+  return (
+    <div className="cute-card" role="note">
+      <span className="cute-tape" aria-hidden="true" />
+      <span className="cute-doodle cute-d1" aria-hidden="true">
+        ✿
+      </span>
+      <span className="cute-doodle cute-d2" aria-hidden="true">
+        ♪
+      </span>
+      <span className="cute-doodle cute-d3" aria-hidden="true">
+        ☆
+      </span>
+      <span className="cute-bubble" aria-hidden="true">
+        等我哦！
+      </span>
+      <div className="cute-ellipsis">…</div>
+      <p className="cute-title">还在整理中～</p>
+      <p className="cute-sub">这个文件夹的内容，很快就来</p>
+    </div>
+  );
+}
+
+function FolderRoom({ folder, onClose }) {
+  const allItems = sortProjectsByRecent(folder.items);
+  const items = allItems.slice(0, 20);
+  const hasMore = allItems.length > 20;
+  const [cardOffsets, setCardOffsets] = useState({});
+  const [front, setFront] = useState(null);
+  const [dragging, setDragging] = useState(null);
+  const dragRef = useRef(null);
+  const glideRef = useRef(null);
+
+  useEffect(() => {
+    const onKey = (event) => {
+      if (event.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  useEffect(() => () => cancelAnimationFrame(glideRef.current), []);
+
+  const removeDragListeners = () => {
+    window.removeEventListener("pointermove", moveDrag);
+    window.removeEventListener("pointerup", endDrag);
+    window.removeEventListener("pointercancel", endDrag);
+    window.removeEventListener("blur", endDrag);
+  };
+
+  const moveDrag = (event) => {
+    const drag = dragRef.current;
+    if (!drag) return;
+    event.preventDefault?.();
+    const nextX = drag.baseX + event.clientX - drag.startX;
+    const nextY = drag.baseY + event.clientY - drag.startY;
+    const now = performance.now();
+    drag.vx = (event.clientX - drag.lastX) / Math.max(1, now - drag.lastT);
+    drag.vy = (event.clientY - drag.lastY) / Math.max(1, now - drag.lastT);
+    drag.lastX = event.clientX;
+    drag.lastY = event.clientY;
+    drag.lastT = now;
+    setCardOffsets((current) => ({
+      ...current,
+      [drag.key]: { x: nextX, y: nextY, vx: drag.vx },
+    }));
+  };
+
+  const endDrag = () => {
+    const drag = dragRef.current;
+    if (!drag) return;
+    dragRef.current = null;
+    setDragging(null);
+    removeDragListeners();
+    // 贴纸松手后的惯性滑行：速度按摩擦衰减，卡片带着甩出去的劲儿慢慢停
+    const key = drag.key;
+    let vx = Math.max(-2.4, Math.min(2.4, drag.vx || 0));
+    let vy = Math.max(-2.4, Math.min(2.4, drag.vy || 0));
+    if (Math.hypot(vx, vy) < 0.12) return;
+    let last = performance.now();
+    const step = (now) => {
+      const dt = Math.min(48, now - last);
+      last = now;
+      vx *= 0.94;
+      vy *= 0.94;
+      setCardOffsets((current) => {
+        const offset = current[key] ?? { x: 0, y: 0 };
+        return {
+          ...current,
+          [key]: { x: offset.x + vx * dt, y: offset.y + vy * dt, vx: vx * dt * 0.9 },
+        };
+      });
+      if (Math.hypot(vx, vy) > 0.02) {
+        glideRef.current = requestAnimationFrame(step);
+      } else {
+        setCardOffsets((current) => ({
+          ...current,
+          [key]: { ...(current[key] ?? { x: 0, y: 0 }), vx: 0 },
+        }));
+      }
+    };
+    glideRef.current = requestAnimationFrame(step);
+  };
+
+  const beginDrag = (event, key) => {
+    event.stopPropagation();
+    event.preventDefault();
+    cancelAnimationFrame(glideRef.current);
+    removeDragListeners();
+    event.currentTarget.setPointerCapture?.(event.pointerId);
+    const current = cardOffsets[key] ?? { x: 0, y: 0 };
+    setFront(key);
+    setDragging(key);
+    dragRef.current = {
+      key,
+      startX: event.clientX,
+      startY: event.clientY,
+      baseX: current.x,
+      baseY: current.y,
+      lastX: event.clientX,
+      lastY: event.clientY,
+      lastT: performance.now(),
+      vx: 0,
+      vy: 0,
+    };
+    window.addEventListener("pointermove", moveDrag, { passive: false });
+    window.addEventListener("pointerup", endDrag);
+    window.addEventListener("pointercancel", endDrag);
+    window.addEventListener("blur", endDrag);
+  };
+
+  return (
+    <>
+      <button
+        className="folder-room-close"
+        type="button"
+        onClick={onClose}
+        onPointerDown={(event) => event.stopPropagation()}
+      >
+        ✕ 收起「{folder.title}」
+      </button>
+      {items.map((project, index) => {
+        const layout = roomSpreads[index];
+        const key = `${folder.id}-${project.title}`;
+        const offset = cardOffsets[key] ?? { x: 0, y: 0, vx: 0 };
+        const tilt = Math.max(-14, Math.min(14, (offset.vx ?? 0) * 1.6));
+        return (
+          <article
+            className={`project-file room-file ${dragging === key ? "is-dragging" : ""}`}
+            key={key}
+            onPointerDown={(event) => beginDrag(event, key)}
+            onPointerMove={moveDrag}
+            onPointerUp={endDrag}
+            onPointerCancel={endDrag}
+            style={{
+              left: layout.x,
+              top: layout.y,
+              zIndex: front === key ? 40 : index + 10,
+              transform: `translate3d(${offset.x}px, ${offset.y}px, 0) rotate(${layout.r + tilt}deg)`,
+            }}
+          >
+            <div
+              className="project-file-paper sticker-drop"
+              style={{ "--drop-delay": `${index * 70}ms` }}
+            >
+              <img src={project.image} alt={`${project.title} 项目封面`} draggable="false" />
+              <div>
+                <small>
+                  {project.year} / {project.label}
+                </small>
+                <h3>{project.title}</h3>
+                <p>{project.text}</p>
+                <a href={project.href ?? "case.html"} onPointerDown={(event) => event.stopPropagation()}>
+                  查看详情
+                </a>
+              </div>
+            </div>
+          </article>
+        );
+      })}
+      {hasMore && (
+        <a
+          className="more-tag"
+          href="case.html"
+          onPointerDown={(event) => event.stopPropagation()}
+          style={{
+            left: roomSpreads[items.length].x,
+            top: roomSpreads[items.length].y + 36,
+            transform: `rotate(${roomSpreads[items.length].r}deg)`,
+          }}
+        >
+          <span
+            className="more-tag-inner sticker-drop"
+            style={{ "--drop-delay": `${items.length * 70}ms` }}
+          >
+            <span className="more-tag-dots">。。。</span>
+            <span className="more-tag-text">进案例库看全部 →</span>
+          </span>
+        </a>
+      )}
+      {items.length === 0 && (
+        <div className="cute-card-slot" style={{ left: 800, top: 150 }}>
+          <CuteEmptyCard />
+        </div>
+      )}
+    </>
   );
 }
 
@@ -1019,23 +891,6 @@ function App() {
       </section>
 
       <ProjectFolders />
-
-      <section className="archive page-pad">
-        <div className="archive-copy">
-          <h2>旧的交互案例集不是废掉，它应该成为这个网站的深层资料库。</h2>
-          <p>
-            它承载的是项目数量、行业跨度和可检索性。新的首页负责建立专业第一印象，案例库负责把证据摊开。
-          </p>
-          <a className="button primary" href="/case.html">
-            进入案例库
-          </a>
-        </div>
-        <div className="archive-map">
-          {archiveGroups.map((item) => (
-            <span key={item}>{item}</span>
-          ))}
-        </div>
-      </section>
 
       <section className="method page-pad" id="method">
         <div className="method-media">

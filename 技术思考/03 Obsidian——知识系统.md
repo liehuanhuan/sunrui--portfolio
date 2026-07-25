@@ -9,7 +9,7 @@ tags:
 status: draft
 created: 2026-07-24
 ---
-
+·
 # Obsidian——知识系统
 
 > 系列第三篇。笔记软件不是仓库，是外脑。Obsidian 的价值不在"记"，在于让知识之间发生连接。

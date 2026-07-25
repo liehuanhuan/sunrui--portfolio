@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#111827"/>
+    <stop offset="100%" stop-color="#03070b"/>
+  </linearGradient>
+  <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+    <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.06"/>
+  </pattern>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<rect width="1600" height="900" fill="url(#grid)"/>
+<circle cx="1380" cy="90" r="220" fill="#93c5fd" opacity="0.10"/>
+<circle cx="150" cy="790" r="260" fill="#93c5fd" opacity="0.08"/>
+<text x="86" y="92" font-size="52" font-weight="800" fill="#ffffff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">trouver</text>
+<text x="90" y="137" font-size="23" fill="#aab7c4" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">2026-04｜TROUVER 2026俄罗斯发布会（完整版）</text>
+<rect x="90" y="165" width="1420" height="2" fill="#93c5fd" opacity="0.6"/>
+
+<rect x="90" y="205" width="690" height="225" rx="28" fill="#1f2937" opacity="0.88"/>
+<rect x="90" y="205" width="8" height="225" rx="4" fill="#93c5fd"/>
+<text x="124" y="253" font-size="26" font-weight="700" fill="#93c5fd" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">核心概念 / 成案主轴</text>
+<text x="124" y="297" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 展区与体验设计</text>
+<text x="124" y="331" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 发布会内容与流程设计</text>
+
+
+<rect x="820" y="205" width="690" height="225" rx="28" fill="#1f2937" opacity="0.88"/>
+<rect x="820" y="205" width="8" height="225" rx="4" fill="#93c5fd"/>
+<text x="854" y="253" font-size="26" font-weight="700" fill="#93c5fd" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">客户强需求</text>
+<text x="854" y="297" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 核心媒体、经销商、渠道商业伙伴、本地KOL、核心用户代表</text>
+<text x="854" y="331" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 以“可验证的体验路径”为核心</text>
+<text x="854" y="365" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 客户核心信息 / Client Core</text>
+<text x="854" y="399" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">  Message</text>
+
+
+<rect x="90" y="470" width="690" height="300" rx="28" fill="#1f2937" opacity="0.88"/>
+<rect x="90" y="470" width="8" height="300" rx="4" fill="#93c5fd"/>
+<text x="124" y="518" font-size="26" font-weight="700" fill="#93c5fd" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">成案内容抓手</text>
+<text x="124" y="562" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 展区与体验设计</text>
+<text x="124" y="596" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 发布会内容与流程设计</text>
+<text x="124" y="630" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 晚宴与社交体验设计</text>
+<text x="124" y="664" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• TROUVER S70滚筒系列全球发布会</text>
+<text x="124" y="698" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• 俄罗斯圣彼得堡</text>
+
+
+<rect x="820" y="470" width="690" height="300" rx="28" fill="#1f2937" opacity="0.88"/>
+<rect x="820" y="470" width="8" height="300" rx="4" fill="#93c5fd"/>
+<text x="854" y="518" font-size="26" font-weight="700" fill="#93c5fd" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">互动技术链</text>
+<text x="854" y="562" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• STRATEGIC ARCHITECTURE</text>
+<text x="854" y="596" font-size="22" fill="#f8fbff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">• HIGH COGNITIVE BARRIER</text>
+
+<text x="94" y="830" font-size="24" font-weight="700" fill="#ffffff" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">检索关键词</text>
+<rect x="230" y="804" width="139" height="34" rx="17" fill="#93c5fd" opacity="0.16"/>
+<text x="247" y="826" font-size="18" fill="#93c5fd" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">TROUVER</text>
+<rect x="383" y="804" width="124" height="34" rx="17" fill="#93c5fd" opacity="0.16"/>
+<text x="400" y="826" font-size="18" fill="#93c5fd" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">Roller</text>
+<rect x="521" y="804" width="172" height="34" rx="17" fill="#93c5fd" opacity="0.16"/>
+<text x="538" y="826" font-size="18" fill="#93c5fd" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">PURE-Evolution</text>
+<rect x="707" y="804" width="109" height="34" rx="17" fill="#93c5fd" opacity="0.16"/>
+<text x="724" y="826" font-size="18" fill="#93c5fd" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">CLEAN</text>
+<rect x="830" y="804" width="109" height="34" rx="17" fill="#93c5fd" opacity="0.16"/>
+<text x="847" y="826" font-size="18" fill="#93c5fd" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">Ultra</text>
+<rect x="953" y="804" width="109" height="34" rx="17" fill="#93c5fd" opacity="0.16"/>
+<text x="970" y="826" font-size="18" fill="#93c5fd" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">扫拖机器人</text>
+<rect x="1076" y="804" width="79" height="34" rx="17" fill="#93c5fd" opacity="0.16"/>
+<text x="1093" y="826" font-size="18" fill="#93c5fd" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">S70</text>
+<rect x="1169" y="804" width="79" height="34" rx="17" fill="#93c5fd" opacity="0.16"/>
+<text x="1186" y="826" font-size="18" fill="#93c5fd" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">实验区</text>
+<text x="1325" y="852" font-size="18" fill="#aab7c4" opacity="0.8" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif">Obsidian Project Card</text>
+</svg>

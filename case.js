@@ -3,6 +3,67 @@ const id = params.get("id") || "cetc";
 const archiveTitle = params.get("archive");
 const projectSlug = params.get("project");
 const projectPlaceholder = "./assets/cases/project-placeholder.svg";
+const hasDetailParams = Boolean(params.get("id") || archiveTitle || projectSlug);
+
+if (!hasDetailParams) {
+  // 案例仓库索引视图：不带参数进入 case.html 时，按时间倒序展示全部项目
+  const entries = [...(window.fullProjectIndex || [])];
+  const monthOf = (item) => {
+    const m = String(item.slug || "").match(/^(\d{4})-(\d{2})/);
+    return m ? `${m[1]}.${m[2]}` : item.year || item.month || "";
+  };
+  const sortKey = (item) => {
+    const m = String(item.slug || "").match(/^(\d{4})-(\d{2})/);
+    return m ? Number(m[1]) * 100 + Number(m[2]) : 0;
+  };
+  entries.sort((a, b) => sortKey(b) - sortKey(a));
+
+  document.title = "案例仓库｜孙瑞 Portfolio";
+  ["case-hero", "case-thinking", "case-body", "case-gallery"].forEach((cls) => {
+    const el = document.querySelector(`.${cls}`);
+    if (el) el.style.display = "none";
+  });
+
+  const indexSection = document.createElement("section");
+  indexSection.className = "case-index";
+  indexSection.innerHTML = `
+    <div class="case-index-head">
+      <p class="superline">CASE ARCHIVE</p>
+      <h1>案例仓库</h1>
+      <p class="case-index-sub">按时间倒序，共 ${entries.length} 个项目。点击任意卡片查看详情。</p>
+      <input class="case-index-search" type="search" placeholder="搜索项目名或年份…" aria-label="搜索案例" />
+    </div>
+    <div class="case-index-grid"></div>
+  `;
+  document.querySelector(".case-page").appendChild(indexSection);
+
+  const grid = indexSection.querySelector(".case-index-grid");
+  const renderCards = (list) => {
+    grid.innerHTML = list
+      .map(
+        (item) => `
+      <a class="case-index-card" href="./case.html?project=${encodeURIComponent(item.slug)}">
+        <span class="case-index-thumb"><img src="./assets/project-covers/${item.slug}.png" data-hero="${item.hero || ""}" alt="" loading="lazy" onerror="if(this.dataset.hero){this.src=this.dataset.hero;this.dataset.hero='';}else{this.onerror=null;this.src='./assets/cases/project-placeholder.svg';}" /></span>
+        <span class="case-index-meta">${monthOf(item)}${item.group ? ` · ${item.group}` : ""}</span>
+        <strong class="case-index-title">${item.title}</strong>
+      </a>
+    `,
+      )
+      .join("");
+  };
+  renderCards(entries);
+
+  indexSection.querySelector(".case-index-search").addEventListener("input", (event) => {
+    const q = event.target.value.trim().toLowerCase();
+    renderCards(
+      !q
+        ? entries
+        : entries.filter((item) =>
+            `${item.title} ${item.slug} ${monthOf(item)}`.toLowerCase().includes(q),
+          ),
+    );
+  });
+} else {
 const normalizeArchiveTitle = (title) =>
   String(title || "")
     .toLowerCase()
@@ -168,3 +229,4 @@ document.querySelector("#case-gallery").innerHTML = galleryImages
     `
   )
   .join("");
+}

@@ -6,17 +6,31 @@ const projectPlaceholder = "./assets/cases/project-placeholder.svg";
 const hasDetailParams = Boolean(params.get("id") || archiveTitle || projectSlug);
 
 if (!hasDetailParams) {
-  // 案例仓库索引视图：不带参数进入 case.html 时，按时间倒序展示全部项目
-  const entries = [...(window.fullProjectIndex || [])];
+  // 案例仓库索引视图：只收录工作室项目，按年份分组、年内时间倒序
+  const entries = (window.fullProjectIndex || []).filter((item) =>
+    String(item.slug || "").includes("工作室项目"),
+  );
   const monthOf = (item) => {
     const m = String(item.slug || "").match(/^(\d{4})-(\d{2})/);
     return m ? `${m[1]}.${m[2]}` : item.year || item.month || "";
   };
+  const yearOf = (item) => String(item.slug || "").match(/^(\d{4})/)?.[1] || "其他";
   const sortKey = (item) => {
     const m = String(item.slug || "").match(/^(\d{4})-(\d{2})/);
     return m ? Number(m[1]) * 100 + Number(m[2]) : 0;
   };
   entries.sort((a, b) => sortKey(b) - sortKey(a));
+
+  // 封面回退链：本地 .jpg 批量封面 → 本地 .png 精选封面 → 项目原图 → 占位卡
+  const coverImg = (item) => {
+    const srcs = [
+      `./assets/project-covers/${item.slug}.jpg`,
+      `./assets/project-covers/${item.slug}.png`,
+      item.hero,
+      projectPlaceholder,
+    ].filter(Boolean);
+    return `<img src="${srcs[0]}" data-srcs="${srcs.slice(1).join("|")}" alt="" loading="lazy" onerror="const n=this.dataset.srcs?this.dataset.srcs.split('|'):[];this.dataset.srcs=n.slice(1).join('|');if(n[0]){this.src=n[0];}else{this.onerror=null;}" />`;
+  };
 
   document.title = "案例仓库｜孙瑞 Portfolio";
   document.body.classList.add("is-case-index");
@@ -31,32 +45,40 @@ if (!hasDetailParams) {
     <div class="case-index-head">
       <p class="superline">CASE ARCHIVE</p>
       <h1>案例仓库</h1>
-      <p class="case-index-sub">按时间倒序，共 ${entries.length} 个项目。点击任意卡片查看详情。</p>
+      <p class="case-index-sub">工作室项目全记录，共 ${entries.length} 个，按时间倒序。点击任意卡片查看详情。</p>
       <input class="case-index-search" type="search" placeholder="搜索项目名或年份…" aria-label="搜索案例" />
     </div>
-    <div class="case-index-grid"></div>
+    <div class="case-index-body"></div>
   `;
   document.querySelector(".case-page").appendChild(indexSection);
 
-  const grid = indexSection.querySelector(".case-index-grid");
-  const renderCards = (list) => {
-    grid.innerHTML = list
-      .map(
-        (item) => `
+  const body = indexSection.querySelector(".case-index-body");
+  const cardHtml = (item) => `
       <a class="case-index-card" href="./case.html?project=${encodeURIComponent(item.slug)}">
-        <span class="case-index-thumb"><img src="./assets/project-covers/${item.slug}.png" data-hero="${item.hero || ""}" alt="" loading="lazy" onerror="if(this.dataset.hero){this.src=this.dataset.hero;this.dataset.hero='';}else{this.onerror=null;this.src='./assets/cases/project-placeholder.svg';}" /></span>
+        <span class="case-index-thumb">${coverImg(item)}</span>
         <span class="case-index-meta">${monthOf(item)}${item.group ? ` · ${item.group}` : ""}</span>
         <strong class="case-index-title">${item.title}</strong>
       </a>
-    `,
-      )
+    `;
+  const renderGroups = (list) => {
+    const years = [...new Set(list.map(yearOf))];
+    body.innerHTML = years
+      .map((year) => {
+        const items = list.filter((item) => yearOf(item) === year);
+        return `
+      <section class="case-index-year-group">
+        <h2 class="case-index-year">${year}<span>${items.length} 个项目</span></h2>
+        <div class="case-index-grid">${items.map(cardHtml).join("")}</div>
+      </section>
+        `;
+      })
       .join("");
   };
-  renderCards(entries);
+  renderGroups(entries);
 
   indexSection.querySelector(".case-index-search").addEventListener("input", (event) => {
     const q = event.target.value.trim().toLowerCase();
-    renderCards(
+    renderGroups(
       !q
         ? entries
         : entries.filter((item) =>

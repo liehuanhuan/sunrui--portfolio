@@ -9010,3 +9010,35 @@ body.is-case-index::after {
   font-weight: 600;
   line-height: 1.32;
 }
+
+
+/* 年份分组标题 */
+.case-index-year-group {
+  margin-top: 56px;
+}
+
+.case-index-year-group:first-child {
+  margin-top: 0;
+}
+
+.case-index-year {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 0 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.14);
+  font-family: "Source Han Serif SC", "Noto Serif CJK SC", "思源宋体", "Songti SC", "STSong", serif;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.case-index-year span {
+  color: rgba(17, 17, 17, 0.44);
+  font-family: "Alibaba PuHuiTi", "AlibabaPuHuiTi", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 12.5px;
+  font-weight: 450;
+  letter-spacing: 0.06em;
+}

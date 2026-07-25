@@ -174,7 +174,8 @@ sourceRoots.forEach(({ root, weight }) => {
     if (!allowedTypes.has(meta.type)) return;
     const title = meta.project || text.match(/^#\s+(.+)$/m)?.[1] || path.basename(filePath, ".md");
     if (!title || /项目精华|工作索引|总览|经历补充|核心互动技术索引/.test(title)) return;
-    if (title === "美的" || title === "小米旅拍" || title === "魔兽争霸III世界选手小聚" || /执行/.test(title)) return; // 美的未执行；小米旅拍/魔兽小聚是执行的活；执行汇报类不上站
+    const blockedTitles = new Set(["美的", "小米旅拍", "魔兽争霸III世界选手小聚", "精品短剧创作论坛", "大窑串词", "爱奇艺爆前先锋导演夜", "咖啡店"]);
+    if (blockedTitles.has(title) || /执行/.test(title)) return; // 美的未执行；小米旅拍/魔兽小聚是执行的活；执行汇报类不上站；短剧论坛/大窑/导演夜/咖啡店是无资料空壳页
     if (/^(参考资料|可追溯资料|品牌\s*VI|散文件|iCAR散文件|日常|日常文档)$/i.test(title)) return;
     if (/资料-|资料_/.test(path.basename(filePath)) && /参考资料|可追溯资料|品牌\s*VI|散文件/.test(title)) return;
     const month = extractMonth(filePath, meta);

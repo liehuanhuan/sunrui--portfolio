@@ -19,6 +19,7 @@ if (!hasDetailParams) {
   entries.sort((a, b) => sortKey(b) - sortKey(a));
 
   document.title = "案例仓库｜孙瑞 Portfolio";
+  document.body.classList.add("is-case-index");
   ["case-hero", "case-thinking", "case-body", "case-gallery"].forEach((cls) => {
     const el = document.querySelector(`.${cls}`);
     if (el) el.style.display = "none";

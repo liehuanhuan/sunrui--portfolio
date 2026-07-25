@@ -8838,49 +8838,125 @@ body::after {
 }
 
 
-/* ===== 案例仓库索引视图（case.html 无参数进入时） ===== */
+/* ===== 案例仓库索引视图（case.html 无参数进入时，对齐新站视觉） ===== */
+@font-face {
+  font-display: swap;
+  font-family: "AlibabaPuHuiTiLocal";
+  font-style: normal;
+  font-weight: 450;
+  src: url("./assets/fonts/AlibabaPuHuiTi-45Light.ttf") format("truetype");
+}
+
+body.is-case-index {
+  color: #111111;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(255, 255, 255, 0.94), transparent 28rem),
+    radial-gradient(circle at 78% 18%, rgba(0, 0, 0, 0.035), transparent 24rem),
+    linear-gradient(180deg, #ffffff 0%, #f5f5f5 46%, #eeeeee 100%);
+  color-scheme: light;
+  font-family: "Alibaba PuHuiTi", "AlibabaPuHuiTi", "阿里巴巴普惠体", "Alibaba PuHuiTi 2.0", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-variation-settings: normal;
+  font-weight: 450;
+}
+
+body.is-case-index::before {
+  z-index: 40;
+  opacity: 0.08;
+  background-image: linear-gradient(rgba(17, 17, 17, 0.045) 1px, transparent 1px);
+  background-size: 100% 3px;
+}
+
+body.is-case-index::after {
+  content: none;
+}
+
+.is-case-index .site-header {
+  border: 1px solid rgba(17, 17, 17, 0.14);
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.08);
+}
+
+.is-case-index .brand-mark {
+  background: #111111;
+  box-shadow: none;
+  color: #ffffff;
+}
+
+.is-case-index .site-header .brand,
+.is-case-index .site-header .nav-links a {
+  color: #111111;
+  text-shadow: none;
+}
+
+.is-case-index .site-header .nav-links a {
+  opacity: 0.72;
+}
+
+.is-case-index .site-header .nav-links a:hover {
+  opacity: 1;
+}
+
+.is-case-index .case-page {
+  background: transparent;
+}
+
 .case-index {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 48px clamp(20px, 5vw, 80px) 96px;
+  padding: 56px clamp(20px, 5vw, 80px) 110px;
 }
 
 .case-index-head {
-  margin-bottom: 36px;
+  margin-bottom: 40px;
+}
+
+.case-index-head .superline {
+  margin: 0;
+  color: rgba(17, 17, 17, 0.44);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
 }
 
 .case-index-head h1 {
-  margin: 8px 0 10px;
-  font-size: clamp(38px, 5vw, 64px);
+  margin: 10px 0 12px;
+  font-family: "Source Han Serif SC", "Noto Serif CJK SC", "思源宋体", "Songti SC", "STSong", serif;
+  font-size: clamp(40px, 5.4vw, 68px);
+  font-weight: 600;
+  letter-spacing: 0;
   line-height: 1.05;
 }
 
 .case-index-sub {
   margin: 0;
-  color: rgba(0, 0, 0, 0.55);
+  color: rgba(17, 17, 17, 0.56);
+  font-size: 14.5px;
 }
 
 .case-index-search {
   display: block;
-  margin-top: 20px;
+  margin-top: 22px;
   width: min(460px, 100%);
   padding: 12px 18px;
-  border: 1px solid rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(17, 17, 17, 0.18);
   border-radius: 999px;
-  background: #fff;
-  color: inherit;
+  background: #ffffff;
+  color: #111111;
   font: inherit;
   font-size: 14.5px;
   outline: none;
+  transition: border-color 180ms ease;
 }
 
 .case-index-search:focus {
-  border-color: rgba(0, 0, 0, 0.45);
+  border-color: rgba(17, 17, 17, 0.45);
 }
 
 .case-index-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 22px;
 }
 
@@ -8888,19 +8964,20 @@ body::after {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: 10px 10px 14px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 14px;
-  background: #fff;
+  padding: 0 0 14px;
+  border: 1px solid rgba(17, 17, 17, 0.18);
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
   color: inherit;
   text-decoration: none;
   transition:
-    transform 180ms ease,
-    box-shadow 180ms ease;
+    box-shadow 200ms ease,
+    transform 200ms ease;
 }
 
 .case-index-card:hover {
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.14);
   transform: translateY(-3px);
 }
 
@@ -8908,8 +8985,8 @@ body::after {
   display: block;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  border-radius: 9px;
-  background: #f3f2ee;
+  background: #f8f8f3;
+  border-bottom: 1px solid #eaeaea;
 }
 
 .case-index-thumb img {
@@ -8920,11 +8997,16 @@ body::after {
 }
 
 .case-index-meta {
-  color: rgba(0, 0, 0, 0.5);
+  padding: 0 14px;
+  color: rgba(17, 17, 17, 0.5);
   font-size: 12px;
+  letter-spacing: 0.04em;
 }
 
 .case-index-title {
-  font-size: 15.5px;
-  line-height: 1.35;
+  padding: 0 14px;
+  font-family: "Source Han Serif SC", "Noto Serif CJK SC", "思源宋体", "Songti SC", "STSong", serif;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.32;
 }

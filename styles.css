@@ -8847,7 +8847,7 @@ body::after {
   src: url("./assets/fonts/AlibabaPuHuiTi-45Light.ttf") format("truetype");
 }
 
-body.is-case-index {
+body:is(.is-case-index, .is-case-detail) {
   color: #111111;
   background:
     radial-gradient(circle at 18% 8%, rgba(255, 255, 255, 0.94), transparent 28rem),
@@ -8859,18 +8859,18 @@ body.is-case-index {
   font-weight: 450;
 }
 
-body.is-case-index::before {
+body:is(.is-case-index, .is-case-detail)::before {
   z-index: 40;
   opacity: 0.08;
   background-image: linear-gradient(rgba(17, 17, 17, 0.045) 1px, transparent 1px);
   background-size: 100% 3px;
 }
 
-body.is-case-index::after {
+body:is(.is-case-index, .is-case-detail)::after {
   content: none;
 }
 
-.is-case-index .site-header {
+:is(.is-case-index, .is-case-detail) .site-header {
   border: 1px solid rgba(17, 17, 17, 0.14);
   background: rgba(255, 255, 255, 0.86);
   backdrop-filter: blur(14px);
@@ -8878,27 +8878,27 @@ body.is-case-index::after {
   box-shadow: 0 12px 34px rgba(0, 0, 0, 0.08);
 }
 
-.is-case-index .brand-mark {
+:is(.is-case-index, .is-case-detail) .brand-mark {
   background: #111111;
   box-shadow: none;
   color: #ffffff;
 }
 
-.is-case-index .site-header .brand,
-.is-case-index .site-header .nav-links a {
+:is(.is-case-index, .is-case-detail) .site-header .brand,
+:is(.is-case-index, .is-case-detail) .site-header .nav-links a {
   color: #111111;
   text-shadow: none;
 }
 
-.is-case-index .site-header .nav-links a {
+:is(.is-case-index, .is-case-detail) .site-header .nav-links a {
   opacity: 0.72;
 }
 
-.is-case-index .site-header .nav-links a:hover {
+:is(.is-case-index, .is-case-detail) .site-header .nav-links a:hover {
   opacity: 1;
 }
 
-.is-case-index .case-page {
+:is(.is-case-index, .is-case-detail) .case-page {
   background: transparent;
 }
 
@@ -9041,4 +9041,124 @@ body.is-case-index::after {
   font-size: 12.5px;
   font-weight: 450;
   letter-spacing: 0.06em;
+}
+
+/* ===== 项目详情页（case.html 带参数进入时，对齐新站浅色编辑风） ===== */
+body.is-case-detail .case-hero {
+  min-height: auto;
+  padding: clamp(48px, 7vw, 96px) clamp(20px, 5vw, 80px) clamp(32px, 4vw, 56px);
+}
+
+body.is-case-detail .case-hero h1 {
+  margin: 10px 0 18px;
+  color: #111111;
+  font-family: "Source Han Serif SC", "Noto Serif CJK SC", "思源宋体", "Songti SC", "STSong", serif;
+  font-size: clamp(38px, 5vw, 68px);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.12;
+  text-transform: none;
+}
+
+body.is-case-detail .case-hero .superline {
+  color: rgba(17, 17, 17, 0.44);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+body.is-case-detail .case-summary {
+  color: rgba(17, 17, 17, 0.58);
+  font-family: "Alibaba PuHuiTi", "AlibabaPuHuiTi", "阿里巴巴普惠体", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 16px;
+  font-weight: 450;
+  line-height: 1.8;
+}
+
+body.is-case-detail .case-hero-image {
+  background: #ffffff;
+  border: 1px solid rgba(17, 17, 17, 0.18);
+  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.12);
+  padding: 10px;
+}
+
+body.is-case-detail .case-thinking {
+  border-bottom-color: rgba(17, 17, 17, 0.14);
+  border-top-color: rgba(17, 17, 17, 0.14);
+  margin: 0 clamp(20px, 5vw, 80px) 36px;
+}
+
+body.is-case-detail .case-thinking span {
+  color: #111111;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+body.is-case-detail .case-thinking p {
+  color: #111111;
+  font-family: "Source Han Serif SC", "Noto Serif CJK SC", "思源宋体", "Songti SC", "STSong", serif;
+  font-size: clamp(20px, 2vw, 30px);
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+body.is-case-detail .case-body {
+  padding: 40px clamp(20px, 5vw, 80px) 72px;
+}
+
+body.is-case-detail .case-meta {
+  border-top-color: rgba(17, 17, 17, 0.14);
+}
+
+body.is-case-detail .case-meta > span {
+  color: #111111;
+  font-family: "Source Han Serif SC", "Noto Serif CJK SC", "思源宋体", "Songti SC", "STSong", serif;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+body.is-case-detail .case-meta strong {
+  color: #111111;
+  font-family: "Alibaba PuHuiTi", "AlibabaPuHuiTi", "阿里巴巴普惠体", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-weight: 450;
+}
+
+body.is-case-detail .case-keywords span {
+  background: #ffffff;
+  border: 1px solid rgba(17, 17, 17, 0.22);
+  border-radius: 999px;
+  color: #111111;
+  font-family: "Alibaba PuHuiTi", "AlibabaPuHuiTi", "阿里巴巴普惠体", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 12.5px;
+  padding: 6px 12px;
+}
+
+body.is-case-detail .case-writing article {
+  border-top-color: rgba(17, 17, 17, 0.14);
+}
+
+body.is-case-detail .case-writing span {
+  color: rgba(17, 17, 17, 0.44);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+body.is-case-detail .case-writing p {
+  color: rgba(17, 17, 17, 0.62);
+  font-family: "Alibaba PuHuiTi", "AlibabaPuHuiTi", "阿里巴巴普惠体", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 15.5px;
+  font-weight: 450;
+  line-height: 1.85;
+}
+
+body.is-case-detail .case-gallery {
+  padding: 0 clamp(20px, 5vw, 80px) 110px;
+}
+
+body.is-case-detail .case-gallery figure {
+  background: #ffffff;
+  border: 1px solid rgba(17, 17, 17, 0.18);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
 }

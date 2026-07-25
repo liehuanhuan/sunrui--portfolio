@@ -87,6 +87,7 @@ if (!hasDetailParams) {
     );
   });
 } else {
+document.body.classList.add("is-case-detail");
 const normalizeArchiveTitle = (title) =>
   String(title || "")
     .toLowerCase()

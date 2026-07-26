@@ -179,7 +179,9 @@ const projectArchiveCase = projectCase
     )
   : null;
 const projectImages = projectCase
-  ? [projectCase.hero, ...(projectCase.images || []), ...(projectArchiveCase?.shots || [])].filter(Boolean)
+  ? (window.projectGallery?.[projectCase.slug]?.length
+      ? window.projectGallery[projectCase.slug]
+      : [projectCase.hero, ...(projectCase.images || []), ...(projectArchiveCase?.shots || [])].filter(Boolean))
   : [];
 const archiveFallbackCase = archiveTitle
   ? {
@@ -215,8 +217,13 @@ const currentCase = archiveTitle && (archiveCase || archiveDetail)
         title: projectCase.title,
         year: projectCase.year || projectCase.month || "项目档案",
         category: projectCase.category || "项目资料",
-        hero: projectImages[0] || projectPlaceholder,
-        images: projectImages.slice(1),
+        hero: `./assets/project-covers/${projectCase.slug}.jpg`,
+        heroFallbacks: [
+          `./assets/project-covers/${projectCase.slug}.png`,
+          ...projectImages,
+          projectPlaceholder,
+        ],
+        images: projectImages,
         keywords: projectCase.keywords?.length ? projectCase.keywords : ["项目资料", "方案索引", "Obsidian"],
         why: projectCase.why || "这是从 Obsidian 工作系统中整理出的项目资料页。",
         thinking: projectCase.thinking || projectCase.why || "保留项目的 Brief、创意方向、成案内容与可复用线索。",
@@ -230,8 +237,17 @@ document.title = `${currentCase.title}｜孙瑞 Portfolio`;
 document.querySelector("#case-level").textContent = `${currentCase.group} / ${currentCase.level}项目`;
 document.querySelector("#case-title").textContent = currentCase.title;
 document.querySelector("#case-summary").textContent = currentCase.why;
-document.querySelector("#case-hero-image").src = currentCase.hero;
-document.querySelector("#case-hero-image").alt = currentCase.title;
+const heroImg = document.querySelector("#case-hero-image");
+const heroSrcs = [currentCase.hero, ...(currentCase.heroFallbacks || [])].filter(Boolean);
+heroImg.dataset.srcs = heroSrcs.slice(1).join("|");
+heroImg.onerror = function () {
+  const n = this.dataset.srcs ? this.dataset.srcs.split("|") : [];
+  this.dataset.srcs = n.slice(1).join("|");
+  if (n[0]) this.src = n[0];
+  else this.onerror = null;
+};
+heroImg.src = heroSrcs[0] || projectPlaceholder;
+heroImg.alt = currentCase.title;
 document.querySelector("#case-year").textContent = currentCase.year;
 document.querySelector("#case-category").textContent = `${currentCase.category} · ${currentCase.scale}`;
 document.querySelector("#case-thinking").textContent = currentCase.thinking || currentCase.why;

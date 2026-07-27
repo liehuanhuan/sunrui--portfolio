@@ -383,6 +383,22 @@ function ProjectFolders() {
   const dragRef = useRef(null);
   const roomFolder = projectFolders.find((folder) => folder.id === roomId) ?? null;
 
+  // 文件夹展开后，滚轮也可以平移画布（不用每个人都会拖拽）
+  const canvasRef = useRef(null);
+  useEffect(() => {
+    const el = canvasRef.current;
+    if (!el || !roomId) return undefined;
+    const onWheel = (event) => {
+      event.preventDefault();
+      setCanvasOffset((current) => ({
+        x: Math.min(0, current.x - event.deltaX),
+        y: current.y - event.deltaY,
+      }));
+    };
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, [roomId]);
+
   const updateDrag = (event) => {
     if (!dragRef.current) return;
     event.preventDefault?.();
@@ -471,16 +487,11 @@ function ProjectFolders() {
     <section className="work page-pad" id="work">
       <div className="section-title work-title">
         <h2>案例库</h2>
-        <p>
-          <span className="click-hint">
-            <span className="click-cursor" aria-hidden="true" />
-            点开文件夹就地展开案例，点「…」进完整案例库
-          </span>
-        </p>
       </div>
 
       <div
         className="case-canvas"
+        ref={canvasRef}
         aria-label="可拖动案例库画布"
         onPointerDown={(event) => beginDrag(event, "canvas", "canvas")}
         onPointerMove={updateDrag}
@@ -495,8 +506,8 @@ function ProjectFolders() {
         >
           <div className="canvas-caption">
             <span>CASE LIBRARY</span>
-            <h3>四个文件夹</h3>
-            <p>画布上只有文件夹。点开任意一个，案例贴纸就地展开。</p>
+            <h3>创意无限画布</h3>
+            <p>点击案例夹，即可在画布中看到对应案例</p>
           </div>
 
           {projectFolders.map((folder) => (

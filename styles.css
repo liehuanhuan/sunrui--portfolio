@@ -9162,3 +9162,172 @@ body.is-case-detail .case-gallery figure {
   border: 1px solid rgba(17, 17, 17, 0.18);
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
 }
+
+/* ===== 技术思考系列页（writing.html，对齐新站浅色编辑风） ===== */
+.writing-index .case-index-head {
+  max-width: 880px;
+}
+
+.writing-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(17, 17, 17, 0.14);
+}
+
+.writing-item {
+  display: grid;
+  grid-template-columns: 72px 1fr 40px;
+  align-items: baseline;
+  gap: 18px;
+  padding: 26px 4px;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.14);
+  color: inherit;
+  text-decoration: none;
+  transition: background 180ms ease, padding 180ms ease;
+}
+
+.writing-item:hover {
+  background: rgba(255, 255, 255, 0.72);
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.writing-item-num {
+  color: rgba(17, 17, 17, 0.4);
+  font-family: "SF Mono", "Cascadia Mono", Menlo, monospace;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+.writing-item-main strong {
+  display: block;
+  font-family: "Source Han Serif SC", "Noto Serif CJK SC", "思源宋体", "Songti SC", "STSong", serif;
+  font-size: clamp(20px, 2.4vw, 30px);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.writing-item-main em {
+  display: block;
+  margin-top: 8px;
+  color: rgba(17, 17, 17, 0.52);
+  font-size: 14px;
+  font-style: normal;
+}
+
+.writing-item-arrow {
+  color: rgba(17, 17, 17, 0.36);
+  font-size: 18px;
+  justify-self: end;
+}
+
+/* 文章详情 */
+.writing-detail {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 64px clamp(20px, 5vw, 48px) 110px;
+}
+
+.writing-detail-head .superline {
+  color: rgba(17, 17, 17, 0.44);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.writing-detail-head h1 {
+  margin: 12px 0 14px;
+  font-family: "Source Han Serif SC", "Noto Serif CJK SC", "思源宋体", "Songti SC", "STSong", serif;
+  font-size: clamp(34px, 4.6vw, 56px);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.writing-detail-sub {
+  margin: 0 0 40px;
+  color: rgba(17, 17, 17, 0.54);
+  font-size: 15.5px;
+}
+
+.writing-prose {
+  color: rgba(17, 17, 17, 0.78);
+  font-family: "Alibaba PuHuiTi", "AlibabaPuHuiTi", "阿里巴巴普惠体", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 16.5px;
+  font-weight: 450;
+  line-height: 2;
+}
+
+.writing-prose h1 { display: none; }
+
+.writing-prose h2 {
+  margin: 56px 0 18px;
+  color: #111111;
+  font-family: "Source Han Serif SC", "Noto Serif CJK SC", "思源宋体", "Songti SC", "STSong", serif;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.writing-prose h3 {
+  margin: 40px 0 14px;
+  color: #111111;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.writing-prose p { margin: 0 0 20px; }
+
+.writing-prose blockquote {
+  margin: 28px 0;
+  padding: 4px 0 4px 20px;
+  border-left: 2px solid rgba(17, 17, 17, 0.3);
+  color: rgba(17, 17, 17, 0.56);
+  font-size: 15px;
+}
+
+.writing-prose ul, .writing-prose ol {
+  margin: 0 0 22px;
+  padding-left: 1.4em;
+}
+
+.writing-prose li { margin-bottom: 8px; }
+
+.writing-prose strong { color: #111111; font-weight: 700; }
+
+.writing-prose img {
+  display: block;
+  max-width: 100%;
+  margin: 32px auto;
+  border: 1px solid rgba(17, 17, 17, 0.16);
+  background: #ffffff;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.1);
+}
+
+.writing-prose hr {
+  margin: 48px 0;
+  border: 0;
+  border-top: 1px solid rgba(17, 17, 17, 0.14);
+}
+
+.writing-pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 72px;
+  padding-top: 26px;
+  border-top: 1px solid rgba(17, 17, 17, 0.14);
+}
+
+.writing-pager a {
+  color: rgba(17, 17, 17, 0.66);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.writing-pager a:hover { color: #111111; }
+
+@media (max-width: 720px) {
+  .writing-item { grid-template-columns: 48px 1fr 24px; }
+  .writing-detail { padding-top: 44px; }
+}

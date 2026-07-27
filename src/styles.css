@@ -308,7 +308,6 @@ button {
 .intro-copy h2,
 .section-title h2,
 .archive-copy h2,
-.method-content h2,
 .visual-copy h2,
 .contact h2 {
   margin: 0;
@@ -413,7 +412,6 @@ button {
 
 .number-card,
 .archive,
-.method,
 .visual,
 .contact {
   position: relative;
@@ -425,14 +423,12 @@ button {
 
 .profile-sheet::marker,
 .archive::marker,
-.method::marker,
 .visual::marker,
 .contact::marker {
   display: none;
 }
 
 .archive > :first-child::before,
-.method > :first-child::before,
 .visual > :first-child::before,
 .contact > :first-child::before {
   content: "";
@@ -801,7 +797,6 @@ button {
 
 .section-title h2,
 .archive-copy h2,
-.method-content h2,
 .visual-copy h2,
 .contact h2 {
   max-width: 1040px;
@@ -813,7 +808,6 @@ button {
 
 .section-title p,
 .archive-copy p,
-.capability p,
 .visual-copy p,
 .contact p,
 .project-info p {
@@ -852,7 +846,6 @@ button {
 
 .work,
 .archive,
-.method,
 .visual,
 .contact {
   margin-top: 108px;
@@ -1423,55 +1416,6 @@ button {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 }
 
-.method {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 30px;
-  padding: 24px;
-}
-
-.method-media {
-  min-height: 620px;
-  overflow: hidden;
-  border-radius: calc(var(--radius) - 6px);
-  background: #f5f5f5;
-  box-shadow: inset 0 0 0 1px var(--line);
-}
-
-.method-media video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.method-content {
-  padding: clamp(26px, 4vw, 56px);
-}
-
-.capability-list {
-  display: grid;
-  gap: 12px;
-  margin-top: 34px;
-}
-
-.capability {
-  display: grid;
-  grid-template-columns: minmax(130px, 0.42fr) 1fr;
-  gap: 22px;
-  padding: 20px 0;
-  border-top: 1px solid var(--line);
-}
-
-.capability h3 {
-  margin: 0;
-  color: var(--ink);
-  font-size: 22px;
-}
-
-.capability p {
-  margin: 0;
-}
-
 .visual {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
@@ -1566,7 +1510,6 @@ button {
 
   .profile-sheet,
   .archive,
-  .method,
   .visual {
     grid-template-columns: 1fr;
   }
@@ -1641,10 +1584,6 @@ button {
     left: min(35vw, 330px);
     width: clamp(250px, 30vw, 340px);
   }
-
-  .method-media {
-    min-height: 460px;
-  }
 }
 
 @media (max-width: 720px) {
@@ -1677,7 +1616,6 @@ button {
   .intro,
   .work,
   .archive,
-  .method,
   .visual {
     margin-top: 68px;
     padding-top: 0;
@@ -1685,7 +1623,6 @@ button {
 
   .profile-sheet,
   .archive,
-  .method,
   .visual,
   .contact {
     padding: 24px;
@@ -1694,7 +1631,6 @@ button {
   .profile-main h2,
   .section-title h2,
   .archive-copy h2,
-  .method-content h2,
   .visual-copy h2 {
     font-size: clamp(34px, 11vw, 58px);
   }
@@ -1805,10 +1741,6 @@ button {
 
   .case-canvas .project-file {
     width: 210px;
-  }
-
-  .capability {
-    grid-template-columns: 1fr;
   }
 
   .photo-grid {

@@ -10,14 +10,6 @@ const folderAnchors = [
   { x: 414, y: 522, r: -2 },
 ];
 
-const capabilities = [
-  ["洞察力", "在复杂信息里抓住关键变量，判断项目真正要解决的问题。"],
-  ["共情力", "理解客户、用户、媒体和现场参与者各自的期待和阻力。"],
-  ["分析力", "把散乱材料整理成主题、结构、路径和可推进的方案骨架。"],
-  ["执行力", "让创意不是停在 PPT 里，而能被现场、供应商和团队承接。"],
-  ["AI协同力", "用 AI 扩展资料整理、视觉探索、文案推演和项目复盘效率。"],
-];
-
 const numbers = [
   ["150+", "跨行业项目参与与沉淀"],
   ["2020-2026", "持续工作在发布会、展区、公关传播和品牌活动现场"],
@@ -782,8 +774,8 @@ function App() {
         <div className="nav-menu">
           <a href="#profile">经历</a>
           <a href="#work">案例</a>
-          <a href="#method">能力</a>
           <a href="/case.html">案例库</a>
+          <a href="/writing.html">思考</a>
         </div>
         <a className="nav-action" href="#contact">
           联系
@@ -892,23 +884,6 @@ function App() {
       </section>
 
       <ProjectFolders />
-
-      <section className="method page-pad" id="method">
-        <div className="method-media">
-          <video src="/assets/lenin-character.mp4" autoPlay muted loop playsInline />
-        </div>
-        <div className="method-content">
-          <h2>优势不是“会想创意”，而是能让项目成立。</h2>
-          <div className="capability-list">
-            {capabilities.map(([title, text]) => (
-              <article className="capability" key={title}>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="visual page-pad">
         <div className="visual-copy">

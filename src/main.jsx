@@ -906,34 +906,8 @@ function App() {
         <div className="profile-sheet">
           <aside className="profile-rail">BRAND STRATEGIST / CREATIVE / EXPERIENCE DESIGNER</aside>
           <div className="profile-main">
-            <span className="profile-index">01 / ABOUT</span>
-            <h2>
-              <span className="profile-title-prefix">我是一名</span>
-              <span className="profile-title-line">以策略导向作为核心工作方向的</span>
-              <span className="profile-title-role">创意工作室主理人</span>
-            </h2>
-            <p className="profile-lead">
-              长期工作在品牌活动、发布会、展区展厅、公关传播与整合营销的第一线。我擅长把商业目标、产品信息、品牌语境、预算条件和现场限制，组织成一套可以被客户理解、被团队推进、被现场承接的美学系统。
-            </p>
+            <span className="profile-index">04 / 项目能力 &amp; 技能矩阵</span>
             <div className="profile-columns">
-              <article>
-                <h3>
-                  <span>01 经验沉淀</span>
-                  从 4A 到上市公司
-                </h3>
-                <p>
-                  十五年的工作积累让我能够快速抓住客户的核心特点，并从战略层级推动活动进入更深的执行转化。2022 年起，我开设创意工作室，持续参与 300+ 个跨行业公关与活动项目。
-                </p>
-              </article>
-              <article>
-                <h3>
-                  <span>02 创意能力</span>
-                  用创意与表达打通品牌与公众
-                </h3>
-                <p>
-                  我也享受这个过程：通过策略判断、创意表达、视觉气质、现场秩序和传播出口的融合，帮助品牌完成更准确的推广、公关传播与公众沟通。
-                </p>
-              </article>
               <article>
                 <h3>
                   <span>03 项目能力</span>

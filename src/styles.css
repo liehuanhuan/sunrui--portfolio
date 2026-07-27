@@ -67,7 +67,7 @@ button {
 }
 
 .site {
-  overflow: hidden;
+  overflow: clip;
 }
 
 .page-pad {

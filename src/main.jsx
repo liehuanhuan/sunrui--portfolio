@@ -898,9 +898,9 @@ function App() {
 
       <section className="visual page-pad">
         <div className="visual-copy">
-          <h2>视觉习惯也会进入工作。</h2>
+          <h2>观察是一种日常。</h2>
           <p>
-            城市、空间、光线和现场秩序的观察，会影响我如何处理一个品牌项目的气质、节奏和可感知性。
+            这些照片来自我的日记本：街道、光，和一些路过的现场。
           </p>
         </div>
         <div className="photo-grid">

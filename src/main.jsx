@@ -900,7 +900,7 @@ function App() {
         <div className="visual-copy">
           <h2>观察是一种日常。</h2>
           <p>
-            这些照片来自我的日记本：街道、光，和一些路过的现场。
+            这些照片来自我的日记本：街道、光，和一些路过的现场。有的时候，日常观察、享受生活，才是灵感的源泉。
           </p>
         </div>
         <div className="photo-grid">

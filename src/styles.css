@@ -145,17 +145,17 @@ button {
 
 .cover-stage {
   position: relative;
-  width: min(100vw, calc(100dvh * 1.799));
-  aspect-ratio: 1683 / 935;
+  width: min(100vw, calc(100dvh * 1.778));
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background: var(--bg);
 }
 
 /* 窄屏（视口比图片更"瘦"）时放大底图让其撑满视口，
    两侧裁掉的是空背景，人物与海报墙保持居中对齐 */
-@media (max-aspect-ratio: 1683/935) {
+@media (max-aspect-ratio: 16/9) {
   .cover-stage {
-    width: calc(100dvh * 1.799);
+    width: calc(100dvh * 1.778);
     height: 100dvh;
     max-width: none;
   }
@@ -2309,10 +2309,14 @@ button {
 }
 
 .journey-stage .journey-zoom {
-  width: max(100vw, calc(100dvh * 1.799));
+  width: max(100vw, calc(100dvh * 1.778));
   max-width: none;
   height: auto;
   will-change: transform;
+}
+
+.journey-stage .pose-img {
+  transition: none;
 }
 
 .journey-title {

@@ -320,15 +320,21 @@ const coverPosters = [
   },
 ];
 
+const journeyPoses = [
+  "/assets/hero/pose-1.jpg",
+  "/assets/hero/pose-2.jpg",
+  "/assets/hero/pose-3.jpg",
+];
+
 const cameraKeys = [
   { p: 0, s: 1, fx: 50, fy: 50, r: 0 },
   { p: 0.12, s: 1, fx: 50, fy: 50, r: 0 },
-  { p: 0.3, s: 1.9, fx: 18, fy: 9, r: -1.2 },
-  { p: 0.42, s: 1.9, fx: 21, fy: 11, r: -0.7 },
-  { p: 0.54, s: 1.9, fx: 75, fy: 9, r: 1.2 },
-  { p: 0.66, s: 1.9, fx: 72, fy: 12, r: 0.7 },
-  { p: 0.78, s: 2.0, fx: 21, fy: 28, r: -1 },
-  { p: 1, s: 2.1, fx: 24, fy: 30, r: 0 },
+  { p: 0.3, s: 1.7, fx: 50, fy: 48, r: -0.8 },
+  { p: 0.42, s: 1.7, fx: 50, fy: 46, r: -0.4 },
+  { p: 0.54, s: 2.2, fx: 50, fy: 38, r: 0.8 },
+  { p: 0.66, s: 2.2, fx: 50, fy: 40, r: 0.4 },
+  { p: 0.78, s: 1.5, fx: 50, fy: 55, r: -0.6 },
+  { p: 1, s: 1.35, fx: 50, fy: 55, r: 0 },
 ];
 
 const smooth = (t) => t * t * (3 - 2 * t);
@@ -396,6 +402,11 @@ function ScrollJourney() {
   const beat1O = fadeRange(progress, 0.2, 0.28, 0.4, 0.47);
   const beat2O = fadeRange(progress, 0.46, 0.54, 0.64, 0.71);
   const beat3O = fadeRange(progress, 0.72, 0.8, 0.94, 1);
+  const poseOs = [
+    fadeRange(progress, 0, 0.0001, 0.39, 0.45),
+    fadeRange(progress, 0.39, 0.45, 0.67, 0.73),
+    fadeRange(progress, 0.67, 0.73, 2, 3),
+  ];
 
   return (
     <section className="journey" id="home" ref={journeyRef} aria-label="创意资料墙滚动叙事">
@@ -407,30 +418,17 @@ function ScrollJourney() {
             transformOrigin: `${cam.fx}% ${cam.fy}%`,
           }}
         >
-          <img
-            className="cover-image"
-            src="/assets/hero/creative-brain-cover.png"
-            alt="创意资料墙与人物封面"
-          />
+          {journeyPoses.map((src, index) => (
+            <img
+              className="cover-image pose-img"
+              src={src}
+              alt={index === 0 ? "创意资料墙前的人物" : ""}
+              aria-hidden={index !== 0}
+              key={src}
+              style={{ opacity: poseOs[index] }}
+            />
+          ))}
           <div className="cover-shade" />
-          <div className="poster-wall" aria-label="项目封面墙">
-            {coverPosters.map((node) => (
-              <a
-                className={`cover-poster poster-${coverPosters.indexOf(node) + 1}`}
-                href={node.href}
-                key={node.title}
-                style={{
-                  left: `${node.x}%`,
-                  top: `${node.y}%`,
-                  width: `${node.w}%`,
-                  height: `${node.h}%`,
-                  "--r": `${node.rotate}deg`,
-                }}
-              >
-                <img src={node.image} alt={`${node.title} 项目封面`} />
-              </a>
-            ))}
-          </div>
         </div>
 
         <div className="journey-title" style={{ opacity: titleO }}>
@@ -440,8 +438,8 @@ function ScrollJourney() {
         </div>
 
         <div
-          className="journey-beat beat-right"
-          style={{ opacity: beat1O, transform: `translateY(-50%) translateX(${(1 - beat1O) * 60}px)` }}
+          className="journey-beat beat-left"
+          style={{ opacity: beat1O, transform: `translateY(-50%) translateX(${(1 - beat1O) * -60}px)` }}
         >
           <span className="journey-beat-index">01 / ABOUT</span>
           <h2>我是一名以策略导向作为核心工作方向的创意工作室主理人</h2>
@@ -451,8 +449,8 @@ function ScrollJourney() {
         </div>
 
         <div
-          className="journey-beat beat-left"
-          style={{ opacity: beat2O, transform: `translateY(-50%) translateX(${(1 - beat2O) * -60}px)` }}
+          className="journey-beat beat-right"
+          style={{ opacity: beat2O, transform: `translateY(-50%) translateX(${(1 - beat2O) * 60}px)` }}
         >
           <span className="journey-beat-index">02 / 经验沉淀</span>
           <h2>从 4A 到上市公司</h2>
@@ -463,8 +461,8 @@ function ScrollJourney() {
         </div>
 
         <div
-          className="journey-beat beat-right"
-          style={{ opacity: beat3O, transform: `translateY(-50%) translateX(${(1 - beat3O) * 60}px)` }}
+          className="journey-beat beat-left"
+          style={{ opacity: beat3O, transform: `translateY(-50%) translateX(${(1 - beat3O) * -60}px)` }}
         >
           <span className="journey-beat-index">03 / 创意能力</span>
           <h2>用创意与表达打通品牌与公众</h2>

@@ -320,53 +320,162 @@ const coverPosters = [
   },
 ];
 
-function HeroCover() {
-  const coverRef = useRef(null);
-  const [activeNode, setActiveNode] = useState(coverPosters[2]);
+const cameraKeys = [
+  { p: 0, s: 1, fx: 50, fy: 50, r: 0 },
+  { p: 0.12, s: 1, fx: 50, fy: 50, r: 0 },
+  { p: 0.3, s: 1.9, fx: 18, fy: 9, r: -1.2 },
+  { p: 0.42, s: 1.9, fx: 21, fy: 11, r: -0.7 },
+  { p: 0.54, s: 1.9, fx: 75, fy: 9, r: 1.2 },
+  { p: 0.66, s: 1.9, fx: 72, fy: 12, r: 0.7 },
+  { p: 0.78, s: 2.0, fx: 21, fy: 28, r: -1 },
+  { p: 1, s: 2.1, fx: 24, fy: 30, r: 0 },
+];
 
-  function handlePointerMove(event) {
-    const rect = coverRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    const x = ((event.clientX - rect.left) / rect.width - 0.5).toFixed(3);
-    const y = ((event.clientY - rect.top) / rect.height - 0.5).toFixed(3);
-    coverRef.current.style.setProperty("--mx", x);
-    coverRef.current.style.setProperty("--my", y);
+const smooth = (t) => t * t * (3 - 2 * t);
+const lerp = (a, b, t) => a + (b - a) * t;
+
+function sampleCamera(progress) {
+  let a = cameraKeys[0];
+  let b = cameraKeys[cameraKeys.length - 1];
+  for (let i = 0; i < cameraKeys.length - 1; i += 1) {
+    if (progress >= cameraKeys[i].p && progress <= cameraKeys[i + 1].p) {
+      a = cameraKeys[i];
+      b = cameraKeys[i + 1];
+      break;
+    }
   }
+  const t = smooth(Math.min(1, Math.max(0, (progress - a.p) / (b.p - a.p || 1))));
+  return { s: lerp(a.s, b.s, t), fx: lerp(a.fx, b.fx, t), fy: lerp(a.fy, b.fy, t), r: lerp(a.r, b.r, t) };
+}
+
+// 把焦点 (fx,fy) 尽量拉向画面中心，同时钳制位移保证放大后的墙始终铺满屏幕
+function cameraTranslate(f, s) {
+  const desired = 50 - f;
+  const hi = f * (s - 1);
+  const lo = -(100 - f) * (s - 1);
+  return Math.max(lo, Math.min(hi, desired));
+}
+
+function fadeRange(p, fadeInStart, fadeInEnd, fadeOutStart, fadeOutEnd) {
+  if (p <= fadeInStart || p >= fadeOutEnd) return 0;
+  if (p < fadeInEnd) return smooth((p - fadeInStart) / (fadeInEnd - fadeInStart));
+  if (p > fadeOutStart) return 1 - smooth((p - fadeOutStart) / (fadeOutEnd - fadeOutStart));
+  return 1;
+}
+
+function ScrollJourney() {
+  const journeyRef = useRef(null);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const el = journeyRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const total = rect.height - window.innerHeight;
+      setProgress(total > 0 ? Math.min(1, Math.max(0, -rect.top / total)) : 0);
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  const cam = sampleCamera(progress);
+  const titleO = fadeRange(progress, 0, 0.001, 0.05, 0.11);
+  const hintO = fadeRange(progress, 0, 0.001, 0.03, 0.08);
+  const beat1O = fadeRange(progress, 0.2, 0.28, 0.4, 0.47);
+  const beat2O = fadeRange(progress, 0.46, 0.54, 0.64, 0.71);
+  const beat3O = fadeRange(progress, 0.72, 0.8, 0.94, 1);
 
   return (
-    <section
-      className="hero-cover"
-      id="home"
-      ref={coverRef}
-      onPointerMove={handlePointerMove}
-      onPointerLeave={() => setActiveNode(coverPosters[2])}
-    >
-      <div className="cover-stage">
-        <img
-          className="cover-image"
-          src="/assets/hero/creative-brain-cover.png"
-          alt="创意资料墙与人物封面"
-        />
-        <div className="cover-shade" />
-        <div className="poster-wall" aria-label="项目封面墙">
-          {coverPosters.map((node, index) => (
-            <a
-              className={`cover-poster poster-${index + 1} ${activeNode.title === node.title ? "is-active" : ""}`}
-              href={node.href}
-              key={node.title}
-              style={{
-                left: `${node.x}%`,
-                top: `${node.y}%`,
-                width: `${node.w}%`,
-                height: `${node.h}%`,
-                "--r": `${node.rotate}deg`,
-              }}
-              onFocus={() => setActiveNode(node)}
-              onMouseEnter={() => setActiveNode(node)}
-            >
-              <img src={node.image} alt={`${node.title} 项目封面`} />
-            </a>
-          ))}
+    <section className="journey" id="home" ref={journeyRef} aria-label="创意资料墙滚动叙事">
+      <div className="journey-stage">
+        <div
+          className="cover-stage journey-zoom"
+          style={{
+            transform: `translate3d(${cameraTranslate(cam.fx, cam.s).toFixed(3)}%, ${cameraTranslate(cam.fy, cam.s).toFixed(3)}%, 0) scale(${cam.s.toFixed(4)}) rotate(${cam.r.toFixed(3)}deg)`,
+            transformOrigin: `${cam.fx}% ${cam.fy}%`,
+          }}
+        >
+          <img
+            className="cover-image"
+            src="/assets/hero/creative-brain-cover.png"
+            alt="创意资料墙与人物封面"
+          />
+          <div className="cover-shade" />
+          <div className="poster-wall" aria-label="项目封面墙">
+            {coverPosters.map((node) => (
+              <a
+                className={`cover-poster poster-${coverPosters.indexOf(node) + 1}`}
+                href={node.href}
+                key={node.title}
+                style={{
+                  left: `${node.x}%`,
+                  top: `${node.y}%`,
+                  width: `${node.w}%`,
+                  height: `${node.h}%`,
+                  "--r": `${node.rotate}deg`,
+                }}
+              >
+                <img src={node.image} alt={`${node.title} 项目封面`} />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="journey-title" style={{ opacity: titleO }}>
+          <p className="journey-kicker">BRAND STRATEGIST / CREATIVE / EXPERIENCE DESIGNER</p>
+          <h1>孙瑞</h1>
+          <p className="journey-sub">创意工作室主理人</p>
+        </div>
+
+        <div
+          className="journey-beat beat-right"
+          style={{ opacity: beat1O, transform: `translateY(-50%) translateX(${(1 - beat1O) * 60}px)` }}
+        >
+          <span className="journey-beat-index">01 / ABOUT</span>
+          <h2>我是一名以策略导向作为核心工作方向的创意工作室主理人</h2>
+          <p>
+            长期工作在品牌活动、发布会、展区展厅、公关传播与整合营销的第一线。我擅长把商业目标、产品信息、品牌语境、预算条件和现场限制，组织成一套可以被客户理解、被团队推进、被现场承接的美学系统。
+          </p>
+        </div>
+
+        <div
+          className="journey-beat beat-left"
+          style={{ opacity: beat2O, transform: `translateY(-50%) translateX(${(1 - beat2O) * -60}px)` }}
+        >
+          <span className="journey-beat-index">02 / 经验沉淀</span>
+          <h2>从 4A 到上市公司</h2>
+          <p>
+            十五年的工作积累让我能够快速抓住客户的核心特点，并从战略层级推动活动进入更深的执行转化。2022
+            年起，我开设创意工作室，持续参与 300+ 个跨行业公关与活动项目。
+          </p>
+        </div>
+
+        <div
+          className="journey-beat beat-right"
+          style={{ opacity: beat3O, transform: `translateY(-50%) translateX(${(1 - beat3O) * 60}px)` }}
+        >
+          <span className="journey-beat-index">03 / 创意能力</span>
+          <h2>用创意与表达打通品牌与公众</h2>
+          <p>
+            我也享受这个过程：通过策略判断、创意表达、视觉气质、现场秩序和传播出口的融合，帮助品牌完成更准确的推广、公关传播与公众沟通。
+          </p>
+        </div>
+
+        <div className="journey-hint" style={{ opacity: hintO }}>
+          <span />
+          向下滚动，走近这面墙
         </div>
       </div>
     </section>
@@ -793,7 +902,7 @@ function App() {
         </a>
       </nav>
 
-      <HeroCover />
+      <ScrollJourney />
 
       <section className="intro page-pad" id="profile">
         <div className="profile-sheet">

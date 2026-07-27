@@ -896,21 +896,6 @@ function App() {
 
       <ProjectFolders />
 
-      <section className="visual page-pad">
-        <div className="visual-copy">
-          <h2>观察是一种日常。</h2>
-          <p>
-            这些照片来自我的日记本：街道、光，和一些路过的现场。有的时候，日常观察、享受生活，才是灵感的源泉。
-          </p>
-        </div>
-        <div className="photo-grid">
-          <img src="/assets/life/sea-birds.jpg" alt="海面与天空" />
-          <img src="/assets/life/city-dusk.jpg" alt="城市黄昏" />
-          <img src="/assets/life/sagrada-city.jpg" alt="城市建筑远景" />
-          <img src="/assets/life/soft-cloud.jpg" alt="云层与天光" />
-        </div>
-      </section>
-
       <section className="contact page-pad" id="contact">
         <h2>如果一个项目需要被重新组织、讲清楚并落到现场，我们可以聊。</h2>
         <p>适合品牌发布、年度传播、科技大会、展区体验、竞标提案与创意策略类项目。</p>

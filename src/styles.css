@@ -308,7 +308,6 @@ button {
 .intro-copy h2,
 .section-title h2,
 .archive-copy h2,
-.visual-copy h2,
 .contact h2 {
   margin: 0;
   font-family: var(--font-display);
@@ -412,7 +411,6 @@ button {
 
 .number-card,
 .archive,
-.visual,
 .contact {
   position: relative;
   border: 1px solid var(--line);
@@ -423,13 +421,11 @@ button {
 
 .profile-sheet::marker,
 .archive::marker,
-.visual::marker,
 .contact::marker {
   display: none;
 }
 
 .archive > :first-child::before,
-.visual > :first-child::before,
 .contact > :first-child::before {
   content: "";
   position: absolute;
@@ -797,7 +793,6 @@ button {
 
 .section-title h2,
 .archive-copy h2,
-.visual-copy h2,
 .contact h2 {
   max-width: 1040px;
   font-family: var(--font-display);
@@ -808,7 +803,6 @@ button {
 
 .section-title p,
 .archive-copy p,
-.visual-copy p,
 .contact p,
 .project-info p {
   color: var(--muted);
@@ -846,7 +840,6 @@ button {
 
 .work,
 .archive,
-.visual,
 .contact {
   margin-top: 108px;
 }
@@ -1393,7 +1386,6 @@ button {
 }
 
 .archive-copy p,
-.visual-copy p,
 .contact p {
   max-width: 700px;
   margin: 24px 0 0;
@@ -1420,31 +1412,6 @@ button {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 }
 
-.visual {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 28px;
-  padding: clamp(30px, 5vw, 72px);
-}
-
-.photo-grid {
-  display: grid;
-  grid-template-columns: 1.3fr 0.9fr;
-  grid-auto-rows: 230px;
-  gap: 12px;
-}
-
-.photo-grid img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: calc(var(--radius) - 6px);
-  box-shadow: var(--shadow);
-}
-
-.photo-grid img:first-child {
-  grid-row: span 2;
-}
 
 .contact {
   display: grid;
@@ -1513,8 +1480,7 @@ button {
   }
 
   .profile-sheet,
-  .archive,
-  .visual {
+  .archive {
     grid-template-columns: 1fr;
   }
 
@@ -1619,23 +1585,20 @@ button {
 
   .intro,
   .work,
-  .archive,
-  .visual {
+  .archive {
     margin-top: 68px;
     padding-top: 0;
   }
 
   .profile-sheet,
   .archive,
-  .visual,
   .contact {
     padding: 24px;
   }
 
   .profile-main h2,
   .section-title h2,
-  .archive-copy h2,
-  .visual-copy h2 {
+  .archive-copy h2 {
     font-size: clamp(34px, 11vw, 58px);
   }
 
@@ -1745,15 +1708,6 @@ button {
 
   .case-canvas .project-file {
     width: 210px;
-  }
-
-  .photo-grid {
-    grid-template-columns: 1fr;
-    grid-auto-rows: 240px;
-  }
-
-  .photo-grid img:first-child {
-    grid-row: auto;
   }
 }
 

@@ -2330,13 +2330,11 @@ button {
 
 .journey-title {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  bottom: clamp(30px, 6vh, 70px);
+  left: max(24px, calc((100vw - 1700px) / 2 + 24px));
   z-index: 10;
-  padding: 96px max(24px, calc((100vw - 1700px) / 2 + 24px)) 36px;
-  background: linear-gradient(180deg, rgba(239, 233, 231, 0), rgba(239, 233, 231, 0.94) 58%);
   pointer-events: none;
+  text-shadow: 0 1px 24px rgba(239, 233, 231, 0.9), 0 0 8px rgba(239, 233, 231, 0.8);
 }
 
 .journey-kicker {
@@ -2367,27 +2365,23 @@ button {
   position: absolute;
   top: 50%;
   z-index: 10;
-  max-width: min(560px, 86vw);
+  max-width: min(520px, 86vw);
   pointer-events: none;
-  background: rgba(239, 233, 231, 0.72);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border-radius: 6px;
-  box-shadow: 0 20px 60px rgba(60, 50, 46, 0.12);
+  text-shadow: 0 1px 24px rgba(239, 233, 231, 0.9), 0 0 8px rgba(239, 233, 231, 0.8);
 }
 
 .journey-beat.beat-right {
   right: max(24px, calc((100vw - 1700px) / 2 + 40px));
   transform: translateY(-50%);
-  border-left: 2px solid rgba(17, 17, 17, 0.4);
-  padding: 28px 30px 28px 28px;
+  border-left: 2px solid rgba(17, 17, 17, 0.32);
+  padding-left: 26px;
 }
 
 .journey-beat.beat-left {
   left: max(24px, calc((100vw - 1700px) / 2 + 40px));
   transform: translateY(-50%);
-  border-right: 2px solid rgba(17, 17, 17, 0.4);
-  padding: 28px 28px 28px 30px;
+  border-right: 2px solid rgba(17, 17, 17, 0.32);
+  padding-right: 26px;
   text-align: right;
 }
 
@@ -2472,7 +2466,7 @@ button {
     left: 24px;
     max-width: none;
     border: none;
-    padding: 22px 24px;
+    padding: 0;
     text-align: left;
   }
 

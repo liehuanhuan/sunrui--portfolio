@@ -321,20 +321,24 @@ const coverPosters = [
 ];
 
 const personPoses = [
+  "/assets/hero/creative-brain-cover.png",
   "/assets/hero/pose-1.jpg",
   "/assets/hero/pose-2.jpg",
   "/assets/hero/pose-3.jpg",
+  "/assets/hero/creative-brain-cover.png",
 ];
 
 const cameraKeys = [
   { p: 0, s: 1, fx: 50, fy: 50, r: 0 },
-  { p: 0.12, s: 1, fx: 50, fy: 50, r: 0 },
-  { p: 0.3, s: 1.4, fx: 50, fy: 55, r: -0.8 },
-  { p: 0.42, s: 1.4, fx: 50, fy: 52, r: -0.4 },
-  { p: 0.54, s: 1.55, fx: 50, fy: 42, r: 0.8 },
-  { p: 0.66, s: 1.55, fx: 50, fy: 44, r: 0.4 },
-  { p: 0.78, s: 1.2, fx: 50, fy: 58, r: -0.6 },
-  { p: 1, s: 1.12, fx: 50, fy: 58, r: 0 },
+  { p: 0.1, s: 1, fx: 50, fy: 50, r: 0 },
+  { p: 0.24, s: 1.4, fx: 50, fy: 52, r: -0.8 },
+  { p: 0.36, s: 1.4, fx: 50, fy: 50, r: -0.4 },
+  { p: 0.5, s: 1.55, fx: 50, fy: 42, r: 0.8 },
+  { p: 0.6, s: 1.55, fx: 50, fy: 44, r: 0.4 },
+  { p: 0.72, s: 1.35, fx: 50, fy: 55, r: -0.6 },
+  { p: 0.82, s: 1.35, fx: 50, fy: 55, r: -0.3 },
+  { p: 0.92, s: 1.15, fx: 50, fy: 55, r: 0 },
+  { p: 1, s: 1.05, fx: 50, fy: 52, r: 0 },
 ];
 
 const smooth = (t) => t * t * (3 - 2 * t);
@@ -397,15 +401,18 @@ function ScrollJourney() {
   }, []);
 
   const cam = sampleCamera(progress);
-  const titleO = fadeRange(progress, 0, 0.001, 0.05, 0.11);
-  const hintO = fadeRange(progress, 0, 0.001, 0.03, 0.08);
-  const beat1O = fadeRange(progress, 0.2, 0.28, 0.4, 0.47);
-  const beat2O = fadeRange(progress, 0.46, 0.54, 0.64, 0.71);
-  const beat3O = fadeRange(progress, 0.72, 0.8, 0.94, 1);
+  const titleO = fadeRange(progress, -1, 0, 0.05, 0.11);
+  const hintO = fadeRange(progress, -1, 0, 0.03, 0.08);
+  const beat1O = fadeRange(progress, 0.14, 0.2, 0.3, 0.36);
+  const beat2O = fadeRange(progress, 0.4, 0.46, 0.54, 0.6);
+  const beat3O = fadeRange(progress, 0.62, 0.68, 0.76, 0.82);
+  const beat4O = fadeRange(progress, 0.84, 0.9, 0.98, 1.01);
   const poseOs = [
-    fadeRange(progress, 0, 0.0001, 0.42, 0.48),
-    fadeRange(progress, 0.42, 0.48, 0.68, 0.74),
-    fadeRange(progress, 0.68, 0.74, 2, 3),
+    fadeRange(progress, -1, 0, 0.06, 0.12),
+    fadeRange(progress, 0.06, 0.12, 0.42, 0.48),
+    fadeRange(progress, 0.42, 0.48, 0.62, 0.68),
+    fadeRange(progress, 0.62, 0.68, 0.84, 0.9),
+    fadeRange(progress, 0.84, 0.9, 2, 3),
   ];
 
   return (
@@ -486,6 +493,17 @@ function ScrollJourney() {
           <h2>用创意与表达打通品牌与公众</h2>
           <p>
             我也享受这个过程：通过策略判断、创意表达、视觉气质、现场秩序和传播出口的融合，帮助品牌完成更准确的推广、公关传播与公众沟通。
+          </p>
+        </div>
+
+        <div
+          className="journey-beat beat-right"
+          style={{ opacity: beat4O, transform: `translateY(-50%) translateX(${(1 - beat4O) * 60}px)` }}
+        >
+          <span className="journey-beat-index">04 / 项目能力</span>
+          <h2>复杂需求中的判断力与执行力</h2>
+          <p>
+            不同规模和行业的项目训练了我的判断力：在复杂需求中识别关键问题，在多方协作中建立清晰路径，并把策略、创意与执行结果稳定连接起来。
           </p>
         </div>
 
@@ -924,18 +942,7 @@ function App() {
         <div className="profile-sheet">
           <aside className="profile-rail">BRAND STRATEGIST / CREATIVE / EXPERIENCE DESIGNER</aside>
           <div className="profile-main">
-            <span className="profile-index">04 / 项目能力 &amp; 技能矩阵</span>
-            <div className="profile-columns">
-              <article>
-                <h3>
-                  <span>03 项目能力</span>
-                  复杂需求中的判断力与执行力
-                </h3>
-                <p>
-                  不同规模和行业的项目训练了我的判断力：在复杂需求中识别关键问题，在多方协作中建立清晰路径，并把策略、创意与执行结果稳定连接起来。
-                </p>
-              </article>
-            </div>
+            <span className="profile-index">05 / 技能矩阵</span>
             <div className="profile-skill-grid">
               {[
                 ["01", "品牌策略", "STRATEGY"],

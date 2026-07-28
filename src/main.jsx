@@ -321,10 +321,9 @@ const coverPosters = [
 ];
 
 const personPoses = [
-  "/assets/hero/person-0.png",
-  "/assets/hero/person-1.png",
-  "/assets/hero/person-2.png",
-  "/assets/hero/person-3.png",
+  "/assets/hero/pose-1.jpg",
+  "/assets/hero/pose-2.jpg",
+  "/assets/hero/pose-3.jpg",
 ];
 
 const cameraKeys = [
@@ -404,8 +403,7 @@ function ScrollJourney() {
   const beat2O = fadeRange(progress, 0.46, 0.54, 0.64, 0.71);
   const beat3O = fadeRange(progress, 0.72, 0.8, 0.94, 1);
   const poseOs = [
-    fadeRange(progress, 0, 0.0001, 0.15, 0.21),
-    fadeRange(progress, 0.15, 0.21, 0.42, 0.48),
+    fadeRange(progress, 0, 0.0001, 0.42, 0.48),
     fadeRange(progress, 0.42, 0.48, 0.68, 0.74),
     fadeRange(progress, 0.68, 0.74, 2, 3),
   ];
@@ -420,11 +418,16 @@ function ScrollJourney() {
             transformOrigin: `${cam.fx}% ${cam.fy}%`,
           }}
         >
-          <img
-            className="cover-image"
-            src="/assets/hero/wall-clean.png"
-            alt="创意资料墙"
-          />
+          {personPoses.map((src, index) => (
+            <img
+              className="cover-image pose-img"
+              src={src}
+              alt={index === 0 ? "创意资料墙前的人物" : ""}
+              aria-hidden={index !== 0}
+              key={src}
+              style={{ opacity: poseOs[index] }}
+            />
+          ))}
           <div className="cover-shade" />
           <div className="poster-wall" aria-label="项目封面墙">
             {coverPosters.map((node, index) => (
@@ -444,16 +447,6 @@ function ScrollJourney() {
               </a>
             ))}
           </div>
-          {personPoses.map((src, index) => (
-            <img
-              className="person-layer"
-              src={src}
-              alt={index === 0 ? "资料墙前的人物" : ""}
-              aria-hidden={index !== 0}
-              key={src}
-              style={{ opacity: poseOs[index] }}
-            />
-          ))}
         </div>
 
         <div className="journey-title" style={{ opacity: titleO }}>

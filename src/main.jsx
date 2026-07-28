@@ -320,6 +320,59 @@ const coverPosters = [
   },
 ];
 
+function HeroCover() {
+  const coverRef = useRef(null);
+  const [activeNode, setActiveNode] = useState(coverPosters[2]);
+
+  function handlePointerMove(event) {
+    const rect = coverRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const x = ((event.clientX - rect.left) / rect.width - 0.5).toFixed(3);
+    const y = ((event.clientY - rect.top) / rect.height - 0.5).toFixed(3);
+    coverRef.current.style.setProperty("--mx", x);
+    coverRef.current.style.setProperty("--my", y);
+  }
+
+  return (
+    <section
+      className="hero-cover"
+      id="home"
+      ref={coverRef}
+      onPointerMove={handlePointerMove}
+      onPointerLeave={() => setActiveNode(coverPosters[2])}
+    >
+      <div className="cover-stage">
+        <img
+          className="cover-image"
+          src="/assets/hero/creative-brain-cover.png"
+          alt="创意资料墙与人物封面"
+        />
+        <div className="cover-shade" />
+        <div className="poster-wall" aria-label="项目封面墙">
+          {coverPosters.map((node, index) => (
+            <a
+              className={`cover-poster poster-${index + 1} ${activeNode.title === node.title ? "is-active" : ""}`}
+              href={node.href}
+              key={node.title}
+              style={{
+                left: `${node.x}%`,
+                top: `${node.y}%`,
+                width: `${node.w}%`,
+                height: `${node.h}%`,
+                "--r": `${node.rotate}deg`,
+              }}
+              onFocus={() => setActiveNode(node)}
+              onMouseEnter={() => setActiveNode(node)}
+            >
+              <img src={node.image} alt={`${node.title} 项目封面`} />
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 const journeyPoses = [
   "/assets/hero/pose-1.jpg",
   "/assets/hero/pose-2.jpg",
@@ -329,12 +382,12 @@ const journeyPoses = [
 const cameraKeys = [
   { p: 0, s: 1, fx: 50, fy: 50, r: 0 },
   { p: 0.12, s: 1, fx: 50, fy: 50, r: 0 },
-  { p: 0.3, s: 1.7, fx: 50, fy: 48, r: -0.8 },
-  { p: 0.42, s: 1.7, fx: 50, fy: 46, r: -0.4 },
-  { p: 0.54, s: 2.2, fx: 50, fy: 38, r: 0.8 },
-  { p: 0.66, s: 2.2, fx: 50, fy: 40, r: 0.4 },
-  { p: 0.78, s: 1.5, fx: 50, fy: 55, r: -0.6 },
-  { p: 1, s: 1.35, fx: 50, fy: 55, r: 0 },
+  { p: 0.3, s: 1.4, fx: 50, fy: 50, r: -0.8 },
+  { p: 0.42, s: 1.4, fx: 50, fy: 48, r: -0.4 },
+  { p: 0.54, s: 1.6, fx: 50, fy: 40, r: 0.8 },
+  { p: 0.66, s: 1.6, fx: 50, fy: 42, r: 0.4 },
+  { p: 0.78, s: 1.25, fx: 50, fy: 55, r: -0.6 },
+  { p: 1, s: 1.15, fx: 50, fy: 55, r: 0 },
 ];
 
 const smooth = (t) => t * t * (3 - 2 * t);
@@ -409,7 +462,7 @@ function ScrollJourney() {
   ];
 
   return (
-    <section className="journey" id="home" ref={journeyRef} aria-label="创意资料墙滚动叙事">
+    <section className="journey" ref={journeyRef} aria-label="人物滚动叙事">
       <div className="journey-stage">
         <div
           className="cover-stage journey-zoom"
@@ -899,6 +952,8 @@ function App() {
           联系
         </a>
       </nav>
+
+      <HeroCover />
 
       <ScrollJourney />
 

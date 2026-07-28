@@ -1,4 +1,12 @@
 @font-face {
+  font-family: "FZJunHeiLocal";
+  src: url("/assets/fonts/FZJunHeiS.ttf") format("truetype");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "AlibabaPuHuiTiLocal";
   src: url("/assets/fonts/AlibabaPuHuiTi-35Thin.ttf") format("truetype");
   font-weight: 350;
@@ -28,7 +36,7 @@
   --paper: #ffffff;
   --radius: 20px;
   --shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  --font-display: "Source Han Serif SC", "Noto Serif CJK SC", "思源宋体", "Songti SC", "STSong", serif;
+  --font-display: "FZJunHeiLocal", "FZJunHeiS", "方正俊黑简体", "Source Han Serif SC", "Noto Serif CJK SC", "思源宋体", "Songti SC", "STSong", serif;
   --font-body: "Alibaba PuHuiTi", "AlibabaPuHuiTi", "阿里巴巴普惠体", "Alibaba PuHuiTi 2.0", "PingFang SC", "Microsoft YaHei", sans-serif;
   --font-light: "AlibabaPuHuiTiLocal", "Alibaba PuHuiTi 2.0 35 Thin", "Alibaba PuHuiTi 35 Thin", "Alibaba PuHuiTi 2.0 45 Light", "Alibaba PuHuiTi 45 Light", "Alibaba PuHuiTi", "AlibabaPuHuiTi", "PingFang SC", "Hiragino Sans GB", sans-serif;
   font-family:
@@ -145,17 +153,17 @@ button {
 
 .cover-stage {
   position: relative;
-  width: min(100vw, calc(100dvh * 1.778));
-  aspect-ratio: 16 / 9;
+  width: min(100vw, calc(100dvh * 1.799));
+  aspect-ratio: 1683 / 935;
   overflow: hidden;
   background: var(--bg);
 }
 
 /* 窄屏（视口比图片更"瘦"）时放大底图让其撑满视口，
    两侧裁掉的是空背景，人物与海报墙保持居中对齐 */
-@media (max-aspect-ratio: 16/9) {
+@media (max-aspect-ratio: 1683/935) {
   .cover-stage {
-    width: calc(100dvh * 1.778);
+    width: calc(100dvh * 1.799);
     height: 100dvh;
     max-width: none;
   }
@@ -2309,9 +2317,10 @@ button {
 }
 
 .journey-stage .journey-zoom {
-  width: max(100vw, calc(100dvh * 1.778));
+  width: min(100vw, calc(100dvh * 1.778));
   max-width: none;
   height: auto;
+  aspect-ratio: 16 / 9;
   will-change: transform;
 }
 
@@ -2321,9 +2330,12 @@ button {
 
 .journey-title {
   position: absolute;
-  bottom: clamp(30px, 6vh, 70px);
-  left: max(24px, calc((100vw - 1700px) / 2 + 24px));
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 10;
+  padding: 96px max(24px, calc((100vw - 1700px) / 2 + 24px)) 36px;
+  background: linear-gradient(180deg, rgba(239, 233, 231, 0), rgba(239, 233, 231, 0.94) 58%);
   pointer-events: none;
 }
 
@@ -2355,24 +2367,27 @@ button {
   position: absolute;
   top: 50%;
   z-index: 10;
-  max-width: min(520px, 86vw);
-  padding-top: 0;
+  max-width: min(560px, 86vw);
   pointer-events: none;
-  text-shadow: 0 1px 24px rgba(239, 233, 231, 0.9), 0 0 8px rgba(239, 233, 231, 0.8);
+  background: rgba(239, 233, 231, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 6px;
+  box-shadow: 0 20px 60px rgba(60, 50, 46, 0.12);
 }
 
 .journey-beat.beat-right {
   right: max(24px, calc((100vw - 1700px) / 2 + 40px));
   transform: translateY(-50%);
-  border-left: 2px solid rgba(17, 17, 17, 0.32);
-  padding-left: 26px;
+  border-left: 2px solid rgba(17, 17, 17, 0.4);
+  padding: 28px 30px 28px 28px;
 }
 
 .journey-beat.beat-left {
   left: max(24px, calc((100vw - 1700px) / 2 + 40px));
   transform: translateY(-50%);
-  border-right: 2px solid rgba(17, 17, 17, 0.32);
-  padding-right: 26px;
+  border-right: 2px solid rgba(17, 17, 17, 0.4);
+  padding: 28px 28px 28px 30px;
   text-align: right;
 }
 
@@ -2457,7 +2472,7 @@ button {
     left: 24px;
     max-width: none;
     border: none;
-    padding: 0;
+    padding: 22px 24px;
     text-align: left;
   }
 

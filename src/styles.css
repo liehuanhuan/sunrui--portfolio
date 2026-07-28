@@ -662,7 +662,7 @@ button {
   padding-top: 8px;
 }
 
-.client-name-grid {
+.client-logo-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
@@ -671,22 +671,42 @@ button {
   border: 1px solid rgba(17, 17, 17, 0.14);
 }
 
-.client-name-grid span {
+.client-cell {
   display: flex;
-  min-height: 58px;
+  min-height: 86px;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 8px 10px;
+  gap: 11px;
+  padding: 14px 10px 12px;
   background: var(--bg);
-  color: rgba(17, 17, 17, 0.58);
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-align: center;
-  transition: color 0.25s ease, letter-spacing 0.25s ease;
 }
 
-.client-name-grid span:hover {
+.client-cell img {
+  display: block;
+  width: auto;
+  max-width: 72%;
+  height: 24px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.6;
+  transition: opacity 0.25s ease;
+}
+
+.client-cell em {
+  color: rgba(17, 17, 17, 0.45);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  transition: color 0.25s ease;
+}
+
+.client-cell:hover img {
+  opacity: 1;
+}
+
+.client-cell:hover em {
   color: var(--ink);
 }
 
@@ -740,7 +760,7 @@ button {
     margin-top: clamp(54px, 6vw, 82px);
   }
 
-  .client-name-grid {
+  .client-logo-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

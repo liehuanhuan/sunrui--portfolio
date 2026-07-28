@@ -662,29 +662,32 @@ button {
   padding-top: 8px;
 }
 
-.client-logo-grid {
+.client-name-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  align-items: center;
-  justify-items: start;
-  gap: 22px 20px;
+  gap: 1px;
   margin-top: 22px;
+  background: rgba(17, 17, 17, 0.14);
+  border: 1px solid rgba(17, 17, 17, 0.14);
 }
 
-.client-logo-grid img {
-  display: block;
-  width: auto;
-  max-width: 100%;
-  height: 22px;
-  object-fit: contain;
-  filter: grayscale(1);
-  opacity: 0.58;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+.client-name-grid span {
+  display: flex;
+  min-height: 58px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 10px;
+  background: var(--bg);
+  color: rgba(17, 17, 17, 0.58);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-align: center;
+  transition: color 0.25s ease, letter-spacing 0.25s ease;
 }
 
-.client-logo-grid img:hover {
-  opacity: 1;
-  transform: translateY(-1px);
+.client-name-grid span:hover {
+  color: var(--ink);
 }
 
 @media (max-width: 1500px) {
@@ -737,7 +740,7 @@ button {
     margin-top: clamp(54px, 6vw, 82px);
   }
 
-  .client-logo-grid {
+  .client-name-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

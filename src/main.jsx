@@ -303,30 +303,31 @@ const personPoses = [
   "/assets/hero/creative-brain-cover.png",
 ];
 
-const clientLogos = [
-  { name: "字节跳动", src: "/assets/client-logos/bytedance.svg" },
-  { name: "抖音 / TikTok", src: "/assets/client-logos/tiktok.svg" },
-  { name: "腾讯", src: "/assets/client-logos/tencentqq.svg" },
-  { name: "百度", src: "/assets/client-logos/baidu.svg" },
-  { name: "京东", src: "/assets/client-logos/jd-wordmark.svg" },
-  { name: "美团", src: "/assets/client-logos/meituan.svg" },
-  { name: "快手", src: "/assets/client-logos/kuaishou.svg" },
-  { name: "小红书", src: "/assets/client-logos/xiaohongshu.svg" },
-  { name: "爱奇艺", src: "/assets/client-logos/iqiyi-wordmark.svg" },
-  { name: "网易", src: "/assets/client-logos/netease-wordmark.svg" },
-  { name: "小米", src: "/assets/client-logos/xiaomi.svg" },
-  { name: "华为", src: "/assets/client-logos/huawei.svg" },
-  { name: "联想", src: "/assets/client-logos/lenovo.svg" },
-  { name: "比亚迪", src: "/assets/client-logos/byd-wordmark.svg" },
-  { name: "小鹏汽车", src: "/assets/client-logos/xpeng-wordmark.svg" },
-  { name: "一汽丰田", src: "/assets/client-logos/toyota.svg" },
-  { name: "奥迪", src: "/assets/client-logos/audi.svg" },
-  { name: "大众", src: "/assets/client-logos/volkswagen.svg" },
-  { name: "现代", src: "/assets/client-logos/hyundai.svg" },
-  { name: "TCL", src: "/assets/client-logos/tcl.svg" },
-  { name: "BOE 京东方", src: "/assets/client-logos/boe-wordmark.svg" },
-  { name: "李宁", src: "/assets/client-logos/lining.svg" },
-  { name: "杜卡迪", src: "/assets/client-logos/ducati.svg" },
+const clientNames = [
+  "字节跳动",
+  "抖音 / TikTok",
+  "腾讯",
+  "百度",
+  "京东",
+  "美团",
+  "快手",
+  "小红书",
+  "爱奇艺",
+  "网易",
+  "巨量引擎",
+  "小米",
+  "华为",
+  "联想",
+  "比亚迪",
+  "小鹏汽车",
+  "一汽丰田",
+  "奥迪",
+  "大众",
+  "现代",
+  "TCL",
+  "京东方 BOE",
+  "李宁",
+  "杜卡迪",
 ];
 
 const cameraKeys = [
@@ -1015,9 +1016,9 @@ function App() {
             </div>
             <div className="profile-clients">
               <h3>CLIENTS</h3>
-              <div className="client-logo-grid">
-                {clientLogos.map((logo) => (
-                  <img key={logo.name} src={logo.src} alt={logo.name} title={logo.name} loading="lazy" />
+              <div className="client-name-grid">
+                {clientNames.map((name) => (
+                  <span key={name}>{name}</span>
                 ))}
               </div>
             </div>

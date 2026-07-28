@@ -987,6 +987,17 @@ function App() {
                 </span>
               ))}
             </div>
+            <div className="profile-clients">
+              <h3>CLIENTS</h3>
+              <div className="client-logo-grid">
+                {clientLogos.map((logo) => (
+                  <span className="client-cell" key={logo.name}>
+                    <img src={logo.src} alt={logo.name} loading="lazy" />
+                    <em>{logo.name}</em>
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
           <aside className="profile-side">
             <div className="profile-stat">
@@ -1013,17 +1024,6 @@ function App() {
               <strong>BEIJING</strong>
               <span>BASE</span>
               <p>工作与生活在北京</p>
-            </div>
-            <div className="profile-clients">
-              <h3>CLIENTS</h3>
-              <div className="client-logo-grid">
-                {clientLogos.map((logo) => (
-                  <span className="client-cell" key={logo.name}>
-                    <img src={logo.src} alt={logo.name} loading="lazy" />
-                    <em>{logo.name}</em>
-                  </span>
-                ))}
-              </div>
             </div>
           </aside>
           <footer className="profile-footer">

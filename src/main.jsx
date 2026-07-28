@@ -406,7 +406,8 @@ function ScrollJourney() {
   const beat1O = fadeRange(progress, 0.14, 0.2, 0.3, 0.36);
   const beat2O = fadeRange(progress, 0.4, 0.46, 0.54, 0.6);
   const beat3O = fadeRange(progress, 0.62, 0.68, 0.76, 0.82);
-  const beat4O = fadeRange(progress, 0.84, 0.9, 0.98, 1.01);
+  const beat4O = fadeRange(progress, 0.84, 0.9, 0.92, 0.96);
+  const closingO = fadeRange(progress, 0.955, 0.99, 2, 3);
   const poseOs = [
     fadeRange(progress, -1, 0, 0.06, 0.12),
     fadeRange(progress, 0.06, 0.12, 0.42, 0.48),
@@ -505,6 +506,17 @@ function ScrollJourney() {
           <p>
             不同规模和行业的项目训练了我的判断力：在复杂需求中识别关键问题，在多方协作中建立清晰路径，并把策略、创意与执行结果稳定连接起来。
           </p>
+        </div>
+
+        <div className="journey-title journey-title-end" style={{ opacity: closingO }}>
+          <p className="journey-kicker">BRAND STRATEGIST / CREATIVE / EXPERIENCE DESIGNER</p>
+          <h1>孙瑞</h1>
+          <p className="journey-sub">创意工作室主理人</p>
+        </div>
+
+        <div className="journey-hint journey-hint-end" style={{ opacity: closingO }}>
+          <span />
+          继续向下滚动
         </div>
 
         <div className="journey-hint" style={{ opacity: hintO }}>
@@ -943,6 +955,9 @@ function App() {
           <aside className="profile-rail">BRAND STRATEGIST / CREATIVE / EXPERIENCE DESIGNER</aside>
           <div className="profile-main">
             <span className="profile-index">05 / 技能矩阵</span>
+            <p className="profile-lead profile-summary">
+              从 4A 到上市公司，再到 2022 年成立自己的工作室——十五年、三百多个项目，最后沉淀成这八个能力域。它们覆盖从策略判断到现场落地的完整链路，案例库里的每个项目，都是其中若干项的具体组合。
+            </p>
             <div className="profile-skill-grid">
               {[
                 ["01", "品牌策略", "STRATEGY"],

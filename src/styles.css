@@ -1704,7 +1704,8 @@ button {
   grid-template-areas:
     "rail"
     "main"
-    "side" !important;
+    "side"
+    "footer" !important;
   gap: clamp(28px, 4vw, 56px) !important;
   width: min(100%, 1560px);
   max-width: calc(100vw - clamp(28px, 7vw, 112px));
@@ -1732,6 +1733,14 @@ button {
 
 #profile .profile-side {
   grid-area: side;
+}
+
+#profile .profile-footer {
+  grid-area: footer;
+}
+
+#profile .profile-summary {
+  margin-bottom: clamp(30px, 3.2vw, 48px);
 }
 
 #profile .profile-main,

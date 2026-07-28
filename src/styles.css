@@ -2317,15 +2317,21 @@ button {
 }
 
 .journey-stage .journey-zoom {
-  width: min(100vw, calc(100dvh * 1.778));
+  width: min(100vw, calc(100dvh * 1.799));
   max-width: none;
   height: auto;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 1683 / 935;
   will-change: transform;
 }
 
-.journey-stage .pose-img {
-  transition: none;
+.journey-stage .person-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
 }
 
 .journey-title {

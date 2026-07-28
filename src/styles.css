@@ -1743,6 +1743,14 @@ button {
   margin-bottom: clamp(30px, 3.2vw, 48px);
 }
 
+#profile .profile-summary + .profile-summary {
+  margin-top: calc(clamp(24px, 2.8vw, 40px) * -0.35);
+}
+
+#profile .profile-summary-tail {
+  font-weight: 750;
+}
+
 #profile .profile-main,
 #profile .profile-side,
 #profile .profile-columns,

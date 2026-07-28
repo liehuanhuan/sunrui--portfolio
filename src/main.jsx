@@ -17,31 +17,6 @@ const numbers = [
   ["1", "语言、视觉、现场和传播的一体化工作方法"],
 ];
 
-const clientLogos = [
-  ["ByteDance", "/assets/client-logos/bytedance.svg"],
-  ["抖音", "/assets/client-logos/douyin.svg"],
-  ["今日头条", "/assets/client-logos/toutiao.svg"],
-  ["巨量引擎", "/assets/client-logos/ocean-engine.svg"],
-  ["小红书", "/assets/client-logos/xiaohongshu.svg"],
-  ["快手", "/assets/client-logos/kuaishou.svg"],
-  ["iQIYI", "/assets/client-logos/iqiyi.svg"],
-  ["BOE", "/assets/client-logos/boe.svg"],
-  ["TCL", "/assets/client-logos/tcl.svg"],
-  ["小米", "/assets/client-logos/xiaomi.svg"],
-  ["小鹏", "/assets/client-logos/xpeng.svg"],
-  ["蔚来", "/assets/client-logos/nio.svg"],
-  ["理想", "/assets/client-logos/li-auto.svg"],
-  ["BYD", "/assets/client-logos/byd.svg"],
-  ["Lenovo", "/assets/client-logos/lenovo.svg"],
-  ["传祺", "/assets/client-logos/gac.svg"],
-  ["岚图", "/assets/client-logos/voyah.svg"],
-  ["Volkswagen", "/assets/client-logos/volkswagen.svg"],
-  ["Mercedes-Benz", "/assets/client-logos/mercedes.svg"],
-  ["Audi", "/assets/client-logos/audi.svg"],
-  ["Estee Lauder", "/assets/client-logos/estee-lauder.svg"],
-  ["More", "/assets/client-logos/more.svg"],
-];
-
 const coverPosters = [
   {
     title: "ROG",
@@ -326,6 +301,32 @@ const personPoses = [
   "/assets/hero/pose-2.jpg",
   "/assets/hero/pose-3.jpg",
   "/assets/hero/creative-brain-cover.png",
+];
+
+const clientLogos = [
+  { name: "字节跳动", src: "/assets/client-logos/bytedance.svg" },
+  { name: "抖音 / TikTok", src: "/assets/client-logos/tiktok.svg" },
+  { name: "腾讯", src: "/assets/client-logos/tencentqq.svg" },
+  { name: "百度", src: "/assets/client-logos/baidu.svg" },
+  { name: "京东", src: "/assets/client-logos/jd-wordmark.svg" },
+  { name: "美团", src: "/assets/client-logos/meituan.svg" },
+  { name: "快手", src: "/assets/client-logos/kuaishou.svg" },
+  { name: "小红书", src: "/assets/client-logos/xiaohongshu.svg" },
+  { name: "爱奇艺", src: "/assets/client-logos/iqiyi-wordmark.svg" },
+  { name: "网易", src: "/assets/client-logos/netease-wordmark.svg" },
+  { name: "小米", src: "/assets/client-logos/xiaomi.svg" },
+  { name: "华为", src: "/assets/client-logos/huawei.svg" },
+  { name: "联想", src: "/assets/client-logos/lenovo.svg" },
+  { name: "比亚迪", src: "/assets/client-logos/byd-wordmark.svg" },
+  { name: "小鹏汽车", src: "/assets/client-logos/xpeng-wordmark.svg" },
+  { name: "一汽丰田", src: "/assets/client-logos/toyota.svg" },
+  { name: "奥迪", src: "/assets/client-logos/audi.svg" },
+  { name: "大众", src: "/assets/client-logos/volkswagen.svg" },
+  { name: "现代", src: "/assets/client-logos/hyundai.svg" },
+  { name: "TCL", src: "/assets/client-logos/tcl.svg" },
+  { name: "BOE 京东方", src: "/assets/client-logos/boe-wordmark.svg" },
+  { name: "李宁", src: "/assets/client-logos/lining.svg" },
+  { name: "杜卡迪", src: "/assets/client-logos/ducati.svg" },
 ];
 
 const cameraKeys = [
@@ -1014,7 +1015,11 @@ function App() {
             </div>
             <div className="profile-clients">
               <h3>CLIENTS</h3>
-              <img className="client-wall" src="/assets/client-logos/client-wall.png" alt="客户品牌 logo 墙" />
+              <div className="client-logo-grid">
+                {clientLogos.map((logo) => (
+                  <img key={logo.name} src={logo.src} alt={logo.name} title={logo.name} loading="lazy" />
+                ))}
+              </div>
             </div>
           </aside>
           <footer className="profile-footer">

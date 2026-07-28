@@ -662,13 +662,29 @@ button {
   padding-top: 8px;
 }
 
-.client-wall {
-  width: 100%;
-  max-width: 510px;
-  height: auto;
-  margin-top: 18px;
+.client-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center;
+  justify-items: start;
+  gap: 22px 20px;
+  margin-top: 22px;
+}
+
+.client-logo-grid img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 22px;
   object-fit: contain;
-  object-position: left top;
+  filter: grayscale(1);
+  opacity: 0.58;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.client-logo-grid img:hover {
+  opacity: 1;
+  transform: translateY(-1px);
 }
 
 @media (max-width: 1500px) {
@@ -721,8 +737,8 @@ button {
     margin-top: clamp(54px, 6vw, 82px);
   }
 
-  .client-wall {
-    max-width: 390px;
+  .client-logo-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 

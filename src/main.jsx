@@ -309,15 +309,15 @@ const contactInfo = {
   phone: "18911679852",
 };
 
-const skillLevels = [
-  ["01", "品牌策略", "STRATEGY", 95],
-  ["02", "体验设计", "EXPERIENCE", 92],
-  ["03", "创意执行", "CREATIVE", 90],
-  ["04", "内容叙事", "CONTENT", 96],
-  ["05", "整合营销", "IMC", 90],
-  ["06", "现场营造", "SPATIAL", 88],
-  ["07", "AI 工作流", "AI WORKFLOW", 85],
-  ["08", "知识沉淀", "KNOWLEDGE", 92],
+const skillItems = [
+  ["01", "品牌策略", "STRATEGY", "从商业目标反推传播主题和信息层级"],
+  ["02", "体验设计", "EXPERIENCE", "设计人在现场里的动线、节奏和情绪"],
+  ["03", "创意执行", "CREATIVE", "把概念翻译成可搭建、可拍摄、可落地的东西"],
+  ["04", "内容叙事", "CONTENT", "让一个话题在不同渠道讲出同一个故事"],
+  ["05", "整合营销", "IMC", "把发布、传播、社交和销售端串成一盘棋"],
+  ["06", "现场营造", "SPATIAL", "空间、灯光、物料与流程秩序的总控"],
+  ["07", "AI 工作流", "AI WORKFLOW", "用 AI 给提案、视觉和内容生产提速"],
+  ["08", "知识沉淀", "KNOWLEDGE", "每个项目结束，留下可复用的方法"],
 ];
 
 const clientLogos = [
@@ -548,35 +548,16 @@ function ScrollJourney() {
 }
 
 function SkillMatrix() {
-  const ref = useRef(null);
-  const [seen, setSeen] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return undefined;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0]?.isIntersecting) setSeen(true);
-      },
-      { threshold: 0.15 },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <div className={`profile-skill-bars ${seen ? "is-seen" : ""}`} ref={ref}>
-      {skillLevels.map(([num, cn, en, value]) => (
-        <div className="skill-bar" key={num}>
-          <span className="skill-bar-meta">
+    <div className="profile-skill-list">
+      {skillItems.map(([num, cn, en, desc]) => (
+        <div className="skill-item" key={num}>
+          <span className="skill-item-head">
             <small>{num}</small>
             <strong>{cn}</strong>
             <em>{en}</em>
           </span>
-          <span className="skill-bar-track">
-            <i style={{ width: seen ? `${value}%` : 0 }} />
-          </span>
-          <b className="skill-bar-value">{value}</b>
+          <p>{desc}</p>
         </div>
       ))}
     </div>
@@ -1009,7 +990,7 @@ function App() {
         <div className="profile-sheet">
           <aside className="profile-rail">BRAND STRATEGIST / CREATIVE / EXPERIENCE DESIGNER</aside>
           <div className="profile-main">
-            <span className="profile-index">05 / 能力值</span>
+            <span className="profile-index">05 / 能力</span>
             <p className="profile-lead profile-summary">
               我从文字进入这个行业，至今十五年，一直在品牌活动、发布会与公关传播的一线。从 4A 到上市公司，再到 2022 年成立自己的工作室，我做的始终是同一件事：先用语言命名问题、建立结构，再让视觉、空间、流程和传播把这种结构变成公共经验。相比一个漂亮的创意，我更关心另一件事：复杂的信息、模糊的需求和有限的资源，能否被整理成客户能理解、团队能执行、用户能感受到的完整体验。
             </p>

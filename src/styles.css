@@ -663,46 +663,43 @@ button {
   padding-top: 8px;
 }
 
-.profile-skill-bars {
-  display: flex;
-  flex-direction: column;
+.profile-skill-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 clamp(32px, 4vw, 64px);
   margin-top: clamp(26px, 3vw, 42px);
 }
 
-.skill-bar {
-  display: grid;
-  grid-template-columns: minmax(150px, 220px) minmax(0, 1fr) 52px;
-  align-items: center;
-  gap: clamp(16px, 2vw, 32px);
-  padding: 15px 0;
+.skill-item {
+  padding: 16px 0 18px;
   border-top: 1px solid rgba(17, 17, 17, 0.14);
 }
 
-.skill-bar:last-child {
+.skill-item:nth-last-child(-n + 2) {
   border-bottom: 1px solid rgba(17, 17, 17, 0.14);
 }
 
-.skill-bar-meta {
+.skill-item-head {
   display: flex;
   align-items: baseline;
   gap: 10px;
   min-width: 0;
 }
 
-.skill-bar-meta small {
+.skill-item-head small {
   color: rgba(17, 17, 17, 0.42);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
 }
 
-.skill-bar-meta strong {
+.skill-item-head strong {
   font-size: clamp(16px, 1.2vw, 20px);
   font-weight: 700;
   white-space: nowrap;
 }
 
-.skill-bar-meta em {
+.skill-item-head em {
   color: rgba(17, 17, 17, 0.42);
   font-size: 10px;
   font-style: normal;
@@ -711,52 +708,24 @@ button {
   white-space: nowrap;
 }
 
-.skill-bar-track {
-  position: relative;
-  display: block;
-  height: 2px;
-  overflow: hidden;
-  border-radius: 2px;
-  background: rgba(17, 17, 17, 0.14);
-}
-
-.skill-bar-track i {
-  position: absolute;
-  inset: 0 auto 0 0;
-  display: block;
-  border-radius: 2px;
-  background: var(--ink);
-  transition: width 1.1s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.skill-bar-value {
-  color: var(--ink);
-  font-size: clamp(15px, 1.15vw, 19px);
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  text-align: right;
-  font-variant-numeric: tabular-nums;
+.skill-item p {
+  margin: 8px 0 0;
+  color: rgba(17, 17, 17, 0.6);
+  font-size: clamp(13px, 0.95vw, 15px);
+  line-height: 1.7;
 }
 
 @media (max-width: 720px) {
-  .skill-bar {
-    grid-template-columns: minmax(0, 1fr) 52px;
-    grid-template-areas:
-      "meta value"
-      "track track";
-    row-gap: 10px;
+  .profile-skill-list {
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .skill-bar-meta {
-    grid-area: meta;
+  .skill-item:nth-last-child(-n + 2) {
+    border-bottom: none;
   }
 
-  .skill-bar-track {
-    grid-area: track;
-  }
-
-  .skill-bar-value {
-    grid-area: value;
+  .skill-item:last-child {
+    border-bottom: 1px solid rgba(17, 17, 17, 0.14);
   }
 }
 

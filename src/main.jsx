@@ -305,8 +305,8 @@ const personPoses = [
 
 const contactInfo = {
   email: "664555295@qq.com",
-  wechat: "",
-  phone: "",
+  wechat: "springaway",
+  phone: "18911679852",
 };
 
 const clientLogos = [

@@ -3734,7 +3734,7 @@ body::after {
 }
 
 .pickup-tool.tool-clip {
-  background-image: url("./assets/ui-icons/voxel-set.png");
+  background-image: url("./assets/ui-icons/voxel-set.jpg");
   background-size: 150%;
   transform: rotate(-6deg) scale(1.08);
 }
@@ -4048,7 +4048,7 @@ body::after {
 }
 
 .pickup-tool.tool-clip {
-  background-image: url("./assets/ui-icons/voxel-set.png");
+  background-image: url("./assets/ui-icons/voxel-set.jpg");
   transform: rotate(-6deg);
 }
 
@@ -4757,7 +4757,7 @@ body::after {
 }
 
 .pickup-tool.tool-clip {
-  background-image: url("./assets/ui-icons/voxel-set.png") !important;
+  background-image: url("./assets/ui-icons/voxel-set.jpg") !important;
   transform: rotate(-4deg) !important;
 }
 
@@ -6345,7 +6345,7 @@ body::after {
 /* Skill Orbit System - Game UI style */
 .journey.panel-section {
   background: #0a0a12;
-  background-image: url('./assets/skill-bg.png');
+  background-image: url('./assets/skill-bg.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -6755,7 +6755,7 @@ body::after {
 
 .journey.panel-section {
   background: linear-gradient(180deg, #0a0e1a 0%, #0d1528 50%, #0a0e1a 100%) !important;
-  background-image: url('./assets/skill-bg.png') !important;
+  background-image: url('./assets/skill-bg.jpg') !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
@@ -7132,7 +7132,7 @@ body::after {
 /* Ensure background image is used properly */
 .journey.panel-section {
   background: transparent !important;
-  background-image: url('./assets/skill-bg.png') !important;
+  background-image: url('./assets/skill-bg.jpg') !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
@@ -8067,7 +8067,7 @@ body::after {
 
 /* Use user's background image */
 #journey {
-  background-image: url("./assets/skill-bg.png") !important;
+  background-image: url("./assets/skill-bg.jpg") !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;

@@ -303,6 +303,12 @@ const personPoses = [
   "/assets/hero/creative-brain-cover.png",
 ];
 
+const contactInfo = {
+  email: "664555295@qq.com",
+  wechat: "",
+  phone: "",
+};
+
 const clientLogos = [
   { name: "字节跳动", src: "/assets/client-logos/bytedance.svg", mark: true },
   { name: "抖音", src: "/assets/client-logos/tiktok.svg", mark: true },
@@ -1039,16 +1045,62 @@ function App() {
       <ProjectFolders />
 
       <section className="contact page-pad" id="contact">
-        <h2>如果一个项目需要被重新组织、讲清楚并落到现场，我们可以聊。</h2>
-        <p>适合品牌发布、年度传播、科技大会、展区体验、竞标提案与创意策略类项目。</p>
-        <div className="hero-actions">
-          <a className="button primary" href="mailto:664555295@qq.com">
-            发邮件
-          </a>
-          <a className="button ghost" href="/case.html">
-            看案例库
-          </a>
+        <div className="contact-copy">
+          <span className="profile-index">06 / 联系 & 留言</span>
+          <h2>项目在脑子里还没成形的时候，最值得聊。</h2>
+          <p>
+            品牌发布、年度传播、科技大会、展区体验、竞标提案、创意策略——或者任何还说不清楚的需求，都可以先丢过来。
+          </p>
+          <ul className="contact-channels">
+            <li>
+              <span>邮箱</span>
+              <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
+            </li>
+            {contactInfo.wechat && (
+              <li>
+                <span>微信</span>
+                <strong>{contactInfo.wechat}</strong>
+              </li>
+            )}
+            {contactInfo.phone && (
+              <li>
+                <span>手机</span>
+                <strong>{contactInfo.phone}</strong>
+              </li>
+            )}
+          </ul>
         </div>
+
+        <form
+          className="contact-board"
+          onSubmit={(event) => {
+            event.preventDefault();
+            const data = new FormData(event.currentTarget);
+            const name = data.get("name") || "";
+            const reply = data.get("reply") || "";
+            const message = data.get("message") || "";
+            const body = encodeURIComponent(`${message}\n\n—— ${name}${reply ? `（联系方式：${reply}）` : ""}`);
+            window.location.href = `mailto:${contactInfo.email}?subject=${encodeURIComponent(`网站留言｜${name}`)}&body=${body}`;
+          }}
+        >
+          <h3>留言板</h3>
+          <label>
+            你的名字
+            <input name="name" type="text" autoComplete="name" required />
+          </label>
+          <label>
+            你的联系方式
+            <input name="reply" type="text" placeholder="微信 / 邮箱 / 手机" />
+          </label>
+          <label>
+            想说点什么
+            <textarea name="message" rows={5} required />
+          </label>
+          <button className="button primary" type="submit">
+            送出留言
+          </button>
+          <p className="contact-board-note">留言会通过邮件直接送到我的收件箱。</p>
+        </form>
       </section>
     </main>
   );

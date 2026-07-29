@@ -22,7 +22,7 @@ const coverPosters = [
   {
     title: "ROG",
     label: "文件夹封面",
-    image: "/assets/archive/2023-4-rog/shot-1.png",
+    image: "assets/archive/2023-4-rog/shot-1.png",
     href: "/case.html?archive=ROG",
     x: 1.25,
     y: 3.74,
@@ -33,7 +33,7 @@ const coverPosters = [
   {
     title: "联想NETAPP",
     label: "文件夹封面",
-    image: "/assets/archive/2023-4-联想netapp/shot-1.png",
+    image: "assets/archive/2023-4-联想netapp/shot-1.png",
     href: "/case.html?archive=%E8%81%94%E6%83%B3NETAPP",
     x: 9.33,
     y: 0,
@@ -44,7 +44,7 @@ const coverPosters = [
   {
     title: "抖音电商生态大会",
     label: "文件夹封面",
-    image: "/assets/archive/2023-2-抖音电商生态大会/shot-1.png",
+    image: "assets/archive/2023-2-抖音电商生态大会/shot-1.png",
     href: "/case.html?archive=%E6%8A%96%E9%9F%B3%E7%94%B5%E5%95%86%E7%94%9F%E6%80%81%E5%A4%A7%E4%BC%9A",
     x: 15.69,
     y: 0,
@@ -55,7 +55,7 @@ const coverPosters = [
   {
     title: "极氪",
     label: "文件夹封面",
-    image: "/assets/archive/2023-3-极氪/shot-1.png",
+    image: "assets/archive/2023-3-极氪/shot-1.png",
     href: "/case.html?archive=%E6%9E%81%E6%B0%AA",
     x: 28.05,
     y: 0,
@@ -66,7 +66,7 @@ const coverPosters = [
   {
     title: "岚图",
     label: "文件夹封面",
-    image: "/assets/archive/2023-3-岚图/shot-1.png",
+    image: "assets/archive/2023-3-岚图/shot-1.png",
     href: "/case.html?archive=%E5%B2%9A%E5%9B%BE",
     x: 34.17,
     y: 0,
@@ -77,7 +77,7 @@ const coverPosters = [
   {
     title: "BYD第二轮",
     label: "文件夹封面",
-    image: "/assets/archive/2023-2-byd第二轮/shot-1.png",
+    image: "assets/archive/2023-2-byd第二轮/shot-1.png",
     href: "/case.html?archive=BYD%E7%AC%AC%E4%BA%8C%E8%BD%AE",
     x: 40.29,
     y: 9.84,
@@ -88,7 +88,7 @@ const coverPosters = [
   {
     title: "小米CJ",
     label: "文件夹封面",
-    image: "/assets/archive/2023-6-小米cj/shot-1.png",
+    image: "assets/archive/2023-6-小米cj/shot-1.png",
     href: "/case.html?archive=%E5%B0%8F%E7%B1%B3CJ",
     x: 48.13,
     y: 0,
@@ -99,7 +99,7 @@ const coverPosters = [
   {
     title: "航天信息发布会",
     label: "文件夹封面",
-    image: "/assets/archive/2023-6-航天信息发布会/shot-1.png",
+    image: "assets/archive/2023-6-航天信息发布会/shot-1.png",
     href: "/case.html?archive=%E8%88%AA%E5%A4%A9%E4%BF%A1%E6%81%AF%E5%8F%91%E5%B8%83%E4%BC%9A",
     x: 54.43,
     y: 0,
@@ -110,7 +110,7 @@ const coverPosters = [
   {
     title: "京东工业",
     label: "文件夹封面",
-    image: "/assets/archive/2023-8-京东工业/shot-1.png",
+    image: "assets/archive/2023-8-京东工业/shot-1.png",
     href: "/case.html?archive=%E4%BA%AC%E4%B8%9C%E5%B7%A5%E4%B8%9A",
     x: 61.79,
     y: 0,
@@ -121,7 +121,7 @@ const coverPosters = [
   {
     title: "美团春归",
     label: "文件夹封面",
-    image: "/assets/archive/2023-8-美团春归/shot-1.png",
+    image: "assets/archive/2023-8-美团春归/shot-1.png",
     href: "/case.html?archive=%E7%BE%8E%E5%9B%A2%E6%98%A5%E5%BD%92",
     x: 68.33,
     y: 0,
@@ -132,7 +132,7 @@ const coverPosters = [
   {
     title: "传祺广州车展",
     label: "文件夹封面",
-    image: "/assets/archive/2023-9-传祺广州车展/shot-1.png",
+    image: "assets/archive/2023-9-传祺广州车展/shot-1.png",
     href: "/case.html?archive=%E4%BC%A0%E7%A5%BA%E5%B9%BF%E5%B7%9E%E8%BD%A6%E5%B1%95",
     x: 74.75,
     y: 0,
@@ -143,7 +143,7 @@ const coverPosters = [
   {
     title: "中国化学工程集团",
     label: "文件夹封面",
-    image: "/assets/archive/2023-9-中国化学工程集团产业链融通发展推进会/shot-1.png",
+    image: "assets/archive/2023-9-中国化学工程集团产业链融通发展推进会/shot-1.png",
     href: "/case.html?archive=%E4%B8%AD%E5%9B%BD%E5%8C%96%E5%AD%A6%E5%B7%A5%E7%A8%8B%E9%9B%86%E5%9B%A2%E4%BA%A7%E4%B8%9A%E9%93%BE%E8%9E%8D%E9%80%9A%E5%8F%91%E5%B1%95%E6%8E%A8%E8%BF%9B%E4%BC%9A",
     x: 85.2,
     y: 1.71,
@@ -154,7 +154,7 @@ const coverPosters = [
   {
     title: "BOE技术品牌赋能计划",
     label: "文件夹封面",
-    image: "/assets/archive/2022-5-boe技术品牌赋能计划发布会/shot-1.png",
+    image: "assets/archive/2022-5-boe技术品牌赋能计划发布会/shot-1.png",
     href: "/case.html?archive=BOE%E6%8A%80%E6%9C%AF%E5%93%81%E7%89%8C%E8%B5%8B%E8%83%BD%E8%AE%A1%E5%88%92%E5%8F%91%E5%B8%83%E4%BC%9A",
     x: 91.92,
     y: 0.96,
@@ -165,7 +165,7 @@ const coverPosters = [
   {
     title: "小米MIPC",
     label: "文件夹封面",
-    image: "/assets/archive/2023-9-小米mipc/shot-1.png",
+    image: "assets/archive/2023-9-小米mipc/shot-1.png",
     href: "/case.html?archive=%E5%B0%8F%E7%B1%B3MIPC",
     x: 8.62,
     y: 19.89,
@@ -176,7 +176,7 @@ const coverPosters = [
   {
     title: "巨量星图嘉年华",
     label: "文件夹封面",
-    image: "/assets/archive/2022-5-巨量星图嘉年华/shot-1.png",
+    image: "assets/archive/2022-5-巨量星图嘉年华/shot-1.png",
     href: "/case.html?archive=%E5%B7%A8%E9%87%8F%E6%98%9F%E5%9B%BE%E5%98%89%E5%B9%B4%E5%8D%8E",
     x: 15.63,
     y: 20.32,
@@ -187,7 +187,7 @@ const coverPosters = [
   {
     title: "度小满金融聚合支付大会",
     label: "文件夹封面",
-    image: "/assets/archive/2022-8-度小满金融聚合支付大会/shot-1.png",
+    image: "assets/archive/2022-8-度小满金融聚合支付大会/shot-1.png",
     href: "/case.html?archive=%E5%BA%A6%E5%B0%8F%E6%BB%A1%E9%87%91%E8%9E%8D%E8%81%9A%E5%90%88%E6%94%AF%E4%BB%98%E5%A4%A7%E4%BC%9A",
     x: 23.59,
     y: 24.49,
@@ -198,7 +198,7 @@ const coverPosters = [
   {
     title: "传祺",
     label: "文件夹封面",
-    image: "/assets/archive/2023-3-传祺/shot-1.png",
+    image: "assets/archive/2023-3-传祺/shot-1.png",
     href: "/case.html?archive=%E4%BC%A0%E7%A5%BA",
     x: 31.79,
     y: 13.05,
@@ -209,7 +209,7 @@ const coverPosters = [
   {
     title: "北京现代",
     label: "文件夹封面",
-    image: "/assets/archive/2023-3-北京现代/shot-1.png",
+    image: "assets/archive/2023-3-北京现代/shot-1.png",
     href: "/case.html?archive=%E5%8C%97%E4%BA%AC%E7%8E%B0%E4%BB%A3",
     x: 40.05,
     y: 23.32,
@@ -220,7 +220,7 @@ const coverPosters = [
   {
     title: "箭牌",
     label: "文件夹封面",
-    image: "/assets/archive/2023-4-箭牌/shot-1.png",
+    image: "assets/archive/2023-4-箭牌/shot-1.png",
     href: "/case.html?archive=%E7%AE%AD%E7%89%8C",
     x: 48.25,
     y: 14.87,
@@ -231,7 +231,7 @@ const coverPosters = [
   {
     title: "美的年框",
     label: "文件夹封面",
-    image: "/assets/archive/2023-8-美的年框/shot-1.png",
+    image: "assets/archive/2023-8-美的年框/shot-1.png",
     href: "/case.html?archive=%E7%BE%8E%E7%9A%84%E5%B9%B4%E6%A1%86",
     x: 55.38,
     y: 13.9,
@@ -242,7 +242,7 @@ const coverPosters = [
   {
     title: "火山",
     label: "文件夹封面",
-    image: "/assets/archive/2023-5-火山/shot-1.png",
+    image: "assets/archive/2023-5-火山/shot-1.png",
     href: "/case.html?archive=%E7%81%AB%E5%B1%B1",
     x: 61.62,
     y: 10.91,
@@ -253,7 +253,7 @@ const coverPosters = [
   {
     title: "游戏+论坛",
     label: "文件夹封面",
-    image: "/assets/archive/2022-10-第一届-游戏-论坛暨网易游戏社会责任促进中心成立发布会/shot-1.png",
+    image: "assets/archive/2022-10-第一届-游戏-论坛暨网易游戏社会责任促进中心成立发布会/shot-1.png",
     href: "/case.html?archive=%E7%AC%AC%E4%B8%80%E5%B1%8A%E2%80%9C%E6%B8%B8%E6%88%8F%2B%E2%80%9D%E8%AE%BA%E5%9D%9B%E6%9A%A8%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E7%A4%BE%E4%BC%9A%E8%B4%A3%E4%BB%BB%E4%BF%83%E8%BF%9B%E4%B8%AD%E5%BF%83%E6%88%90%E7%AB%8B%E5%8F%91%E5%B8%83%E4%BC%9A",
     x: 69.04,
     y: 18.93,
@@ -264,7 +264,7 @@ const coverPosters = [
   {
     title: "百度联盟峰会",
     label: "文件夹封面",
-    image: "/assets/archive/2022-10-百度联盟峰会/shot-1.png",
+    image: "assets/archive/2022-10-百度联盟峰会/shot-1.png",
     href: "/case.html?archive=%E7%99%BE%E5%BA%A6%E8%81%94%E7%9B%9F%E5%B3%B0%E4%BC%9A",
     x: 76.35,
     y: 15.4,
@@ -275,7 +275,7 @@ const coverPosters = [
   {
     title: "现代巡展",
     label: "文件夹封面",
-    image: "/assets/archive/2022-10-现代巡展/shot-1.png",
+    image: "assets/archive/2022-10-现代巡展/shot-1.png",
     href: "/case.html?archive=%E7%8E%B0%E4%BB%A3%E5%B7%A1%E5%B1%95",
     x: 82.12,
     y: 31.44,
@@ -286,7 +286,7 @@ const coverPosters = [
   {
     title: "55购物节",
     label: "文件夹封面",
-    image: "/assets/archive/2022-3-55购物节/shot-1.png",
+    image: "assets/archive/2022-3-55购物节/shot-1.png",
     href: "/case.html?archive=55%E8%B4%AD%E7%89%A9%E8%8A%82",
     x: 91.03,
     y: 22.35,
@@ -297,11 +297,11 @@ const coverPosters = [
 ];
 
 const personPoses = [
-  "/assets/hero/creative-brain-cover.png",
-  "/assets/hero/pose-1.jpg",
-  "/assets/hero/pose-2.jpg",
-  "/assets/hero/pose-3.jpg",
-  "/assets/hero/creative-brain-cover.png",
+  "assets/hero/creative-brain-cover.png",
+  "assets/hero/pose-1.jpg",
+  "assets/hero/pose-2.jpg",
+  "assets/hero/pose-3.jpg",
+  "assets/hero/creative-brain-cover.png",
 ];
 
 const contactInfo = {
@@ -322,30 +322,30 @@ const skillItems = [
 ];
 
 const clientLogos = [
-  { name: "字节跳动", src: "/assets/client-logos/bytedance.svg", mark: true },
-  { name: "抖音", src: "/assets/client-logos/tiktok.svg", mark: true },
-  { name: "腾讯", src: "/assets/client-logos/tencentqq.svg", mark: true },
-  { name: "百度", src: "/assets/client-logos/baidu.svg", mark: true },
-  { name: "快手", src: "/assets/client-logos/kuaishou.svg", mark: true },
-  { name: "小红书", src: "/assets/client-logos/xiaohongshu.svg", mark: true },
-  { name: "小米", src: "/assets/client-logos/xiaomi.svg", mark: true },
-  { name: "华为", src: "/assets/client-logos/huawei.svg", mark: true },
-  { name: "一汽丰田", src: "/assets/client-logos/toyota.svg", mark: true },
-  { name: "奥迪", src: "/assets/client-logos/audi.svg", mark: true },
-  { name: "大众", src: "/assets/client-logos/volkswagen.svg", mark: true },
-  { name: "现代", src: "/assets/client-logos/hyundai.svg", mark: true },
-  { name: "李宁", src: "/assets/client-logos/lining.svg", mark: true },
-  { name: "京东", src: "/assets/client-logos/jd-wordmark.svg" },
-  { name: "美团", src: "/assets/client-logos/meituan.svg" },
-  { name: "爱奇艺", src: "/assets/client-logos/iqiyi-wordmark.svg" },
-  { name: "网易", src: "/assets/client-logos/netease-wordmark.svg" },
-  { name: "巨量引擎", src: "/assets/client-logos/ocean-engine-wordmark.svg" },
-  { name: "联想", src: "/assets/client-logos/lenovo.svg" },
-  { name: "比亚迪", src: "/assets/client-logos/byd-wordmark.svg" },
-  { name: "小鹏汽车", src: "/assets/client-logos/xpeng-wordmark.svg" },
-  { name: "TCL", src: "/assets/client-logos/tcl.svg" },
-  { name: "京东方 BOE", src: "/assets/client-logos/boe-wordmark.svg" },
-  { name: "杜卡迪", src: "/assets/client-logos/ducati.svg" },
+  { name: "字节跳动", src: "assets/client-logos/bytedance.svg", mark: true },
+  { name: "抖音", src: "assets/client-logos/tiktok.svg", mark: true },
+  { name: "腾讯", src: "assets/client-logos/tencentqq.svg", mark: true },
+  { name: "百度", src: "assets/client-logos/baidu.svg", mark: true },
+  { name: "快手", src: "assets/client-logos/kuaishou.svg", mark: true },
+  { name: "小红书", src: "assets/client-logos/xiaohongshu.svg", mark: true },
+  { name: "小米", src: "assets/client-logos/xiaomi.svg", mark: true },
+  { name: "华为", src: "assets/client-logos/huawei.svg", mark: true },
+  { name: "一汽丰田", src: "assets/client-logos/toyota.svg", mark: true },
+  { name: "奥迪", src: "assets/client-logos/audi.svg", mark: true },
+  { name: "大众", src: "assets/client-logos/volkswagen.svg", mark: true },
+  { name: "现代", src: "assets/client-logos/hyundai.svg", mark: true },
+  { name: "李宁", src: "assets/client-logos/lining.svg", mark: true },
+  { name: "京东", src: "assets/client-logos/jd-wordmark.svg" },
+  { name: "美团", src: "assets/client-logos/meituan.svg" },
+  { name: "爱奇艺", src: "assets/client-logos/iqiyi-wordmark.svg" },
+  { name: "网易", src: "assets/client-logos/netease-wordmark.svg" },
+  { name: "巨量引擎", src: "assets/client-logos/ocean-engine-wordmark.svg" },
+  { name: "联想", src: "assets/client-logos/lenovo.svg" },
+  { name: "比亚迪", src: "assets/client-logos/byd-wordmark.svg" },
+  { name: "小鹏汽车", src: "assets/client-logos/xpeng-wordmark.svg" },
+  { name: "TCL", src: "assets/client-logos/tcl.svg" },
+  { name: "京东方 BOE", src: "assets/client-logos/boe-wordmark.svg" },
+  { name: "杜卡迪", src: "assets/client-logos/ducati.svg" },
 ];
 
 const cameraKeys = [

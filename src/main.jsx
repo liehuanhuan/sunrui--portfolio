@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
+import gsap from "gsap";
 import "./styles.css";
 import { projectFolders, sortProjectsByRecent } from "./folder-data.js";
 
@@ -397,25 +398,30 @@ function ScrollJourney() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    let raf = 0;
+    let target = 0;
     const update = () => {
-      raf = 0;
       const el = journeyRef.current;
       if (!el) return;
       const rect = el.getBoundingClientRect();
       const total = rect.height - window.innerHeight;
-      setProgress(total > 0 ? Math.min(1, Math.max(0, -rect.top / total)) : 0);
+      target = total > 0 ? Math.min(1, Math.max(0, -rect.top / total)) : 0;
     };
-    const onScroll = () => {
-      if (!raf) raf = requestAnimationFrame(update);
+    // 显示进度向真实滚动进度做惯性追赶，相机运动因此带“滑感”
+    const tick = () => {
+      setProgress((current) => {
+        const diff = target - current;
+        if (Math.abs(diff) < 0.0006) return current === target ? current : target;
+        return current + diff * 0.09;
+      });
     };
     update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    gsap.ticker.add(tick);
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      if (raf) cancelAnimationFrame(raf);
+      gsap.ticker.remove(tick);
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
     };
   }, []);
 
@@ -548,10 +554,26 @@ function ScrollJourney() {
 }
 
 function SkillMatrix() {
+  const ref = useRef(null);
+  const [seen, setSeen] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return undefined;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) setSeen(true);
+      },
+      { threshold: 0.15 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
-      <div className="profile-skill-list">
-        {skillItems.map(([num, cn, en, top]) => (
+      <div className={`profile-skill-list ${seen ? "is-seen" : ""}`} ref={ref}>
+        {skillItems.map(([num, cn, en, top], index) => (
           <div className="skill-item" key={num}>
             <span className="skill-item-head">
               <small>{num}</small>
@@ -559,9 +581,11 @@ function SkillMatrix() {
               <em>{en}</em>
             </span>
             <span className="skill-gauge" aria-hidden="true">
-              <i style={{ left: `${100 - top}%` }} />
+              <i style={{ left: seen ? `${100 - top}%` : "0%", transitionDelay: `${index * 80}ms` }} />
             </span>
-            <b className="skill-top">行业前 {top}%</b>
+            <b className="skill-top" style={{ transitionDelay: `${index * 80 + 350}ms` }}>
+              行业前 {top}%
+            </b>
           </div>
         ))}
       </div>
@@ -578,6 +602,7 @@ function ProjectFolders() {
   const [frontKey, setFrontKey] = useState("folder-pr");
   const [draggingKey, setDraggingKey] = useState(null);
   const dragRef = useRef(null);
+  const inertiaRef = useRef(null);
   const roomFolder = projectFolders.find((folder) => folder.id === roomId) ?? null;
 
   // 文件夹展开后，滚轮也可以平移画布（不用每个人都会拖拽）
@@ -600,6 +625,16 @@ function ProjectFolders() {
     if (!dragRef.current) return;
     event.preventDefault?.();
     const drag = dragRef.current;
+    // 记录瞬时速度，供松手后的惯性滑动使用
+    const now = performance.now();
+    if (drag.lastT) {
+      const dt = Math.max(1, now - drag.lastT);
+      drag.velX = ((event.clientX - drag.lastX) / dt) * 16;
+      drag.velY = ((event.clientY - drag.lastY) / dt) * 16;
+    }
+    drag.lastT = now;
+    drag.lastX = event.clientX;
+    drag.lastY = event.clientY;
     const nextX = drag.baseX + event.clientX - drag.startX;
     const nextY = drag.baseY + event.clientY - drag.startY;
     drag.moved = drag.moved || Math.abs(event.clientX - drag.startX) + Math.abs(event.clientY - drag.startY) > 8;
@@ -617,7 +652,7 @@ function ProjectFolders() {
   const endDrag = (event) => {
     if (!dragRef.current) return;
     event?.preventDefault?.();
-    const { key, type, moved, target, pointerId } = dragRef.current;
+    const { key, type, moved, target, pointerId, velX = 0, velY = 0 } = dragRef.current;
     dragRef.current = null;
     setDraggingKey(null);
     removeWindowDragListeners();
@@ -633,7 +668,21 @@ function ProjectFolders() {
       setCanvasOffset({ x: -560, y: 0 });
       return;
     }
-    if (type === "canvas") return;
+    if (type === "canvas") {
+      // 松手后按瞬时速度惯性滑一段，缓出停住
+      if (moved && (Math.abs(velX) > 1 || Math.abs(velY) > 1)) {
+        const proxy = { x: canvasOffset.x, y: canvasOffset.y };
+        inertiaRef.current?.kill();
+        inertiaRef.current = gsap.to(proxy, {
+          x: Math.min(0, proxy.x + velX * 14),
+          y: proxy.y + velY * 14,
+          duration: 1.1,
+          ease: "power3.out",
+          onUpdate: () => setCanvasOffset({ x: proxy.x, y: proxy.y }),
+        });
+      }
+      return;
+    }
     setDragOffsets((current) => {
       const offset = current[key] ?? { x: 0, y: 0 };
       return {
@@ -657,6 +706,7 @@ function ProjectFolders() {
     event.stopPropagation();
     event.preventDefault();
     removeWindowDragListeners();
+    inertiaRef.current?.kill();
     event.currentTarget.setPointerCapture?.(event.pointerId);
     const current = type === "canvas" ? canvasOffset : dragOffsets[key] ?? { x: 0, y: 0 };
     if (type !== "canvas") {

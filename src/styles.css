@@ -730,6 +730,7 @@ button {
   background: #fff;
   box-shadow: 0 1px 5px rgba(17, 17, 17, 0.22);
   transform: translate(-50%, -50%);
+  transition: left 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .skill-top {
@@ -739,6 +740,11 @@ button {
   letter-spacing: 0.02em;
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
+  transition: opacity 0.5s ease;
+}
+
+.profile-skill-list:not(.is-seen) .skill-top {
+  opacity: 0;
 }
 
 .skill-note {

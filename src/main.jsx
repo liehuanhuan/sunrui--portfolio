@@ -1047,9 +1047,9 @@ function App() {
       <section className="contact page-pad" id="contact">
         <div className="contact-copy">
           <span className="profile-index">06 / 联系 & 留言</span>
-          <h2>项目在脑子里还没成形的时候，最值得聊。</h2>
+          <h2>好的方案，很少从方案开始。</h2>
           <p>
-            品牌发布、年度传播、科技大会、展区体验、竞标提案、创意策略——或者任何还说不清楚的需求，都可以先丢过来。
+            更多时候，它来自一次讨论、一个问题，或者一个还说不完整的想法。如果你正好卡在这里，可以把它发给我。
           </p>
           <ul className="contact-channels">
             <li>

@@ -1786,12 +1786,13 @@ button {
 
 #profile .profile-footer {
   grid-area: footer;
+  margin-top: clamp(28px, 3vw, 44px);
 }
 
 #profile .profile-clients {
   grid-area: clients;
-  margin-top: clamp(36px, 4vw, 56px);
-  padding-top: clamp(24px, 2.6vw, 36px);
+  margin-top: clamp(10px, 1.4vw, 20px);
+  padding-top: clamp(20px, 2.2vw, 30px);
   border-top: 1px solid rgba(17, 17, 17, 0.22);
 }
 

@@ -309,6 +309,17 @@ const contactInfo = {
   phone: "18911679852",
 };
 
+const skillLevels = [
+  ["01", "品牌策略", "STRATEGY", 95],
+  ["02", "体验设计", "EXPERIENCE", 92],
+  ["03", "创意执行", "CREATIVE", 90],
+  ["04", "内容叙事", "CONTENT", 96],
+  ["05", "整合营销", "IMC", 90],
+  ["06", "现场营造", "SPATIAL", 88],
+  ["07", "AI 工作流", "AI WORKFLOW", 85],
+  ["08", "知识沉淀", "KNOWLEDGE", 92],
+];
+
 const clientLogos = [
   { name: "字节跳动", src: "/assets/client-logos/bytedance.svg", mark: true },
   { name: "抖音", src: "/assets/client-logos/tiktok.svg", mark: true },
@@ -533,6 +544,42 @@ function ScrollJourney() {
         </div>
       </div>
     </section>
+  );
+}
+
+function SkillMatrix() {
+  const ref = useRef(null);
+  const [seen, setSeen] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return undefined;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) setSeen(true);
+      },
+      { threshold: 0.15 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div className={`profile-skill-bars ${seen ? "is-seen" : ""}`} ref={ref}>
+      {skillLevels.map(([num, cn, en, value]) => (
+        <div className="skill-bar" key={num}>
+          <span className="skill-bar-meta">
+            <small>{num}</small>
+            <strong>{cn}</strong>
+            <em>{en}</em>
+          </span>
+          <span className="skill-bar-track">
+            <i style={{ width: seen ? `${value}%` : 0 }} />
+          </span>
+          <b className="skill-bar-value">{value}</b>
+        </div>
+      ))}
+    </div>
   );
 }
 
@@ -962,7 +1009,7 @@ function App() {
         <div className="profile-sheet">
           <aside className="profile-rail">BRAND STRATEGIST / CREATIVE / EXPERIENCE DESIGNER</aside>
           <div className="profile-main">
-            <span className="profile-index">05 / 技能矩阵</span>
+            <span className="profile-index">05 / 能力值</span>
             <p className="profile-lead profile-summary">
               我从文字进入这个行业，至今十五年，一直在品牌活动、发布会与公关传播的一线。从 4A 到上市公司，再到 2022 年成立自己的工作室，我做的始终是同一件事：先用语言命名问题、建立结构，再让视觉、空间、流程和传播把这种结构变成公共经验。相比一个漂亮的创意，我更关心另一件事：复杂的信息、模糊的需求和有限的资源，能否被整理成客户能理解、团队能执行、用户能感受到的完整体验。
             </p>
@@ -975,24 +1022,7 @@ function App() {
             <p className="profile-lead profile-summary profile-summary-tail">
               以下这些能力，正是这个时代的策划人最应该、也最需要具备的。
             </p>
-            <div className="profile-skill-grid">
-              {[
-                ["01", "品牌策略", "STRATEGY"],
-                ["02", "体验设计", "EXPERIENCE"],
-                ["03", "创意执行", "CREATIVE"],
-                ["04", "内容叙事", "CONTENT"],
-                ["05", "整合营销", "IMC"],
-                ["06", "现场营造", "SPATIAL"],
-                ["07", "AI 工作流", "AI WORKFLOW"],
-                ["08", "知识沉淀", "KNOWLEDGE"],
-              ].map(([num, cn, en]) => (
-                <span key={num}>
-                  <small>{num}</small>
-                  <strong>{cn}</strong>
-                  <em>{en}</em>
-                </span>
-              ))}
-            </div>
+            <SkillMatrix />
           </div>
           <aside className="profile-side">
             <div className="profile-stat">

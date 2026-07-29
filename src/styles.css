@@ -1797,7 +1797,10 @@ button {
 }
 
 #profile .profile-summary {
+  max-width: 52em;
   margin-bottom: clamp(30px, 3.2vw, 48px);
+  font-size: clamp(15px, 1.12vw, 20px);
+  line-height: 1.86;
 }
 
 #profile .profile-summary + .profile-summary {

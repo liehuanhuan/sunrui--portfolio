@@ -663,51 +663,59 @@ button {
   padding-top: 8px;
 }
 
-.client-logo-grid {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 1px;
-  margin-top: 22px;
-  background: rgba(17, 17, 17, 0.14);
-  border: 1px solid rgba(17, 17, 17, 0.14);
-}
-
-.client-cell {
+.client-logo-flow {
   display: flex;
-  min-height: 76px;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  gap: 9px;
-  padding: 12px 8px 10px;
-  background: var(--bg);
+  gap: 15px 26px;
+  margin-top: 18px;
 }
 
-.client-cell img {
+.client-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.client-item img {
   display: block;
   width: auto;
-  max-width: 72%;
-  height: 24px;
+  max-width: 88px;
+  height: 19px;
   object-fit: contain;
   filter: grayscale(1);
-  opacity: 0.6;
+  opacity: 0.55;
   transition: opacity 0.25s ease;
 }
 
-.client-cell em {
-  color: rgba(17, 17, 17, 0.45);
-  font-size: 10px;
+.client-item em {
+  color: rgba(17, 17, 17, 0.5);
+  font-size: 12px;
   font-style: normal;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
   transition: color 0.25s ease;
 }
 
-.client-cell:hover img {
+.client-item:hover img {
   opacity: 1;
 }
 
-.client-cell:hover em {
+.client-item:hover em {
+  color: var(--ink);
+}
+
+.client-more {
+  color: rgba(17, 17, 17, 0.4);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.client-more:hover {
   color: var(--ink);
 }
 
@@ -761,8 +769,8 @@ button {
     margin-top: clamp(54px, 6vw, 82px);
   }
 
-  .client-logo-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .client-logo-flow {
+    gap: 13px 20px;
   }
 }
 

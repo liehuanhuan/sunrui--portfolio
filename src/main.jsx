@@ -987,20 +987,6 @@ function App() {
                 </span>
               ))}
             </div>
-            <div className="profile-clients">
-              <h3>CLIENTS</h3>
-              <div className="client-logo-flow">
-                {clientLogos.map((logo) => (
-                  <span className="client-item" key={logo.name}>
-                    <img src={logo.src} alt={logo.name} loading="lazy" />
-                    {logo.mark && <em>{logo.name}</em>}
-                  </span>
-                ))}
-                <a className="client-more" href="/case.html" aria-label="查看案例库">
-                  ···
-                </a>
-              </div>
-            </div>
           </div>
           <aside className="profile-side">
             <div className="profile-stat">
@@ -1029,6 +1015,20 @@ function App() {
               <p>工作与生活在北京</p>
             </div>
           </aside>
+          <div className="profile-clients">
+            <h3>CLIENTS</h3>
+            <div className="client-logo-flow">
+              {clientLogos.map((logo) => (
+                <span className="client-item" key={logo.name}>
+                  <img src={logo.src} alt={logo.name} loading="lazy" />
+                  {logo.mark && <em>{logo.name}</em>}
+                </span>
+              ))}
+              <a className="client-more" href="/case.html" aria-label="查看案例库">
+                ···
+              </a>
+            </div>
+          </div>
           <footer className="profile-footer">
             <span>© 2026 SUNRUI STUDIO · ALL RIGHTS RESERVED</span>
             <span>BEIJING, CHINA&nbsp;↗</span>

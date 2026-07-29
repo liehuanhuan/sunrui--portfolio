@@ -1753,6 +1753,7 @@ button {
     "rail"
     "main"
     "side"
+    "clients"
     "footer" !important;
   gap: clamp(28px, 4vw, 56px) !important;
   width: min(100%, 1560px);
@@ -1785,6 +1786,13 @@ button {
 
 #profile .profile-footer {
   grid-area: footer;
+}
+
+#profile .profile-clients {
+  grid-area: clients;
+  margin-top: clamp(36px, 4vw, 56px);
+  padding-top: clamp(24px, 2.6vw, 36px);
+  border-top: 1px solid rgba(17, 17, 17, 0.22);
 }
 
 #profile .profile-summary {

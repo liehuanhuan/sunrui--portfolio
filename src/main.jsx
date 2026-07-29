@@ -310,14 +310,14 @@ const contactInfo = {
 };
 
 const skillItems = [
-  ["01", "品牌策略", "STRATEGY", "从商业目标反推传播主题和信息层级"],
-  ["02", "体验设计", "EXPERIENCE", "设计人在现场里的动线、节奏和情绪"],
-  ["03", "创意执行", "CREATIVE", "把概念翻译成可搭建、可拍摄、可落地的东西"],
-  ["04", "内容叙事", "CONTENT", "让一个话题在不同渠道讲出同一个故事"],
-  ["05", "整合营销", "IMC", "把发布、传播、社交和销售端串成一盘棋"],
-  ["06", "现场营造", "SPATIAL", "空间、灯光、物料与流程秩序的总控"],
-  ["07", "AI 工作流", "AI WORKFLOW", "用 AI 给提案、视觉和内容生产提速"],
-  ["08", "知识沉淀", "KNOWLEDGE", "每个项目结束，留下可复用的方法"],
+  ["01", "品牌策略", "STRATEGY", 5],
+  ["02", "体验设计", "EXPERIENCE", 8],
+  ["03", "创意执行", "CREATIVE", 8],
+  ["04", "内容叙事", "CONTENT", 3],
+  ["05", "整合营销", "IMC", 5],
+  ["06", "现场营造", "SPATIAL", 10],
+  ["07", "AI 工作流", "AI WORKFLOW", 5],
+  ["08", "知识沉淀", "KNOWLEDGE", 10],
 ];
 
 const clientLogos = [
@@ -549,18 +549,24 @@ function ScrollJourney() {
 
 function SkillMatrix() {
   return (
-    <div className="profile-skill-list">
-      {skillItems.map(([num, cn, en, desc]) => (
-        <div className="skill-item" key={num}>
-          <span className="skill-item-head">
-            <small>{num}</small>
-            <strong>{cn}</strong>
-            <em>{en}</em>
-          </span>
-          <p>{desc}</p>
-        </div>
-      ))}
-    </div>
+    <>
+      <div className="profile-skill-list">
+        {skillItems.map(([num, cn, en, top]) => (
+          <div className="skill-item" key={num}>
+            <span className="skill-item-head">
+              <small>{num}</small>
+              <strong>{cn}</strong>
+              <em>{en}</em>
+            </span>
+            <span className="skill-gauge" aria-hidden="true">
+              <i style={{ left: `${100 - top}%` }} />
+            </span>
+            <b className="skill-top">行业前 {top}%</b>
+          </div>
+        ))}
+      </div>
+      <p className="skill-note">* 虚拟能力值，如有雷同，说明你也挺厉害。</p>
+    </>
   );
 }
 

@@ -960,7 +960,7 @@ button {
 .case-canvas {
   position: relative;
   width: calc(100vw - clamp(16px, 2.4vw, 40px));
-  min-height: 180dvh;
+  min-height: 108dvh;
   margin-left: calc(50% - 50vw + clamp(8px, 1.2vw, 20px));
   overflow: hidden;
   border: 1px solid rgba(17, 17, 17, 0.18);

@@ -960,7 +960,7 @@ button {
 .case-canvas {
   position: relative;
   width: calc(100vw - clamp(16px, 2.4vw, 40px));
-  min-height: 200dvh;
+  min-height: 240dvh;
   margin-left: calc(50% - 50vw + clamp(8px, 1.2vw, 20px));
   overflow: hidden;
   border: 1px solid rgba(17, 17, 17, 0.18);
@@ -1562,12 +1562,12 @@ button {
   }
 
   .case-canvas {
-    min-height: 760px;
+    min-height: 1180px;
   }
 
   .case-canvas-world {
     width: 1500px;
-    height: 980px;
+    height: 1240px;
   }
 
   .folder-caption {
@@ -1711,13 +1711,13 @@ button {
   }
 
   .case-canvas {
-    min-height: 720px;
+    min-height: 1020px;
     border-radius: 20px;
   }
 
   .case-canvas-world {
     width: 1180px;
-    height: 880px;
+    height: 1080px;
   }
 
   .canvas-caption {

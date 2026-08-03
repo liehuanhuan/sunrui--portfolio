@@ -342,7 +342,7 @@ export const projectFolders = [
         label: "技术思考 01",
         text: "把 AI 从聊天玩具变成工作流的一环。",
         image: "assets/writing/01-01.jpg",
-        href: "/writing.html?article=01",
+        href: "./writing.html?article=01",
       },
       {
         year: "2026",
@@ -350,7 +350,7 @@ export const projectFolders = [
         label: "技术思考 02",
         text: "AI 做信息层与校验层，人做判断层与责任层。",
         image: "assets/writing/02-01.jpg",
-        href: "/writing.html?article=02",
+        href: "./writing.html?article=02",
       },
       {
         year: "2026",
@@ -358,7 +358,7 @@ export const projectFolders = [
         label: "技术思考 03",
         text: "笔记不是仓库，是外脑；AI 的长期记忆。",
         image: "assets/writing/03-01.jpg",
-        href: "/writing.html?article=03",
+        href: "./writing.html?article=03",
       },
       {
         year: "2026",
@@ -366,7 +366,7 @@ export const projectFolders = [
         label: "技术思考 04",
         text: "判断、责任、品味、意义：人的四个保留地。",
         image: "assets/writing/cover-04.svg",
-        href: "/writing.html?article=04",
+        href: "./writing.html?article=04",
       },
       {
         year: "2026",
@@ -374,7 +374,7 @@ export const projectFolders = [
         label: "技术思考 05",
         text: "回到 1948 年，理解这一切的必然性。",
         image: "assets/writing/cover-05.svg",
-        href: "/writing.html?article=05",
+        href: "./writing.html?article=05",
       },
     ],
   },

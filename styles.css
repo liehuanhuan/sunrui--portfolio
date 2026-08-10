@@ -9251,7 +9251,7 @@ body.is-case-detail .case-gallery figure {
 
 .writing-prose {
   color: rgba(17, 17, 17, 0.78);
-  font-family: "Alibaba PuHuiTi", "AlibabaPuHuiTi", "阿里巴巴普惠体", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "AlibabaPuHuiTiLocal", "Alibaba PuHuiTi", "AlibabaPuHuiTi", "阿里巴巴普惠体", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 16.5px;
   font-weight: 450;
   line-height: 2;

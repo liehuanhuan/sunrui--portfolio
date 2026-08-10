@@ -45,6 +45,28 @@ def parse_frontmatter(text):
     return meta, text[end + 4:].lstrip("\n")
 
 
+# 标题 / 列表 / 引用 / 表格 / 代码块等结构性行，不参与段落拆分
+BLOCK_PREFIX = re.compile(r"^(#{1,6}\s|[-*+]\s|>\s?|\||```|\d+[.)]\s)")
+
+
+def split_single_line_paragraphs(text):
+    """Obsidian 习惯：一行就是一段。把相邻的非空正文行之间补空行，
+    避免 CommonMark 把单换行合并成一坨。"""
+    lines = text.split("\n")
+    out = []
+    for i, line in enumerate(lines):
+        out.append(line)
+        if not line.strip():
+            continue
+        nxt = lines[i + 1] if i + 1 < len(lines) else ""
+        if not nxt.strip():
+            continue
+        if BLOCK_PREFIX.match(line) or BLOCK_PREFIX.match(nxt):
+            continue
+        out.append("")
+    return "\n".join(out)
+
+
 def export_image(name, key, idx):
     src = ATTACH / name
     if not src.is_file():
@@ -84,6 +106,7 @@ for path in files:
     nonlocal_idx = [0]
     body = re.sub(r"!\[\[([^\]]+)\]\]", repl_image, body)
     body = re.sub(r"\[\[([^\]|]+)\|?([^\]]*)\]\]", lambda m: m.group(2) or m.group(1), body)
+    body = split_single_line_paragraphs(body)
 
     html = md.render(body)
     # 第一张大标题（文章文件名已表达），保留内容即可

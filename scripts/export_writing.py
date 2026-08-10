@@ -26,11 +26,8 @@ OUT.mkdir(parents=True, exist_ok=True)
 
 md = MarkdownIt("commonmark", {"html": True, "breaks": False}).enable("table")
 
-# 索引里的副标题：1. [[01 AI实操指南——工作流]] —— 把 AI 从聊天玩具变成工作流的一环
+# 副标题不再从索引导读生成（避免占位文案出现在网站上），保持为空
 subs = {}
-index_text = (SRC / "技术思考.md").read_text(encoding="utf-8")
-for m in re.finditer(r"\d+\.\s*\[\[([^\]|]+)\]\]\s*——\s*([^\n]+)", index_text):
-    subs[m.group(1).strip()] = m.group(2).strip()
 
 
 def parse_frontmatter(text):

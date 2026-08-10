@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600">
-  <rect width="960" height="600" fill="#fbfaf7"/>
-  <rect x="0.5" y="0.5" width="959" height="599" fill="none" stroke="#e3e1da"/>
-  <text x="72" y="96" font-family="Menlo, monospace" font-size="20" letter-spacing="4" fill="rgba(17,17,17,0.44)">NOTES ON AI &amp; WORK · 05</text>
-  <text x="72" y="268" font-family="Songti SC, STSong, serif" font-size="64" font-weight="600" fill="#111111">控制论</text>
-  <text x="72" y="356" font-family="Songti SC, STSong, serif" font-size="64" font-weight="600" fill="#111111">——这一切为什么会发生</text>
-  <line x1="72" y1="424" x2="360" y2="424" stroke="rgba(17,17,17,0.3)" stroke-width="2"/>
-  <text x="72" y="474" font-family="PingFang SC, sans-serif" font-size="24" fill="rgba(17,17,17,0.56)">回到 1948 年，理解这一切的必然性</text>
-</svg>

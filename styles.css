@@ -8847,6 +8847,14 @@ body::after {
   src: url("./assets/fonts/AlibabaPuHuiTi-45Light.ttf") format("truetype");
 }
 
+@font-face {
+  font-display: swap;
+  font-family: "AlibabaPuHuiTi35Thin";
+  font-style: normal;
+  font-weight: 350;
+  src: url("./assets/fonts/AlibabaPuHuiTi-35Thin.ttf") format("truetype");
+}
+
 body:is(.is-case-index, .is-case-detail) {
   color: #111111;
   background:
@@ -9251,9 +9259,9 @@ body.is-case-detail .case-gallery figure {
 
 .writing-prose {
   color: rgba(17, 17, 17, 0.78);
-  font-family: "AlibabaPuHuiTiLocal", "Alibaba PuHuiTi", "AlibabaPuHuiTi", "阿里巴巴普惠体", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "AlibabaPuHuiTi35Thin", "AlibabaPuHuiTiLocal", "Alibaba PuHuiTi", "AlibabaPuHuiTi", "阿里巴巴普惠体", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 16.5px;
-  font-weight: 450;
+  font-weight: 350;
   line-height: 2;
 }
 

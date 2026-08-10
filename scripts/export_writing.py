@@ -89,7 +89,13 @@ def export_image(name, key, idx):
 
 
 articles = []
-files = sorted(p for p in SRC.glob("0*.md"))
+# 文章以 frontmatter 里的 order 为准，不再要求文件名数字前缀（索引页无 order，自动排除）
+candidates = []
+for p in sorted(SRC.glob("*.md")):
+    fm, _ = parse_frontmatter(p.read_text(encoding="utf-8"))
+    if fm.get("order"):
+        candidates.append((int(fm["order"]), p))
+files = [p for _, p in sorted(candidates, key=lambda t: t[0])]
 for path in files:
     meta, body = parse_frontmatter(path.read_text(encoding="utf-8"))
     order = int(meta.get("order") or path.name[:2])

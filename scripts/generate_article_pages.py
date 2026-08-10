@@ -15,7 +15,7 @@ TEMPLATE = """<!doctype html>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}｜孙瑞 Portfolio</title>
-    <link rel="stylesheet" href="./styles.css?v=20260810a" />
+    <link rel="stylesheet" href="./styles.css?v=20260810b" />
   </head>
   <body class="is-case-index is-writing-detail">
     <header class="site-header" aria-label="文章页导航">
